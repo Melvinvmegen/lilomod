@@ -10,7 +10,7 @@ import LoginForm from "../components/LoginForm/LoginForm"
 import TextHeader from "../components/TextHeader/TextHeader"
 
 export default {
-  name: "BackLogin",
+  name: "Login",
   components: {
     LoginForm,
     TextHeader

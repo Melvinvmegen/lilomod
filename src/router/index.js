@@ -4,9 +4,9 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", name: "BackLogin",
+  { path: "/", name: "Login",
     component: () =>
-    import(/* webpackChunkName: "login" */ "../views/BackLogin.vue")
+    import(/* webpackChunkName: "login" */ "../views/Login.vue")
   },
   { path: "/about", name: "About",
     component: () =>

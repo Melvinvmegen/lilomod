@@ -1,6 +1,6 @@
 <template lang="pug">
   v-card.overflow-hidden.sidebar(height='100%')
-    v-navigation-drawer(v-model='drawer' fixed :color='color' :mini-variant='miniVariant' :right='right' :src='bg' absolute dark)
+    v-navigation-drawer(fixed :color='color' absolute dark)
       v-list.py-0(dense='' nav='')
         v-divider
         v-list-item(v-for='item in items' :key='item.title' :to='item.link')
