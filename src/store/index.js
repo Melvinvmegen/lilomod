@@ -42,7 +42,7 @@ export default new Vuex.Store({
           })
           dispatch('fetchUser')
         })
-        .catch(error => console.log(error))
+        .catch(error => error)
     },
     fetchUser ({commit}) {
       axios.get('api/users/current')
