@@ -52,10 +52,11 @@ export default new Vuex.Store({
     },
     tryAutoLogin ({commit}) {
       const token = localStorage.getItem('token')
+      console.log(token)
       if (!token) {
         return
       }
-      commit('authUser', {
+      commit('authToken', {
         token: token
       })
     },
