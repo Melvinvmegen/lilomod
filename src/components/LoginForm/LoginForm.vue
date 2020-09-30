@@ -2,15 +2,14 @@
   form(ref="form")
     span.error-message(v-if="error") {{ error }}
     .form-group(:class="{invalid: $v.userData.email.$error}")
-      input(type="text" id="email" placeholder="Email" class="form-control" v-model.lazy="emailValue" @blur="$v.userData.name.$touch()")
+      input(type="text" id="email" placeholder="Email" class="form-control" v-model.lazy="userData.email" @blur="$v.userData.email.$touch()")
     .form-group(:class="{invalid: $v.userData.password.$error}")
-      input(type="text" id="password" placeholder="Mot de pass" class="form-control" v-model.lazy="passwordValue" @blur="$v.userData.company.$touch()")
+      input(type="password" id="password" placeholder="Mot de passe" class="form-control" v-model.lazy="userData.password" @blur="$v.userData.password.$touch()")
     .form-button
       button.button-form(type="submit" :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button") Se connecter
 </template>
 
 <script>
-import axios from 'axios'
 import { required, email } from 'vuelidate/lib/validators'
 export default {
   data: function () {
@@ -29,33 +28,19 @@ export default {
         email
       },
       password: {
-        email
+        required
       }
-    },
-    query: {
-      required
     }
   },
   methods: {
     onSubmit () {
       const formData = {
-        name: this.userData.name,
-        entreprise: this.userData.entreprise,
         email: this.userData.email,
-        city: this.userData.city,
-        query: this.query
+        password: this.userData.password,
       }
-      axios.post('/contacts', formData)
-        .then((response) => {
-          if (response) {
-            var self = this
-            Object.keys(this.userData).forEach(function (key) {
-              self.userData[key] = ''
-            })
-            this.query = ''
-            this.error = ''
-          }
-        })
+      this.$store.dispatch('login', {
+        email: formData.email, password: formData.password
+      })
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite")
