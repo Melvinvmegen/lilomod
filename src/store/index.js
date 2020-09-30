@@ -23,6 +23,9 @@ export default new Vuex.Store({
     },
     storeUser (state, user) {
       state.user = user
+    },
+    clearAuthData (state) {
+      state.token = null
     }
   },
   actions: {
@@ -55,6 +58,9 @@ export default new Vuex.Store({
       commit('authUser', {
         token: token
       })
+    },
+    logout ({commit}) {
+      commit('clearAuthData')
     }
   },
   modules: {}
