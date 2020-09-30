@@ -6,11 +6,22 @@
     v-spacer
     v-btn(href='' text='')
       span.mr-2 Se connecter
+    v-btn(href='' text='' @click="onLogout")
+      span.mr-2 Se deconnecter
 </template>
 
 <script>
 export default {
-
+  computed: {
+    auth () {
+      return this.$store.getters.isAuthenticated
+    }
+  },
+  methods: {
+    onLogout () {
+      this.$store.dispatch('logout')
+    }
+  }
 }
 </script>
 
