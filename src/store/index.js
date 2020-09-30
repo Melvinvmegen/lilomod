@@ -24,7 +24,6 @@ export default new Vuex.Store({
   },
   actions: {
     login ({commit, dispatch}, authData) {
-      console.log(authData)
       axios.post('api/users/sign_in', {
         user: {
           email: authData.email,
