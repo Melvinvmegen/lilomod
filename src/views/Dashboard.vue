@@ -1,5 +1,5 @@
 <template lang="pug">
-  .accueil
+  div Hello je suis le dashboard
     
 </template>
 
