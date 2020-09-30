@@ -18,8 +18,8 @@ export default {
   data () {
     return {
       blabla: {
-        title: "Bienvenu sur le backoffice de Lilomod",
-        subtitle: "Madame Deshon, veuillez-vous connecter"
+        title: "Page de connexion au backoffice de Lilomod",
+        subtitle: "Pour y acceder, veuillez-vous connecter"
       }
     }
   }

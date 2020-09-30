@@ -12,6 +12,9 @@ export default new Vuex.Store({
   getters: {
     user (state) {
       return state.user
+    },
+    isAuthenticated (state) {
+      return state.token !== null
     }
   },
   mutations: {
@@ -20,6 +23,9 @@ export default new Vuex.Store({
     },
     storeUser (state, user) {
       state.user = user
+    },
+    clearAuthData (state) {
+      state.token = null
     }
   },
   actions: {
@@ -36,13 +42,27 @@ export default new Vuex.Store({
           })
           dispatch('fetchUser')
         })
-        .catch(error => console.log(error))
+        .catch(error => error)
     },
     fetchUser ({commit}) {
       axios.get('api/users/current')
         .then(res => {
           commit('storeUser', res.data.user)
         })
+    },
+    tryAutoLogin ({commit}) {
+      const token = localStorage.getItem('token')
+      console.log(token)
+      if (!token) {
+        return
+      }
+      commit('authToken', {
+        token: token
+      })
+    },
+    logout ({commit}) {
+      commit('clearAuthData')
+      localStorage.removeItem('token')
     }
   },
   modules: {}

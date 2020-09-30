@@ -20,10 +20,9 @@ export default {
     SideBar,
     NavBar
   },
-
-  data: () => ({
-    //
-  })
+  created () {
+    this.$store.dispatch('tryAutoLogin')
+  }
 };
 </script>
 
