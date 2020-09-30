@@ -62,6 +62,7 @@ export default new Vuex.Store({
     },
     logout ({commit}) {
       commit('clearAuthData')
+      localStorage.removeItem('token')
     }
   },
   modules: {}
