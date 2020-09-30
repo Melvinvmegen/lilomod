@@ -12,6 +12,9 @@ export default new Vuex.Store({
   getters: {
     user (state) {
       return state.user
+    },
+    isAuthenticated (state) {
+      return state.token !== null
     }
   },
   mutations: {
@@ -43,6 +46,15 @@ export default new Vuex.Store({
         .then(res => {
           commit('storeUser', res.data.user)
         })
+    },
+    tryAutoLogin ({commit}) {
+      const token = localStorage.getItem('token')
+      if (!token) {
+        return
+      }
+      commit('authUser', {
+        token: token
+      })
     }
   },
   modules: {}
