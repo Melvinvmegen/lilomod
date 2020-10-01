@@ -19,13 +19,16 @@
             th.text-left
               | Edit/DELETE
         tbody
-          tr(v-for='article in articles' :key='article.name')
+          tr(v-for='article in articles' :key='article.id')
             td {{ article.title }}
             td {{ article.teaser }}
             td {{ article.description }}
             td {{ article.featured }}
             td {{ article.published }}
-            td edit
+            td
+              router-link(to='/articles/1/edit') Edit
+              button(@click="deleteArticle(article.id)" :key='article.id') Delete
+
     router-view
 
 </template>
@@ -48,7 +51,20 @@ export default {
           this.articles.push(post)
         });
       })
-    console.log(this.articles)
+  },
+  methods: {
+    deleteArticle (articleId) {
+      axios.delete(`api/posts/${articleId}`)
+        .then(this.articles.find(article => {
+        if (article.id === articleId) {
+          this.articles.splice(article, 1)
+          return
+        }
+        else {
+          return
+        }
+      }))
+    }
   }
 }
 </script>
