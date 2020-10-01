@@ -26,7 +26,7 @@
             td {{ article.featured }}
             td {{ article.published }}
             td
-              router-link(to='/articles/1/edit') Edit
+              router-link(:to="{name: 'ArticleEdit', params: {id: article.id}}") Edit
               button(@click="deleteArticle(article.id)" :key='article.id') Delete
 
     router-view

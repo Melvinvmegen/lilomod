@@ -17,10 +17,12 @@ const routes = [
     name: "Articles",
     component: () => import(/* webpackChunkName: "articles" */ "../views/Articles.vue"),
     children: [
-      { path: 'new', 
+      { path: 'new',
+      name: "ArticleNew",  
         component: () => import(/* webpackChunkName: "articleNew" */ "../views/ArticleNew.vue") 
       },
-      { path: ':id/edit', 
+      { path: ':id/edit',
+        name: "ArticleEdit", 
         component: () => import(/* webpackChunkName: "articleEdit" */ "../views/ArticleEdit.vue") 
       }
     ]
