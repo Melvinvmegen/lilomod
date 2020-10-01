@@ -27,6 +27,20 @@ const routes = [
       }
     ]
   },
+  { path: "/prestations", 
+    name: "Prestations",
+    component: () => import(/* webpackChunkName: "prestations" */ "../views/Prestations.vue"),
+    children: [
+      { path: 'new',
+      name: "PrestationNew",  
+        component: () => import(/* webpackChunkName: "prestationNew" */ "../views/PrestationNew.vue") 
+      },
+      { path: ':id/edit',
+        name: "PrestationEdit", 
+        component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/PrestationEdit.vue") 
+      }
+    ]
+  },
   { path: '*', redirect: '/dashboard' }
 ];
 
