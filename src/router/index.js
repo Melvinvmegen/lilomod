@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { store } from "vuex";
+// import store from '../store/index'
 
 Vue.use(VueRouter);
 
@@ -8,23 +8,16 @@ const routes = [
   { path: "/login", name: "Login",
     component: () =>
     import(/* webpackChunkName: "login" */ "../views/Login.vue"),
-    beforeEnter (next) {
-      if (store.state.token === null) {
-        next()
-      }
-      else {
-        next('/dashboard')
-      }
-    }
   },
-  { path: "/", name: "Dashboard",
+  { path: "/dashboard", name: "Dashboard",
     component: () =>
       import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
   },
-  { path: "/about", name: "About",
+  { path: "/articles", name: "Articles",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+      import(/* webpackChunkName: "articles" */ "../views/Articles.vue")
+  },
+  { path: '*', redirect: '/dashboard' }
 ];
 
 const router = new VueRouter({
@@ -32,5 +25,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+// router.beforeEach((to, from, next) => {
+//   console.log(store.state.token)
+//   if (to.name !== 'Login' && store.state.token === null) {
+//     console.log('jsuis dans le if')
+//     next('/login')
+//   }
+//   else {
+//     console.log('jsuis dans le else')
+//     next()
+//   }
+// });
 
 export default router;

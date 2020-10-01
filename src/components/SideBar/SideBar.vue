@@ -15,9 +15,11 @@ export default {
  data () {
    return {
       items: [
-        { title: 'Accueil', icon: 'mdi-view-dashboard', link: "accueil" },
-        { title: 'Photos', icon: 'mdi-image', link: "photos" },
-        { title: 'About', icon: 'mdi-help-box', link: "" },
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/dashboard" },
+        { title: 'Acceder au site', icon: 'mdi-view-dashboard', link: "/" },
+        { title: 'Articles', icon: 'mdi-help-box', link: "/articles" },
+        { title: 'Contacts', icon: 'mdi-image', link: "/contacts" },
+        { title: 'Forfaits', icon: 'mdi-image', link: "/forfaits" }
       ],
       color: 'primary',
       colors: [

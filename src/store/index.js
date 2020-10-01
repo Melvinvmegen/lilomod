@@ -1,6 +1,7 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from "vue"
+import Vuex from "vuex"
 import axios from 'axios'
+import router from '../router/index'
 
 Vue.use(Vuex);
 
@@ -41,6 +42,7 @@ export default new Vuex.Store({
             token: res.data.token
           })
           dispatch('fetchUser')
+          router.push('/dashboard')
         })
         .catch(error => error)
     },
@@ -52,7 +54,6 @@ export default new Vuex.Store({
     },
     tryAutoLogin ({commit}) {
       const token = localStorage.getItem('token')
-      console.log(token)
       if (!token) {
         return
       }
