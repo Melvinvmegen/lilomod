@@ -41,6 +41,20 @@ const routes = [
       }
     ]
   },
+  { path: "/contacts", 
+    name: "Contacts",
+    component: () => import(/* webpackChunkName: "contacts" */ "../views/Contacts.vue"),
+    children: [
+      { path: 'new',
+      name: "ContactNew",  
+        component: () => import(/* webpackChunkName: "prestationNew" */ "../views/ContactNew.vue") 
+      },
+      { path: ':id/edit',
+        name: "ContactEdit", 
+        component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/ContactEdit.vue") 
+      }
+    ]
+  },
   { path: '*', redirect: '/dashboard' }
 ];
 
