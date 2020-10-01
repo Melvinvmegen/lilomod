@@ -5,17 +5,28 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/login", name: "Login",
-    component: () =>
-    import(/* webpackChunkName: "login" */ "../views/Login.vue"),
+  { path: "/login",
+    name: "Login",
+    component: () => import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
-  { path: "/dashboard", name: "Dashboard",
-    component: () =>
-      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
+  { path: "/dashboard", 
+    name: "Dashboard",
+    component: () => import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
   },
-  { path: "/articles", name: "Articles",
-    component: () =>
-      import(/* webpackChunkName: "articles" */ "../views/Articles.vue")
+  { path: "/articles", 
+    name: "Articles",
+    component: () => import(/* webpackChunkName: "articles" */ "../views/Articles.vue"),
+    children: [
+      { path: 'new', 
+        component: () => import(/* webpackChunkName: "articleNew" */ "../views/ArticleNew.vue") 
+      },
+      { path: 'edit', 
+        component: () => import(/* webpackChunkName: "articleEdit" */ "../views/ArticleEdit.vue") 
+      },
+      { path: 'delete', 
+        component: () => import(/* webpackChunkName: "articleDelete" */ "../views/ArticleDelete.vue") 
+      }
+    ]
   },
   { path: '*', redirect: '/dashboard' }
 ];
