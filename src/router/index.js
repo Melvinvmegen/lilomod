@@ -9,7 +9,7 @@ const routes = [
     component: () =>
     import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
-  { path: "/", name: "Dashboard",
+  { path: "/dashboard", name: "Dashboard",
     component: () =>
       import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
   },
@@ -26,13 +26,10 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(from)
-  if (to.name !== 'Login' && store.state.token !== null) {
-    console.log('jsuis dans le if')
+  if (to.name !== 'Login' && store.state.token === null) {
     next('/login')
   }
   else {
-    console.log('jsuis dans le else')
     next()
   }
 });
