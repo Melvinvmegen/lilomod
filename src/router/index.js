@@ -22,9 +22,6 @@ const routes = [
       },
       { path: ':id/edit', 
         component: () => import(/* webpackChunkName: "articleEdit" */ "../views/ArticleEdit.vue") 
-      },
-      { path: ':id/delete', 
-        component: () => import(/* webpackChunkName: "articleDelete" */ "../views/ArticleDelete.vue") 
       }
     ]
   },
