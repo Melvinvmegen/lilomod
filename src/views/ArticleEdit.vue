@@ -15,7 +15,7 @@
     v-model.lazy="articleData.teaser",
     @blur="$v.articleData.teaser.$touch()"
    )
-   v-text-field#teaser.form-control(
+   v-text-field#description.form-control(
     label="Description",
     type="text",
     v-model.lazy="articleData.description",

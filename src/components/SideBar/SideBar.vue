@@ -19,7 +19,7 @@ export default {
         { title: 'Acceder au site', icon: 'mdi-view-dashboard', link: "/" },
         { title: 'Articles', icon: 'mdi-help-box', link: "/articles" },
         { title: 'Contacts', icon: 'mdi-image', link: "/contacts" },
-        { title: 'Forfaits', icon: 'mdi-image', link: "/forfaits" }
+        { title: 'Prestations', icon: 'mdi-image', link: "/prestations" }
       ],
       color: 'primary',
       colors: [
