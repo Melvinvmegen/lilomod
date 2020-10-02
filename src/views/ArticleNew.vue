@@ -15,11 +15,12 @@
     v-model.lazy="articleData.teaser",
     @blur="$v.articleData.teaser.$touch()"
    )
-   v-text-field#description.form-control(
+   vue-editor#description(
     label="Description",
     type="text",
     v-model.lazy="articleData.description",
     @blur="$v.articleData.description.$touch()"
+    placeholder="Ecrivez ici le contenu de votre article, faites preuve de créativité !"
    )
    v-switch(v-model='articleData.published' :label='`Publié: ${articleData.published.toString()}`')
    v-switch(v-model='articleData.featured' :label='`Mis en avant: ${articleData.featured.toString()}`')
@@ -35,9 +36,13 @@
 <script>
 import axios from 'axios'
 import { required } from 'vuelidate/lib/validators'
+import { VueEditor } from "vue2-editor";
 
 export default {
   name: 'ArticleNew',
+  components: {
+    VueEditor
+  },
   data: function() {
     return {
       articleData: {
