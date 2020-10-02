@@ -23,13 +23,13 @@
    )
    v-switch(v-model='articleData.published' :label='`Publié: ${articleData.published.toString()}`')
    v-switch(v-model='articleData.featured' :label='`Mis en avant: ${articleData.featured.toString()}`')
-  .form-button
-   button.button-form(
-    type="submit",
-    :disabled="$v.$invalid",
-    @click.prevent="onSubmit",
-    ref="button"
-   ) Créer un nouvel article
+  .d-flex
+    .form-button.my-2.mr-2
+      v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")
+        | Créer un nouvel article
+    .form-button.my-2
+      v-btn(color='error' @click.prevent="$router.go(-1)")
+        | Annuler
 </template>
 
 <script>

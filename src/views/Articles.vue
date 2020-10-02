@@ -1,7 +1,20 @@
 <template lang="pug">
-  div.flex
-    h1 Hello je suis articles
-    router-link(to='/articles/new') Nouvelle article
+  div#articles
+    div.d-flex.justify-space-between
+      h1 Articles
+      router-link(to='/articles/new')
+        v-btn(
+          class="mx-2"
+          fab
+          dark
+          color="indigo"
+        )
+          v-icon(dark) mdi-plus
+    h3.subtitle-1 Vous trouverez ci-dessous tous vos articles de blog.
+    br
+    v-divider
+    br
+    br
     v-simple-table
       template(v-slot:default='')
         thead
@@ -17,7 +30,7 @@
             th.text-left
               | Publié
             th.text-left
-              | Edit/DELETE
+              | Actions
         tbody
           tr(v-for='article in articles' :key='article.id')
             td {{ article.title }}
@@ -26,8 +39,10 @@
             td {{ article.featured }}
             td {{ article.published }}
             td
-              router-link(:to="{name: 'ArticleEdit', params: {id: article.id}}") Edit
-              button(@click="deleteArticle(article.id)" :key='article.id') Delete
+              router-link(:to="{name: 'ArticleEdit', params: {id: article.id}}")
+                v-icon(medium) mdi-pen
+              button(@click="deleteArticle(article.id)" :key='article.id')
+                v-icon(medium) mdi-delete
 
     router-view
 

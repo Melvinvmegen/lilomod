@@ -1,6 +1,11 @@
 <template lang="pug">
-  div Hello je suis le dashboard
-    
+  div#articles
+    h1 Bienvenu sur le dashboard Lilomod
+    h3.subtitle-1 Vous trouverez ci-dessous un résumé des dernieres activités.
+    br
+    v-divider
+    br
+    br
 </template>
 
 <script>

@@ -23,13 +23,13 @@
     v-model.lazy="prestationData.description",
     @blur="$v.prestationData.description.$touch()"
    )
-  .form-button
-   button.button-form(
-    type="submit",
-    :disabled="$v.$invalid",
-    @click.prevent="onSubmit",
-    ref="button"
-   ) Créer un nouvel prestation
+  .d-flex
+    .form-button.my-2.mr-2
+      v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")
+        | Créer une nouvelle prestation
+    .form-button.my-2
+      v-btn(color='error' @click.prevent="$router.go(-1)")
+        | Annuler
 </template>
 
 <script>

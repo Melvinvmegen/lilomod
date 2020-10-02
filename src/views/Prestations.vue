@@ -1,7 +1,20 @@
 <template lang="pug">
-  div.flex
-    h1 Hello je suis prestations
-    router-link(to='/prestations/new') Nouvelle prestation
+  div#prestations
+    div.d-flex.justify-space-between
+      h1 Prestations
+      router-link(to='/prestations/new')
+        v-btn(
+          class="mx-2"
+          fab
+          dark
+          color="indigo"
+        )
+          v-icon(dark) mdi-plus
+    h3.subtitle-1 Vous trouverez ci-dessous toutes vos prestations disponibles en ligne.
+    br
+    v-divider
+    br
+    br
     v-simple-table
       template(v-slot:default='')
         thead
@@ -13,15 +26,17 @@
             th.text-left
               | Description
             th.text-left
-              | Edit/DELETE
+              | Actions
         tbody
           tr(v-for='prestation in prestations' :key='prestation.id')
             td {{ prestation.name }}
             td {{ prestation.price }}
             td {{ prestation.description }}
             td
-              router-link(:to="{name: 'PrestationEdit', params: {id: prestation.id}}") Edit
-              button(@click="deletePrestation(prestation.id)" :key='prestation.id') Delete
+              router-link(:to="{name: 'PrestationEdit', params: {id: prestation.id}}")
+                v-icon(medium) mdi-pen
+              button(@click="deletePrestation(prestation.id)" :key='prestation.id')
+                v-icon(medium) mdi-delete
 
     router-view
 

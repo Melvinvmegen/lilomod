@@ -35,13 +35,13 @@
     v-model.lazy="contactData.query",
     @blur="$v.contactData.query.$touch()"
    )
-  .form-button
-   button.button-form(
-    type="submit",
-    :disabled="$v.$invalid",
-    @click.prevent="onSubmit",
-    ref="button"
-   ) Editer un contact
+  .d-flex
+    .form-button.my-2.mr-2
+      v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")
+        | Editer un contact
+    .form-button.my-2
+      v-btn(color='error' @click.prevent="$router.go(-1)")
+        | Annuler
 </template>
 
 <script>

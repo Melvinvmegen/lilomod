@@ -1,7 +1,20 @@
 <template lang="pug">
-  div.flex
-    h1 Hello je suis contacts
-    router-link(to='/contacts/new') Nouveau contact
+  div#contacts
+    div.d-flex.justify-space-between
+      h1 Contacts
+      router-link(to='/contacts/new')
+        v-btn(
+          class="mx-2"
+          fab
+          dark
+          color="indigo"
+        )
+          v-icon(dark) mdi-plus
+    h3.subtitle-1 Vous trouverez ci-dessous toutes vos demandes de contact issues de formulaire.
+    br
+    v-divider
+    br
+    br
     v-simple-table
       template(v-slot:default='')
         thead
@@ -17,7 +30,7 @@
             th.text-left
               | Demande
             th.text-left
-              | Edit/DELETE
+              | Actions
         tbody
           tr(v-for='contact in contacts' :key='contact.id')
             td {{ contact.name }}
@@ -26,8 +39,10 @@
             td {{ contact.phone }}
             td {{ contact.query }}
             td
-              router-link(:to="{name: 'ContactEdit', params: {id: contact.id}}") Edit
-              button(@click="deleteContact(contact.id)" :key='contact.id') Delete
+              router-link(:to="{name: 'ContactEdit', params: {id: contact.id}}")
+                v-icon(medium) mdi-pen
+              button(@click="deleteContact(contact.id)" :key='contact.id')
+                v-icon(medium) mdi-delete
 
     router-view
 
