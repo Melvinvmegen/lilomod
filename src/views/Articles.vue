@@ -33,6 +33,7 @@
               | Actions
         tbody
           tr(v-for='article in articles' :key='article.id')
+            td {{ article.id }}
             td {{ article.title }}
             td {{ article.teaser }}
             td {{ article.description.replace(/(<([^>]+)>)/gi, "").length > 50 ? article.description.replace(/(<([^>]+)>)/gi, "").substring(0, 60) + "..." : article.description.replace(/(<([^>]+)>)/gi, "") }}
@@ -41,7 +42,7 @@
             td
               router-link(:to="{name: 'ArticleEdit', params: {id: article.id}}")
                 v-icon(medium) mdi-pen
-              button(@click="deleteArticle(article.id)" :key='article.id')
+              button(@click="deleteArticle(article)" :key='article.id')
                 v-icon(medium) mdi-delete
 
     router-view
@@ -52,33 +53,25 @@
 import axios from 'axios'
 
 export default {
-  data: function() {
-    return {
-      articles: [
-
-      ]
+  name: "Articles",
+  computed: {
+    articles () {
+      return this.$store.state.articles.articles
     }
-  }, 
+  },
   created: function () {
-    axios.get('api/posts')
-      .then(res => {
-        res.data.forEach(post => {
-          this.articles.push(post)
-        });
-      })
+    if (this.$store.state.articles.articles.length > 0) {
+      return
+    }
+    this.$store.dispatch('getArticles')
   },
   methods: {
-    deleteArticle (articleId) {
-      axios.delete(`api/posts/${articleId}`)
-        .then(this.articles.find(article => {
-        if (article.id === articleId) {
-          this.articles.splice(article, 1)
-          return
-        }
-        else {
-          return
-        }
-      }))
+    deleteArticle (article) {
+      const result = confirm(`Vous êtes sur de vouloir supprimer l'article ${article.title}`)
+      if (result) {
+        axios.delete(`api/posts/${article.id}`)
+          .then(this.articles.splice(this.articles.indexOf(article), 1))
+      }
     }
   }
 }
