@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { required } from 'vuelidate/lib/validators'
 
 export default {
@@ -63,17 +62,12 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.post('api/services', {
+      this.$store.dispatch('addPrestation', {
         name: this.prestationData.name, 
         price: this.prestationData.price,
-        description: this.prestationData.description,
+        description: this.prestationData.description
       })
-        .then(this.$router.push("/prestations"))
-        .catch(error => {
-          if (error) {
-            this.setError(error, "Une erreur s'est produite")
-          }
-        })
+        .then(this.$router.push({ name: 'Prestations' }))
     },
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
