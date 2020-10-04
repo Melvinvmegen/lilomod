@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { email, required } from 'vuelidate/lib/validators'
 
 export default {
@@ -84,19 +83,14 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.post('api/contacts', {
+      this.$store.dispatch('addContact', {
         name: this.contactData.name, 
         firstname: this.contactData.firstname,
         email: this.contactData.email,
         phone: this.contactData.phone,
         query: this.contactData.query
       })
-        .then(this.$router.push("/contacts"))
-        .catch(error => {
-          if (error) {
-            this.setError(error, "Une erreur s'est produite")
-          }
-        })
+        .then(this.$router.push({ name: 'Contacts' }))
     },
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text
