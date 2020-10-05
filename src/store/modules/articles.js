@@ -17,7 +17,7 @@ const mutations = {
     })
   },
   addArticle (state, articleData) {
-    state.articles.push({
+    state.articles.unshift({
       id: articleData.id, 
       title: articleData.title, 
       teaser: articleData.teaser,
