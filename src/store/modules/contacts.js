@@ -29,6 +29,9 @@ const mutations = {
   updateContact (state, contactData) {
     const contact = state.contacts.find(item => item.id === contactData.id)
     state.contacts.splice(state.contacts.indexOf(contact), 1, contactData)
+  },
+  deleteContact (state, contact) {
+    state.contacts.splice(state.contacts.indexOf(contact), 1)
   }
 }
 
@@ -63,15 +66,16 @@ const actions = {
     },
     updateContact ({commit}, contactData) {
       axios.patch(`/api/contacts/${contactData.id}`, contactData)
-        .then(() => {
-          commit('updateContact', contactData)
-        })
-        .catch(error => {
-          console.log(error)
-          if (error) {
-            this.setError(error, "Une erreur s'est produite")
-          }
-        }) 
+      .then(() => commit('updateContact', contactData))
+      .catch(error => {
+        if (error) {
+          this.setError(error, "Une erreur s'est produite")
+        }
+      })
+    },
+    deleteContact ({commit}, contact) {
+      axios.delete(`api/contacts/${contact.id}`)
+        .then(() => commit('deleteContact', contact))
     }
   }
 

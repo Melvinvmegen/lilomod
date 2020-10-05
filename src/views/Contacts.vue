@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: "Contacts",
   computed: {
@@ -68,8 +66,7 @@ export default {
     deleteContact (contact) {
       const result = confirm(`Vous êtes sur de vouloir supprimer la contact ${contact.name}`)
       if (result) {
-        axios.delete(`api/contacts/${contact.id}`)
-          .then(this.contacts.splice(this.contacts.indexOf(contact), 1))
+        this.$store.dispatch('deleteContact', contact)
       }
     }
   }
