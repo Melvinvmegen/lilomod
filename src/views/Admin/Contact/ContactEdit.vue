@@ -85,7 +85,6 @@ export default {
   created: function () {
     axios.get(`/api/contacts/${this.$route.params.id}`)
       .then(res => {
-        console.log(res)
         this.contactData = res.data
       })
   },

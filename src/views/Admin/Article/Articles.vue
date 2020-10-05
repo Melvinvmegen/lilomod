@@ -43,13 +43,18 @@
                 v-icon(medium) mdi-pen
               button(@click="deleteArticle(article)" :key='article.id')
                 v-icon(medium) mdi-delete
-    v-pagination(v-model="currentPage" :length="pages" @input="nextPage")
+    pagination(:initialPage="currentPage" :pages="pages")
     router-view
 </template>
 
 <script>
+import pagination from '../components/Pagination/Pagination'
+
 export default {
   name: "Articles",
+  components: {
+    pagination
+  },
   data () {
     return {
       currentPage: 1,

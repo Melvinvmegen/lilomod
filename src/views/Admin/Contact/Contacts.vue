@@ -44,16 +44,37 @@
               button(@click="deleteContact(contact)" :key='contact.id')
                 v-icon(medium) mdi-delete
 
+    pagination(:initialPage="currentPage" :pages="pages")
     router-view
 
 </template>
 
 <script>
+import pagination from '../components/Pagination/Pagination'
+
 export default {
   name: "Contacts",
+  components: {
+    pagination
+  },
+  data () {
+    return {
+      currentPage: 1,
+      perPage: 10
+    }
+  },
   computed: {
     contacts () {
-      return this.$store.state.contacts.contacts
+      if (this.currentPage > 1) {
+        return this.$store.state.contacts.contacts.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+      }
+      return this.$store.state.contacts.contacts.slice(0, this.perPage)
+    },
+    contactsLength () {
+      return this.$store.state.contacts.contacts.length
+    },
+    pages () {
+      return Math.ceil(this.$store.state.contacts.contacts.length / 10)
     }
   }, 
   created: function () {
@@ -68,6 +89,10 @@ export default {
       if (result) {
         this.$store.dispatch('deleteContact', contact)
       }
+    },
+    nextPage (page) {
+      this.currentPage = page
+      this.$router.replace({ query: { page: page } })
     }
   }
 }

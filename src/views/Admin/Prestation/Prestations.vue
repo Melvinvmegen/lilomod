@@ -37,19 +37,40 @@
                 v-icon(medium) mdi-pen
               button(@click="deletePrestation(prestation)" :key='prestation.id')
                 v-icon(medium) mdi-delete
-
+    br
+    pagination(:initialPage="currentPage" :pages="pages")
     router-view
 
 </template>
 
 <script>
+import pagination from '../components/Pagination/Pagination'
+
 export default {
   name: "Prestations",
+  components: {
+    pagination
+  },
+  data () {
+    return {
+      currentPage: 1,
+      perPage: 10
+    }
+  },
   computed: {
     prestations () {
-      return this.$store.state.prestations.prestations
+      if (this.currentPage > 1) {
+        return this.$store.state.prestations.prestations.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+      }
+      return this.$store.state.prestations.prestations.slice(0, this.perPage)
+    },
+    prestationsLength () {
+      return this.$store.state.prestations.prestations.length
+    },
+    pages () {
+      return Math.ceil(this.$store.state.prestations.prestations.length / 10)
     }
-  }, 
+  },
   created: function () {
     if (this.$store.state.prestations.prestations.length > 0) {
       return
@@ -62,6 +83,10 @@ export default {
       if (result) {
         this.$store.dispatch('deletePrestation', prestation)
       }
+    },
+    nextPage (page) {
+      this.currentPage = page
+      this.$router.replace({ query: { page: page } })
     }
   }
 }
