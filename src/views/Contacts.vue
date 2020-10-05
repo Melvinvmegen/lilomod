@@ -41,7 +41,7 @@
             td
               router-link(:to="{name: 'ContactEdit', params: {id: contact.id}}")
                 v-icon(medium) mdi-pen
-              button(@click="deleteContact(contact.id)" :key='contact.id')
+              button(@click="deleteContact(contact)" :key='contact.id')
                 v-icon(medium) mdi-delete
 
     router-view
@@ -52,33 +52,25 @@
 import axios from 'axios'
 
 export default {
-  data: function() {
-    return {
-      contacts: [
-
-      ]
+  name: "Contacts",
+  computed: {
+    contacts () {
+      return this.$store.state.contacts.contacts
     }
   }, 
   created: function () {
-    axios.get('api/contacts')
-      .then(res => {
-        res.data.forEach(post => {
-          this.contacts.push(post)
-        });
-      })
+    if (this.$store.state.contacts.contacts.length > 0) {
+      return
+    }
+    this.$store.dispatch('getContacts')
   },
   methods: {
-    deleteContact (contactId) {
-      axios.delete(`api/contacts/${contactId}`)
-        .then(this.contacts.find(contact => {
-        if (contact.id === contactId) {
-          this.contacts.splice(contact, 1)
-          return
-        }
-        else {
-          return
-        }
-      }))
+    deleteContact (contact) {
+      const result = confirm(`Vous êtes sur de vouloir supprimer la contact ${contact.name}`)
+      if (result) {
+        axios.delete(`api/contacts/${contact.id}`)
+          .then(this.contacts.splice(this.contacts.indexOf(contact), 1))
+      }
     }
   }
 }

@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { required } from 'vuelidate/lib/validators'
 import { VueEditor } from "vue2-editor";
 
@@ -70,15 +69,14 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.post('api/posts', {
+      this.$store.dispatch('addArticle', {
         title: this.articleData.title, 
         teaser: this.articleData.teaser,
         description: this.articleData.description,
         published: this.articleData.published,
-        featured: this.articleData.featured,
-
+        featured: this.articleData.featured
       })
-        .then(this.$router.push("/articles"))
+        .then(this.$router.push({ name: 'Articles' }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite")

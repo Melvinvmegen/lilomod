@@ -91,7 +91,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.patch(`/api/contacts/${this.contactData.id}`, {
+      this.$store.dispatch('updateContact', {
+        id: this.$route.params.id,
         name: this.contactData.name, 
         firstname: this.contactData.firstname,
         email: this.contactData.email,

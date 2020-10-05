@@ -69,7 +69,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.patch(`/api/services/${this.prestationData.id}`, {
+      this.$store.dispatch('updatePrestation', {
+        id: this.$route.params.id,
         name: this.prestationData.name, 
         price: this.prestationData.price,
         description: this.prestationData.description,
