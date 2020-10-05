@@ -3,7 +3,7 @@
     v-navigation-drawer(fixed :color='color' absolute dark)
       v-list.py-0(dense='' nav='')
         v-divider
-        v-list-item(v-for='item in items' :key='item.title' :to='item.link' two-line)
+        v-list-item(v-for='item in items' :key='item.title' :to='item.link' two-line exact)
           v-list-item-icon.align-self-center
             v-icon {{ item.icon }}
           v-list-item-content
@@ -15,11 +15,11 @@ export default {
  data () {
    return {
       items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/dashboard" },
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/admin"},
         { title: 'Acceder au site', icon: 'mdi-home', link: "/" },
-        { title: 'Articles', icon: 'mdi-post', link: "/articles" },
-        { title: 'Contacts', icon: 'mdi-contacts', link: "/contacts" },
-        { title: 'Prestations', icon: 'mdi-briefcase', link: "/prestations" }
+        { title: 'Articles', icon: 'mdi-post', link: {name: 'Articles'} },
+        { title: 'Contacts', icon: 'mdi-contacts', link: {name: 'Contacts'} },
+        { title: 'Prestations', icon: 'mdi-briefcase', link: {name: 'Prestations'} }
       ],
       color: 'primary',
       colors: [
