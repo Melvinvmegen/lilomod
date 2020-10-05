@@ -23,6 +23,10 @@ const mutations = {
       price: prestationData.price,
       description: prestationData.description,
     })
+  },
+  updatePrestation (state, prestationData) {
+    const prestation = state.prestations.find(item => item.id === prestationData.id)
+    state.prestations.splice(state.prestations.indexOf(prestation), 1, prestationData)
   }
 }
 
@@ -50,6 +54,18 @@ const actions = {
           this.setError(error, "Une erreur s'est produite")
         }
       })
+    },
+    updatePrestation ({commit}, prestationData) {
+      axios.patch(`/api/services/${prestationData.id}`, prestationData)
+        .then(() => {
+          commit('updatePrestation', prestationData)
+        })
+        .catch(error => {
+          console.log(error)
+          if (error) {
+            this.setError(error, "Une erreur s'est produite")
+          }
+        }) 
   }
 }
 
