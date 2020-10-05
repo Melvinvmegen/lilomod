@@ -43,7 +43,7 @@
                 v-icon(medium) mdi-pen
               button(@click="deleteArticle(article)" :key='article.id')
                 v-icon(medium) mdi-delete
-
+    v-pagination(v-model="currentPage" :length="pages" @input="nextPage")
     router-view
 
 </template>
@@ -51,9 +51,24 @@
 <script>
 export default {
   name: "Articles",
+  data () {
+    return {
+      currentPage: 1,
+      perPage: 10
+    }
+  },
   computed: {
     articles () {
-      return this.$store.state.articles.articles
+      if (this.currentPage > 1) {
+        return this.$store.state.articles.articles.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+      }
+      return this.$store.state.articles.articles.slice(0, this.perPage)
+    },
+    articlesLength () {
+      return this.$store.state.articles.articles.length
+    },
+    pages () {
+      return Math.ceil(this.$store.state.articles.articles.length / 10)
     }
   },
   created: function () {
@@ -68,6 +83,10 @@ export default {
       if (result) {
         this.$store.dispatch('deleteArticle', article)
       }
+    },
+    nextPage (page) {
+      this.currentPage = page
+      this.$router.replace({ query: { page: page } })
     }
   }
 }

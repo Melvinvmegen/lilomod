@@ -17,7 +17,7 @@ const mutations = {
     })
   },
   addContact (state, contactData) {
-    state.contacts.push({
+    state.contacts.unshift({
       id: contactData.id, 
       name: contactData.name, 
       firstname: contactData.firstname,

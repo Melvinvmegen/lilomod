@@ -84,7 +84,7 @@ export default {
         published: this.articleData.published,
         featured: this.articleData.featured
       })
-        .then(this.$router.push("/articles"))
+        .then(this.$router.push({ path: 'articles' }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite")
