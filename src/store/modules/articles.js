@@ -29,6 +29,9 @@ const mutations = {
   updateArticle (state, articleData) {
     const article = state.articles.find(item => item.id === articleData.id)
     state.articles.splice(state.articles.indexOf(article), 1, articleData)
+  },
+  deleteArticle (state, article) {
+    state.articles.splice(state.articles.indexOf(article), 1)
   }
 }
 
@@ -63,17 +66,18 @@ const actions = {
   },
   updateArticle ({commit}, articleData) {
     axios.patch(`/api/posts/${articleData.id}`, articleData)
-      .then(() => {
-        commit('updateArticle', articleData)
-      })
+      .then(() => commit('updateArticle', articleData))
       .catch(error => {
-        console.log(error)
         if (error) {
           this.setError(error, "Une erreur s'est produite")
         }
       })
+    },
+    deleteArticle ({commit}, article) {
+      axios.delete(`api/posts/${article.id}`)
+        .then(() => commit('deleteArticle', article))
+    }
   }
-}
 
 export default {
   state,
