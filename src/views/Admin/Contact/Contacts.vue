@@ -2,7 +2,7 @@
   div#contacts
     div.d-flex.justify-space-between
       h1 Contacts
-      router-link(to='/contacts/new')
+      router-link(:to="{name: 'ContactNew'}")
         v-btn(
           class="mx-2"
           fab
