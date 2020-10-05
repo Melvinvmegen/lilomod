@@ -43,8 +43,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: "Prestations",
   computed: {
@@ -62,8 +60,7 @@ export default {
     deletePrestation (prestation) {
       const result = confirm(`Vous êtes sur de vouloir supprimer la prestation ${prestation.name}`)
       if (result) {
-        axios.delete(`api/services/${prestation.id}`)
-          .then(this.prestations.splice(this.prestations.indexOf(prestation), 1))
+        this.$store.dispatch('deletePrestation', prestation)
       }
     }
   }

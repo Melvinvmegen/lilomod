@@ -27,6 +27,9 @@ const mutations = {
   updatePrestation (state, prestationData) {
     const prestation = state.prestations.find(item => item.id === prestationData.id)
     state.prestations.splice(state.prestations.indexOf(prestation), 1, prestationData)
+  },
+  deletePrestation (state, prestation) {
+    state.prestations.splice(state.prestations.indexOf(prestation), 1)
   }
 }
 
@@ -57,17 +60,18 @@ const actions = {
     },
     updatePrestation ({commit}, prestationData) {
       axios.patch(`/api/services/${prestationData.id}`, prestationData)
-        .then(() => {
-          commit('updatePrestation', prestationData)
-        })
-        .catch(error => {
-          console.log(error)
-          if (error) {
-            this.setError(error, "Une erreur s'est produite")
-          }
-        }) 
+      .then(() => commit('updatePrestation', prestationData))
+      .catch(error => {
+        if (error) {
+          this.setError(error, "Une erreur s'est produite")
+        }
+      })
+    },
+    deletePrestation ({commit}, prestation) {
+      axios.delete(`api/services/${prestation.id}`)
+        .then(() => commit('deletePrestation', prestation))
+    }
   }
-}
 
 export default {
   state,

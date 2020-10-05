@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: "Articles",
   data () {
@@ -83,8 +81,7 @@ export default {
     deleteArticle (article) {
       const result = confirm(`Vous êtes sur de vouloir supprimer l'article ${article.title}`)
       if (result) {
-        axios.delete(`api/posts/${article.id}`)
-          .then(this.articles.splice(this.articles.indexOf(article), 1))
+        this.$store.dispatch('deleteArticle', article)
       }
     },
     nextPage (page) {
