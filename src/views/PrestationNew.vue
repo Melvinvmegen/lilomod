@@ -68,6 +68,11 @@ export default {
         description: this.prestationData.description
       })
         .then(this.$router.push({ name: 'Prestations' }))
+        .catch(error => {
+          if (error) {
+            this.setError(error, "Une erreur s'est produite")
+          }
+        })
     },
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text

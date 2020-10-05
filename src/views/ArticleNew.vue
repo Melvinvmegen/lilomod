@@ -77,6 +77,11 @@ export default {
         featured: this.articleData.featured
       })
         .then(this.$router.push({ name: 'Articles' }))
+        .catch(error => {
+          if (error) {
+            this.setError(error, "Une erreur s'est produite")
+          }
+        })
     },
     setError (error, text) {
       this.error = (error.response && error.response.data && error.response.data.error) || text

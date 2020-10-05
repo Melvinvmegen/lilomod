@@ -33,7 +33,6 @@
               | Actions
         tbody
           tr(v-for='article in articles' :key='article.id')
-            td {{ article.id }}
             td {{ article.title }}
             td {{ article.teaser }}
             td {{ article.description.replace(/(<([^>]+)>)/gi, "").length > 50 ? article.description.replace(/(<([^>]+)>)/gi, "").substring(0, 60) + "..." : article.description.replace(/(<([^>]+)>)/gi, "") }}
