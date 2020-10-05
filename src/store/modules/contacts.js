@@ -25,6 +25,10 @@ const mutations = {
       phone: contactData.phone,
       query: contactData.query
     })
+  },
+  updateContact (state, contactData) {
+    const contact = state.contacts.find(item => item.id === contactData.id)
+    state.contacts.splice(state.contacts.indexOf(contact), 1, contactData)
   }
 }
 
@@ -56,8 +60,20 @@ const actions = {
           this.setError(error, "Une erreur s'est produite")
         }
       })
+    },
+    updateContact ({commit}, contactData) {
+      axios.patch(`/api/contacts/${contactData.id}`, contactData)
+        .then(() => {
+          commit('updateContact', contactData)
+        })
+        .catch(error => {
+          console.log(error)
+          if (error) {
+            this.setError(error, "Une erreur s'est produite")
+          }
+        }) 
+    }
   }
-}
 
 export default {
   state,
