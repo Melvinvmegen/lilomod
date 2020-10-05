@@ -25,6 +25,10 @@ const mutations = {
       published: articleData.published,
       featured: articleData.featured
     })
+  },
+  updateArticle (state, articleData) {
+    const article = state.articles.find(item => item.id === articleData.id)
+    state.articles.splice(state.articles.indexOf(article), 1, articleData)
   }
 }
 
@@ -52,6 +56,18 @@ const actions = {
         })
       })
       .catch(error => {
+        if (error) {
+          this.setError(error, "Une erreur s'est produite")
+        }
+      })
+  },
+  updateArticle ({commit}, articleData) {
+    axios.patch(`/api/posts/${articleData.id}`, articleData)
+      .then(() => {
+        commit('updateArticle', articleData)
+      })
+      .catch(error => {
+        console.log(error)
         if (error) {
           this.setError(error, "Une erreur s'est produite")
         }

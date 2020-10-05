@@ -76,7 +76,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.patch(`/api/posts/${this.articleData.id}`, {
+      this.$store.dispatch('updateArticle', {
+        id: this.$route.params.id,
         title: this.articleData.title, 
         teaser: this.articleData.teaser,
         description: this.articleData.description,
