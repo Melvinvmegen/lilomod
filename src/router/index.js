@@ -9,53 +9,56 @@ const routes = [
     name: "Login",
     component: () => import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
-  { path: "/dashboard", 
-    name: "Dashboard",
-    component: () => import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
-  },
-  { path: "/articles", 
-    name: "Articles",
-    component: () => import(/* webpackChunkName: "articles" */ "../views/Articles.vue"),
+  // Admin
+  { path: "/admin", 
+    name: "Admin",
+    component: () => import(/* webpackChunkName: "admin" */ "../views/Admin/Admin.vue"),
     children: [
-      { path: 'new',
-      name: "ArticleNew",  
-        component: () => import(/* webpackChunkName: "articleNew" */ "../views/ArticleNew.vue") 
+      { path: "articles", 
+        name: "Articles",
+        component: () => import(/* webpackChunkName: "articles" */ "../views/Admin/Article/Articles.vue"),
+        children: [
+          { path: 'new',
+          name: "ArticleNew",  
+            component: () => import(/* webpackChunkName: "articleNew" */ "../views/Admin/Article/ArticleNew.vue") 
+          },
+          { path: ':id/edit',
+            name: "ArticleEdit", 
+            component: () => import(/* webpackChunkName: "articleEdit" */ "../views/Admin/Article/ArticleEdit.vue") 
+          }
+        ]
       },
-      { path: ':id/edit',
-        name: "ArticleEdit", 
-        component: () => import(/* webpackChunkName: "articleEdit" */ "../views/ArticleEdit.vue") 
-      }
+      { path: "prestations", 
+        name: "Prestations",
+        component: () => import(/* webpackChunkName: "prestations" */ "../views/Admin/Prestation/Prestations.vue"),
+        children: [
+          { path: 'new',
+          name: "PrestationNew",  
+            component: () => import(/* webpackChunkName: "prestationNew" */ "../views/Admin/Prestation/PrestationNew.vue") 
+          },
+          { path: ':id/edit',
+            name: "PrestationEdit", 
+            component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/Admin/Prestation/PrestationEdit.vue") 
+          }
+        ]
+      },
+      { path: "contacts", 
+        name: "Contacts",
+        component: () => import(/* webpackChunkName: "contacts" */ "../views/Admin/Contact/Contacts.vue"),
+        children: [
+          { path: 'new',
+          name: "ContactNew",  
+            component: () => import(/* webpackChunkName: "prestationNew" */ "../views/Admin/Contact/ContactNew.vue") 
+          },
+          { path: ':id/edit',
+            name: "ContactEdit", 
+            component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/Admin/Contact/ContactEdit.vue") 
+          }
+        ]
+      },
+      { path: '*', redirect: '/admin' }
     ]
   },
-  { path: "/prestations", 
-    name: "Prestations",
-    component: () => import(/* webpackChunkName: "prestations" */ "../views/Prestations.vue"),
-    children: [
-      { path: 'new',
-      name: "PrestationNew",  
-        component: () => import(/* webpackChunkName: "prestationNew" */ "../views/PrestationNew.vue") 
-      },
-      { path: ':id/edit',
-        name: "PrestationEdit", 
-        component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/PrestationEdit.vue") 
-      }
-    ]
-  },
-  { path: "/contacts", 
-    name: "Contacts",
-    component: () => import(/* webpackChunkName: "contacts" */ "../views/Contacts.vue"),
-    children: [
-      { path: 'new',
-      name: "ContactNew",  
-        component: () => import(/* webpackChunkName: "prestationNew" */ "../views/ContactNew.vue") 
-      },
-      { path: ':id/edit',
-        name: "ContactEdit", 
-        component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/ContactEdit.vue") 
-      }
-    ]
-  },
-  { path: '*', redirect: '/dashboard' }
 ];
 
 const router = new VueRouter({

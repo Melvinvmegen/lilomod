@@ -2,7 +2,7 @@
   div#prestations
     div.d-flex.justify-space-between
       h1 Prestations
-      router-link(to='/prestations/new')
+      router-link(:to="{name: 'PrestationNew'}")
         v-btn(
           class="mx-2"
           fab

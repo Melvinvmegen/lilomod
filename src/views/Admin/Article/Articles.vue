@@ -2,7 +2,7 @@
   div#articles
     div.d-flex.justify-space-between
       h1 Articles
-      router-link(to='/articles/new')
+      router-link(:to="{name: 'ArticleNew'}")
         v-btn(
           class="mx-2"
           fab
@@ -45,7 +45,6 @@
                 v-icon(medium) mdi-delete
 
     router-view
-
 </template>
 
 <script>
