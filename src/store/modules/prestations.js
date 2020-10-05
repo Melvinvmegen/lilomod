@@ -17,7 +17,7 @@ const mutations = {
     })
   },
   addPrestation (state, prestationData) {
-    state.prestations.push({
+    state.prestations.unshift({
       id: prestationData.id, 
       name: prestationData.name, 
       price: prestationData.price,
