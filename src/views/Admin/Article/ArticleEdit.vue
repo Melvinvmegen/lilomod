@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex
- h1 Hello je suis article edit
+ h1 Editer un article
  form(ref="form")
   span.error-message(v-if="error") {{ error }}
   .form-group(:class="{ invalid: $v.articleData.title.$error }")
@@ -22,8 +22,8 @@
     @blur="$v.articleData.description.$touch()"
     placeholder="Ecrivez ici le contenu de votre article, faites preuve de créativité !"
    )
-   v-switch(v-model='articleData.published' :label='`Publié: ${articleData.published.toString()}`')
-   v-switch(v-model='articleData.featured' :label='`Mis en avant: ${articleData.featured.toString()}`')
+   v-switch(v-model='articleData.published' :label='`Publié`')
+   v-switch(v-model='articleData.featured' :label='`Mis en avant`')
   .d-flex
     .form-button.my-2.mr-2
       v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")

@@ -26,9 +26,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .d-flex {
     height: 100%;
     width: 100%;
+  }
+
+  .v-application a {
+    text-decoration: none;
   }
 </style>
