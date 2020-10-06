@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex
- h1 Hello je suis contact new
+ h1 Créer un nouveau contact
  form(ref="form")
   span.error-message(v-if="error") {{ error }}
   .form-group(:class="{ invalid: $v.contactData.name.$error }")

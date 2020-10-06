@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex
- h1 Hello je suis prestation edit
+ h1 Editer une prestation
  form(ref="form")
   span.error-message(v-if="error") {{ error }}
   .form-group(:class="{ invalid: $v.prestationData.name.$error }")
