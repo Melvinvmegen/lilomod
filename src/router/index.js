@@ -4,15 +4,37 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/login",
-    name: "Login",
-    component: () => import(/* webpackChunkName: "login" */ "../views/Login.vue"),
+  { path: "/", 
+    name: "Homepage",
+    component: () => import(/* webpackChunkName: "homepage" */ "../views/Homepage.vue")
+  },
+  { path: "/contact", 
+    name: "Contact",
+    component: () => import(/* webpackChunkName: "contact" */ "../views/Contact.vue")
+  },
+  { path: "/services", 
+    name: "Services",
+    component: () => import(/* webpackChunkName: "services" */ "../views/Services.vue")
+  },
+  { path: "/blog", 
+    name: "Blog",
+    component: () => import(/* webpackChunkName: "blog" */ "../views/Blog/Blog.vue"),
+    children: [
+      { path: ":id", 
+        name: "ArticleShow",
+        component: () => import(/* webpackChunkName: "articleShow" */ "../views/Blog/ArticleShow.vue")
+      }    
+    ]
   },
   // Admin
   { path: "/admin", 
     name: "Admin",
     component: () => import(/* webpackChunkName: "admin" */ "../views/Admin/Admin.vue"),
     children: [
+      { path: "/login",
+        name: "Login",
+        component: () => import(/* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"),
+      },
       { path: "articles", 
         name: "Articles",
         component: () => import(/* webpackChunkName: "articles" */ "../views/Admin/Article/Articles.vue"),

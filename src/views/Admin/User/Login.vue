@@ -6,8 +6,8 @@
 
 <script>
 
-import LoginForm from "../components/LoginForm/LoginForm"
-import TextHeader from "../components/TextHeader/TextHeader"
+import LoginForm from "../../../components/LoginForm/LoginForm"
+import TextHeader from "../../../components/TextHeader/TextHeader"
 
 export default {
   name: "Login",
