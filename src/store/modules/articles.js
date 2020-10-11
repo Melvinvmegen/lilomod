@@ -41,13 +41,11 @@ const actions = {
     .then(res =>  commit('setArticles', res.data))
   }, 
   addArticle ({commit}, articleData) {
-    axios.post('api/posts', {
-      title: articleData.title, 
-      teaser: articleData.teaser,
-      description: articleData.description,
-      published: articleData.published,
-      featured: articleData.featured
+    const formData = new FormData()
+    Object.keys(articleData).forEach((article) => {
+      formData.append(article, articleData[article])
     })
+    axios.post('api/posts', formData, { headers: { 'Content-Type' : 'multipart/form-data' } })
       .then(res => {
         commit('addArticle', {
           id: res.data.id,
