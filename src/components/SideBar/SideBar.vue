@@ -1,6 +1,6 @@
 <template lang="pug">
   v-card.overflow-hidden.sidebar(height='100%')
-    v-navigation-drawer(fixed :color='color' absolute dark)
+    v-navigation-drawer.indigo.lighten-1(fixed absolute dark)
       v-list.py-0(dense='' nav='')
         v-divider
         v-list-item(v-for='item in items' :key='item.title' :to='item.link' two-line exact)
@@ -20,14 +20,6 @@ export default {
         { title: 'Articles', icon: 'mdi-post', link: {name: 'Articles'} },
         { title: 'Contacts', icon: 'mdi-contacts', link: {name: 'Contacts'} },
         { title: 'Prestations', icon: 'mdi-briefcase', link: {name: 'Prestations'} }
-      ],
-      color: 'primary',
-      colors: [
-        'primary',
-        'blue',
-        'success',
-        'red',
-        'teal',
       ]
    }
  }
