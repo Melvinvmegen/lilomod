@@ -12,12 +12,12 @@ export default {
     centered: Boolean,
     link: String
   }
-}
+};
 </script>
 
 <style>
- .centered {
-   display: flex;
-   justify-content: center;
- }
+.centered {
+  display: flex;
+  justify-content: center;
+}
 </style>

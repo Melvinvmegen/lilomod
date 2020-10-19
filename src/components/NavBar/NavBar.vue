@@ -43,128 +43,130 @@ export default {
     socialLinks: Array
   },
   computed: {
-    auth () {
-      return this.$store.getters.isAuthenticated
+    auth() {
+      return this.$store.getters.isAuthenticated;
     }
   },
   data() {
     return {
       drawer: false
-    }
+    };
   },
   methods: {
-    onLogout () {
-      this.$store.dispatch('logout')
+    onLogout() {
+      this.$store.dispatch("logout");
     }
   }
-}
+};
 </script>
 
 <style>
-  .v-toolbar__content {
-    justify-content: space-between;
-  }
+.v-toolbar__content {
+  justify-content: space-between;
+}
 
-  .v-overlay__scrim {
-    height: 100vh !important;
-  }
+.v-overlay__scrim {
+  height: 100vh !important;
+}
 
-  .v-navigation-drawer {
-    height: 100vh !important;
-    width: 60vw !important;
-  }
+.v-navigation-drawer {
+  height: 100vh !important;
+  width: 60vw !important;
+}
 
-  .v-navigation-drawer__content {
-    margin: 30px;
-  }
+.v-navigation-drawer__content {
+  margin: 30px;
+}
 
-  .nav-item a {
-    color: white !important;
-  }
+.nav-item a {
+  color: white !important;
+}
 
-  .main-header-left {
-    width: 10%;
-    margin-left: 10px;
-    margin-top: 5px;
-    max-height: 100%;
-  }
+.main-header-left {
+  width: 10%;
+  margin-left: 10px;
+  margin-top: 5px;
+  max-height: 100%;
+}
 
+.main-header-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 45%;
+}
+
+.main-header-center .nav-item {
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.router-link-active {
+  display: inline-block;
+  border: 3px solid transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.router-link-active :after {
+  position: absolute;
+  content: "";
+  bottom: -6px;
+  left: calc(0.7em * 1.2);
+  right: calc(0.7em * 1.2);
+  height: 4px;
+  background: #f9423a;
+  transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s,
+    right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s,
+    left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+}
+
+.router-link-active .line {
+  position: absolute;
+  background: #f9423a;
+  bottom: -6px;
+}
+
+.router-link-active .line.-bottom {
+  height: 3px;
+  left: -3px;
+  right: -3px;
+  transform: scale3d(0, 1, 1);
+}
+
+.router-link-active .line.-bottom {
+  bottom: -3px;
+  transform-origin: right;
+}
+
+.router-link-active :hover:after,
+.router-link-active :active:after {
+  transform: scale3d(0, 1, 1);
+  right: -3px;
+  left: -3px;
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s,
+    right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+
+.router-link-active :hover .line.-bottom,
+.router-link-active :active .line.-bottom {
+  transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+  transform-origin: left;
+}
+
+@media (max-width: 960px) {
   .main-header-center {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 45%;
+    justify-content: flex-end;
+    margin-right: 20px;
   }
-
-  .main-header-center .nav-item {
-    padding: 0 20px;
-    font-size: 15px;
-    font-weight: 500;
-    width: 100%;
-    text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .v-navigation-drawer {
+    width: 70vw !important;
   }
-  
-
-  .router-link-active {
-    display: inline-block;
-    border: 3px solid transparent;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .router-link-active :after {
-    position: absolute;
-    content: '';
-    bottom: -6px;
-    left: calc(0.7em * 1.2);
-    right: calc(0.7em * 1.2);
-    height: 4px;
-    background: #F9423A;
-    transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
-  }
-
-  .router-link-active .line {
-    position: absolute;
-    background: #F9423A;
-    bottom: -6px;
-  }
-
-  .router-link-active .line.-bottom {
-    height: 3px;
-    left: -3px;
-    right: -3px;
-    transform: scale3d(0, 1, 1);
-  }
-
-  .router-link-active .line.-bottom {
-    bottom: -3px;
-    transform-origin: right;
-  }
-
-  .router-link-active :hover:after,
-  .router-link-active :active:after {
-    transform: scale3d(0, 1, 1);
-    right: -3px;
-    left: -3px;
-    transform-origin: right;
-    transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
-  }
-  
-  .router-link-active :hover .line.-bottom,
-  .router-link-active :active .line.-bottom {
-    transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
-    transform-origin: left;
-  }
-
-  @media (max-width: 960px) { 
-    .main-header-center {
-      justify-content: flex-end;
-      margin-right: 20px;
-    }
-  }
-  @media only screen and (max-width: 600px) {
-    .v-navigation-drawer {
-      width: 70vw !important;
-    } 
-  }
+}
 </style>

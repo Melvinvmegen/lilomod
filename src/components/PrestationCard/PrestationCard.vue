@@ -7,25 +7,25 @@
 </template>
 
 <script>
-
 export default {
-  props:{
+  props: {
     prestation: Object
   }
-}
+};
 </script>
 <style scoped>
-  .card-service {
-    box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0,0,0,.1);
-    border: .1rem solid #e5f0f4;
-    border-radius: 8%;
-    border-radius: 16px;
-    display: flex;
-    height: 100%;
-    position: relative;
-    transition: all 0.3s ease 0s;
-    text-align: center;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 12px 20px, rgba(0, 0, 0, 0.06) 0px 2px 12px;
-  }
+.card-service {
+  box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid #e5f0f4;
+  border-radius: 8%;
+  border-radius: 16px;
+  display: flex;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  text-align: center;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 12px 20px,
+    rgba(0, 0, 0, 0.06) 0px 2px 12px;
+}
 </style>

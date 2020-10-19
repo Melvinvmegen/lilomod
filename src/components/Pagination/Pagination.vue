@@ -14,13 +14,13 @@ export default {
   data() {
     return {
       currentPage: this.initialPage
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
-  .pagination {
-    margin-top: 20px;
-  }
+.pagination {
+  margin-top: 20px;
+}
 </style>

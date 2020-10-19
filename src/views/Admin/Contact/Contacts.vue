@@ -51,54 +51,57 @@
 </template>
 
 <script>
-import pagination from '../../../components/Pagination/Pagination'
+import pagination from "../../../components/Pagination/Pagination";
 
 export default {
   name: "Contacts",
   components: {
     pagination
   },
-  data () {
+  data() {
     return {
       currentPage: 1,
       perPage: 10
-    }
+    };
   },
   computed: {
-    contacts () {
+    contacts() {
       if (this.currentPage > 1) {
-        return this.$store.state.contacts.contacts.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+        return this.$store.state.contacts.contacts.slice(
+          this.perPage * (this.currentPage - 1),
+          this.perPage * this.currentPage
+        );
       }
-      return this.$store.state.contacts.contacts.slice(0, this.perPage)
+      return this.$store.state.contacts.contacts.slice(0, this.perPage);
     },
-    contactsLength () {
-      return this.$store.state.contacts.contacts.length
+    contactsLength() {
+      return this.$store.state.contacts.contacts.length;
     },
-    pages () {
-      return Math.ceil(this.$store.state.contacts.contacts.length / 10)
+    pages() {
+      return Math.ceil(this.$store.state.contacts.contacts.length / 10);
     }
-  }, 
-  created: function () {
+  },
+  created: function() {
     if (this.$store.state.contacts.contacts.length > 0) {
-      return
+      return;
     }
-    this.$store.dispatch('getContacts')
+    this.$store.dispatch("getContacts");
   },
   methods: {
-    deleteContact (contact) {
-      const result = confirm(`Vous êtes sur de vouloir supprimer la contact ${contact.name}`)
+    deleteContact(contact) {
+      const result = confirm(
+        `Vous êtes sur de vouloir supprimer la contact ${contact.name}`
+      );
       if (result) {
-        this.$store.dispatch('deleteContact', contact)
+        this.$store.dispatch("deleteContact", contact);
       }
     },
-    nextPage (page) {
-      this.currentPage = page
-      this.$router.replace({ query: { page: page } })
+    nextPage(page) {
+      this.currentPage = page;
+      this.$router.replace({ query: { page: page } });
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

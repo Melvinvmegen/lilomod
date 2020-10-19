@@ -4,86 +4,142 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", 
+  {
+    path: "/",
     name: "Homepage",
-    component: () => import(/* webpackChunkName: "homepage" */ "../views/Homepage.vue")
+    component: () =>
+      import(/* webpackChunkName: "homepage" */ "../views/Homepage.vue")
   },
-  { path: "/about", 
+  {
+    path: "/about",
     name: "About",
-    component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
-  { path: "/contact", 
+  {
+    path: "/contact",
     name: "Contact",
-    component: () => import(/* webpackChunkName: "contact" */ "../views/Contact.vue")
+    component: () =>
+      import(/* webpackChunkName: "contact" */ "../views/Contact.vue")
   },
-  { path: "/services", 
+  {
+    path: "/services",
     name: "Services",
-    component: () => import(/* webpackChunkName: "services" */ "../views/Services.vue")
+    component: () =>
+      import(/* webpackChunkName: "services" */ "../views/Services.vue")
   },
-  { path: "/blog", 
+  {
+    path: "/blog",
     name: "Blog",
-    component: () => import(/* webpackChunkName: "blog" */ "../views/Blog/Blog.vue"),
+    component: () =>
+      import(/* webpackChunkName: "blog" */ "../views/Blog/Blog.vue"),
     children: [
-      { path: ":id", 
+      {
+        path: ":id",
         name: "ArticleShow",
-        component: () => import(/* webpackChunkName: "articleShow" */ "../views/Blog/ArticleShow.vue")
-      }    
+        component: () =>
+          import(
+            /* webpackChunkName: "articleShow" */ "../views/Blog/ArticleShow.vue"
+          )
+      }
     ]
   },
   // Admin
-  { path: "/admin", 
+  {
+    path: "/admin",
     name: "Admin",
-    component: () => import(/* webpackChunkName: "admin" */ "../views/Admin/Admin.vue"),
+    component: () =>
+      import(/* webpackChunkName: "admin" */ "../views/Admin/Admin.vue"),
     children: [
-      { path: "/login",
+      {
+        path: "/login",
         name: "Login",
-        component: () => import(/* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"),
+        component: () =>
+          import(
+            /* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"
+          )
       },
-      { path: "articles", 
+      {
+        path: "articles",
         name: "Articles",
-        component: () => import(/* webpackChunkName: "articles" */ "../views/Admin/Article/Articles.vue"),
+        component: () =>
+          import(
+            /* webpackChunkName: "articles" */ "../views/Admin/Article/Articles.vue"
+          ),
         children: [
-          { path: 'new',
-          name: "ArticleNew",  
-            component: () => import(/* webpackChunkName: "articleNew" */ "../views/Admin/Article/ArticleNew.vue") 
+          {
+            path: "new",
+            name: "ArticleNew",
+            component: () =>
+              import(
+                /* webpackChunkName: "articleNew" */ "../views/Admin/Article/ArticleNew.vue"
+              )
           },
-          { path: ':id/edit',
-            name: "ArticleEdit", 
-            component: () => import(/* webpackChunkName: "articleEdit" */ "../views/Admin/Article/ArticleEdit.vue") 
+          {
+            path: ":id/edit",
+            name: "ArticleEdit",
+            component: () =>
+              import(
+                /* webpackChunkName: "articleEdit" */ "../views/Admin/Article/ArticleEdit.vue"
+              )
           }
         ]
       },
-      { path: "prestations", 
+      {
+        path: "prestations",
         name: "Prestations",
-        component: () => import(/* webpackChunkName: "prestations" */ "../views/Admin/Prestation/Prestations.vue"),
+        component: () =>
+          import(
+            /* webpackChunkName: "prestations" */ "../views/Admin/Prestation/Prestations.vue"
+          ),
         children: [
-          { path: 'new',
-          name: "PrestationNew",  
-            component: () => import(/* webpackChunkName: "prestationNew" */ "../views/Admin/Prestation/PrestationNew.vue") 
+          {
+            path: "new",
+            name: "PrestationNew",
+            component: () =>
+              import(
+                /* webpackChunkName: "prestationNew" */ "../views/Admin/Prestation/PrestationNew.vue"
+              )
           },
-          { path: ':id/edit',
-            name: "PrestationEdit", 
-            component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/Admin/Prestation/PrestationEdit.vue") 
+          {
+            path: ":id/edit",
+            name: "PrestationEdit",
+            component: () =>
+              import(
+                /* webpackChunkName: "prestationEdit" */ "../views/Admin/Prestation/PrestationEdit.vue"
+              )
           }
         ]
       },
-      { path: "contacts", 
+      {
+        path: "contacts",
         name: "Contacts",
-        component: () => import(/* webpackChunkName: "contacts" */ "../views/Admin/Contact/Contacts.vue"),
+        component: () =>
+          import(
+            /* webpackChunkName: "contacts" */ "../views/Admin/Contact/Contacts.vue"
+          ),
         children: [
-          { path: 'new',
-          name: "ContactNew",  
-            component: () => import(/* webpackChunkName: "prestationNew" */ "../views/Admin/Contact/ContactNew.vue") 
+          {
+            path: "new",
+            name: "ContactNew",
+            component: () =>
+              import(
+                /* webpackChunkName: "prestationNew" */ "../views/Admin/Contact/ContactNew.vue"
+              )
           },
-          { path: ':id/edit',
-            name: "ContactEdit", 
-            component: () => import(/* webpackChunkName: "prestationEdit" */ "../views/Admin/Contact/ContactEdit.vue") 
+          {
+            path: ":id/edit",
+            name: "ContactEdit",
+            component: () =>
+              import(
+                /* webpackChunkName: "prestationEdit" */ "../views/Admin/Contact/ContactEdit.vue"
+              )
           }
         ]
       },
-      { path: '*', redirect: '/admin' }
+      { path: "*", redirect: "/admin" }
     ]
-  },
+  }
 ];
 
 const router = new VueRouter({

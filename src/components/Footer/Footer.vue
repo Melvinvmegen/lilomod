@@ -21,9 +21,7 @@ export default {
   props: {
     socialLinks: Array
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
