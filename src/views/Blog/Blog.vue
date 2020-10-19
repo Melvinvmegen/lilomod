@@ -5,7 +5,7 @@
       v-container(v-if="$route.name === 'Blog'")
         TextHeader(:blabla="blabla2" :side="true")
         br
-        .row.justify-center
+        .row.justify-center(v-if="articles.length > 0")
           .col-lg-4.col-md-6(v-for="article in articles" :key="article.id")
             ArticleCard(:article="article")
       router-view
