@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const state = {
-  articles: []
-};
-
+    articles: [],
+    featuredArticles: []
+}
 const getters = {
   articles(state) {
     return state.articles;
@@ -16,7 +16,12 @@ const mutations = {
       state.articles.push(article);
     });
   },
-  addArticle(state, articleData) {
+  setFeaturedArticles (state, featuredArticlesData) {
+    featuredArticlesData.forEach(article => {
+      state.featuredArticles.push(article)
+    })
+  },
+  addArticle (state, articleData) {
     state.articles.unshift({
       id: articleData.id,
       title: articleData.title,
@@ -36,18 +41,20 @@ const mutations = {
 };
 
 const actions = {
-  getArticles({ commit }) {
-    axios.get("api/posts").then(res => commit("setArticles", res.data));
+  getArticles ({commit}) {
+    axios.get('api/posts')
+    .then(res =>  commit('setArticles', res.data))
   },
-  addArticle({ commit }, articleData) {
-    const formData = new FormData();
-    Object.keys(articleData).forEach(article => {
-      formData.append(article, articleData[article]);
-    });
-    axios
-      .post("api/posts", formData, {
-        headers: { "Content-Type": "multipart/form-data" }
-      })
+  getFeaturedArticles ({commit}) {
+    axios.get('api/posts', { params:{ featured: true } })
+    .then(res =>  commit('setFeaturedArticles', res.data))
+  }, 
+  addArticle ({commit}, articleData) {
+    const formData = new FormData()
+    Object.keys(articleData).forEach((article) => {
+      formData.append(article, articleData[article])
+    })
+    axios.post('api/posts', formData, { headers: { 'Content-Type' : 'multipart/form-data' } })
       .then(res => {
         commit("addArticle", {
           id: res.data.id,

@@ -4,7 +4,7 @@
     .section-main
       .section-wrapper
         TextHeader(:blabla="blabla" :side="true")
-      .d-flex.justify-space-around.flex-wrap
+      .d-flex.justify-space-around.flex-wrap(v-if="featuredArticles.length > 0")
         .col-lg-4(v-for="article in featuredArticles" :key="article.name")
           ArticleCard(:article="article")
     br
@@ -13,10 +13,9 @@
 </template>
 
 <script>
-import TextHeader from "../TextHeader/TextHeader";
-import CTA from "../CTA/CTA";
-import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import axios from "axios";
+import TextHeader from '../TextHeader/TextHeader'
+import CTA from '../CTA/CTA'
+import ArticleCard from '../../components/ArticleCard/ArticleCard'
 
 export default {
   components: {
@@ -27,20 +26,25 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Lilomod Blog",
-        teaser: "Découvrez les articles préférés des lecteurs",
-        text:
-          "Vivamus at risus convallis, scelerisque felis ac, rhoncus magna. Vivamus iaculis est diam, non malesuada turpis elementum vitae. Morbi dictum, ante sit amet scelerisque sollicitudin, diam elit rutrum risus, ut lacinia dolor augue sit amet nibh. Praesent tempus, urna vitae vulputate gravida, dui metus eleifend tortor, eu commodo sem purus ut eros. In faucibus suscipit gravida. Nulla egestas id sem id rutrum. Phasellus porttitor viverra rutrum. Pellentesque ultricies, augue eu viverra molestie, mi massa varius nulla, nec placerat lacus neque et mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper congue mauris, ac aliquam diam auctor ut."
-      },
-      featuredArticles: {}
-    };
+        title: 'Lilomod Blog',
+        teaser: 'Découvrez les articles préférés des lecteurs',
+        text: 'Vivamus at risus convallis, scelerisque felis ac, rhoncus magna. Vivamus iaculis est diam, non malesuada turpis elementum vitae. Morbi dictum, ante sit amet scelerisque sollicitudin, diam elit rutrum risus, ut lacinia dolor augue sit amet nibh. Praesent tempus, urna vitae vulputate gravida, dui metus eleifend tortor, eu commodo sem purus ut eros. In faucibus suscipit gravida. Nulla egestas id sem id rutrum. Phasellus porttitor viverra rutrum. Pellentesque ultricies, augue eu viverra molestie, mi massa varius nulla, nec placerat lacus neque et mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper congue mauris, ac aliquam diam auctor ut.'
+      }
+    }
+  },
+  computed: {
+    featuredArticles () {
+      return this.$store.state.articles.featuredArticles
+    }
   },
   created: function() {
-    axios
-      .get("api/posts", { params: { featured: true } })
-      .then(res => (this.featuredArticles = res.data));
+    console.log(this.$store.state.articles.featuredArticles)
+    if (this.$store.state.articles.featuredArticles.length > 0) {
+      return
+    }
+    this.$store.dispatch('getFeaturedArticles')
   }
-};
+}
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
     .section-main
       .section-wrapper(:class="{'flex-column' : upside}")
         TextHeader(:blabla="blabla" :side="true")
-      .d-flex.justify-space-around.flex-wrap
+      .d-flex.justify-space-around.flex-wrap(v-if="prestations.length > 0")
         .col-lg-4.col-md-6(v-for="prestation in prestations" :key="prestation.name")
           PrestationCard(:prestation="prestation")
       br

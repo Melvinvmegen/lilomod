@@ -4,7 +4,7 @@
     .section-main
       .section-wrapper(:class="{'flex-column' : upside}")
         TextHeader(:blabla="blabla" :side="true")
-      v-simple-table
+      v-simple-table(v-if="prestations.length > 0")
         template(v-slot:default='')
           thead
             tr
