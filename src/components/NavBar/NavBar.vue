@@ -5,15 +5,15 @@
         v-img.shrink.mr-2(alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
           v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
     .main-header-center.col-lg-6(v-if="this.$vuetify.breakpoint.mdAndUp") 
-      .nav-item(v-for="item in navItems" :key="item.name")
-        router-link(:to="item.link" :active="isActive" ) {{ item.title }}
-          span.line.-bottom
+      v-list-item.nav-item(v-for="item in navItems" dark exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
+        | {{ item.title }}
+    .main-header-center(v-else)
+      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
+    .d-flex(v-if="$route.path.includes('admin')")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
         span.mr-2 Se connecter
       v-btn(href='' text='' v-if="auth" @click="onLogout" dark)
         span.mr-2 Se deconnecter
-    .main-header-center(v-else)
-      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
     v-navigation-drawer(v-model='drawer' absolute='' temporary='' fixed right)
       v-icon.float-right(@click.stop="drawer = false") mdi-close
       br
@@ -78,6 +78,10 @@ export default {
   margin: 30px;
 }
 
+aside .v-navigation-drawer__content {
+  margin: 0;
+}
+
 .nav-item a {
   color: white !important;
 }
@@ -101,14 +105,19 @@ export default {
   font-size: 15px;
   font-weight: 500;
   width: 100%;
-  text-align: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  border-radius: 4%;
 }
 
-.router-link-active {
-  display: inline-block;
-  border: 3px solid transparent;
-  position: relative;
-  cursor: pointer;
+.nav-item:hover {
+  background-color: #6876C5;
+}
+
+.nav-item .router-link-active {
+  background: #6876C5;
 }
 
 .router-link-active :after {
@@ -167,6 +176,12 @@ export default {
 @media only screen and (max-width: 600px) {
   .v-navigation-drawer {
     width: 70vw !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .v-navigation-drawer__content {
+    margin: 0;
   }
 }
 </style>

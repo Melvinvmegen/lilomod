@@ -79,6 +79,10 @@ body {
   flex-direction: column;
 }
 
+.v-application a {
+  color: white !important;
+}
+
 @media only screen and (max-width: 330px) {
   h1 {
     font-size: 24px;
