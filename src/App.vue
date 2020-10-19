@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app
     v-main
-      NavBar(:navItems="navItems")
+      NavBar(:navItems="navItems", :socialLinks="socialLinks")
       router-view
       Footer(:socialLinks="socialLinks" v-if="!adminCheck")
 </template>
@@ -19,10 +19,11 @@ export default {
   data () {
     return {
       navItems: [
-        { id: 1, name: 'A propos', href: '/about' },
-        { id: 2, name: 'Mes services', href: '/services' },
-        { id: 3, name: 'Espace Blog', href: '/blog' },
-        { id: 4, name: 'Prendre Contact', href: '/contact' }
+        { id: 1, title: 'ACCUEIL', icon: 'mdi-home', link: {name: 'Homepage'} },
+        { id: 1, title: 'A PROPOS', icon: 'mdi-post', link: {name: 'About'} },
+        { id: 2, title: 'PRESTATIONS', icon: 'mdi-contacts', link: {name: 'Services'} },
+        { id: 3, title: 'BLOG', icon: 'mdi-blogger', link: {name: 'Blog'} },
+        { id: 4, title: 'CONTACT', icon: 'mdi-briefcase', link: {name: 'Contact'} }
       ],
       socialLinks: [
         { id: 1, icon: 'mdi-facebook', link: '' },
@@ -44,7 +45,30 @@ export default {
 </script>
 
 <style>
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    min-height: 100%;
+  }
+
   .v-application a {
     text-decoration: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 330px) {
+    h1 {
+      font-size: 24px;
+    }
+    h1.text-center[data-v-b36cd462]:after {
+      margin: 1rem auto 1rem !important;
+    }
   }
 </style>

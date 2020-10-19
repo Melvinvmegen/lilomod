@@ -75,7 +75,7 @@ export default {
         price: this.prestationData.price,
         description: this.prestationData.description,
       })
-        .then(this.$router.push("/prestations"))
+        .then(this.$router.push({ name: 'Prestations' }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite")
