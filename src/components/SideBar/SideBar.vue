@@ -12,24 +12,28 @@
 
 <script>
 export default {
- data () {
-   return {
+  data() {
+    return {
       items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/admin"},
-        { title: 'Acceder au site', icon: 'mdi-home', link: "/" },
-        { title: 'Articles', icon: 'mdi-post', link: {name: 'Articles'} },
-        { title: 'Contacts', icon: 'mdi-contacts', link: {name: 'Contacts'} },
-        { title: 'Prestations', icon: 'mdi-briefcase', link: {name: 'Prestations'} }
+        { title: "Dashboard", icon: "mdi-view-dashboard", link: "/admin" },
+        { title: "Acceder au site", icon: "mdi-home", link: "/" },
+        { title: "Articles", icon: "mdi-post", link: { name: "Articles" } },
+        { title: "Contacts", icon: "mdi-contacts", link: { name: "Contacts" } },
+        {
+          title: "Prestations",
+          icon: "mdi-briefcase",
+          link: { name: "Prestations" }
+        }
       ]
-   }
- }
-}
+    };
+  }
+};
 </script>
 
 <style>
-  .sidebar {
-    width: 250px;
-    background-color: transparent !important;
-    box-shadow: none !important;
-  }
+.sidebar {
+  width: 250px;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 </style>

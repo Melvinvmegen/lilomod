@@ -33,20 +33,20 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { required } from 'vuelidate/lib/validators'
+import axios from "axios";
+import { required } from "vuelidate/lib/validators";
 
 export default {
-  name: 'ArticleNew',
+  name: "ArticleNew",
   data: function() {
     return {
       prestationData: {
-        name: '',
-        price: '',
-        description: ''
+        name: "",
+        price: "",
+        description: ""
       },
-      error: ''
-    }
+      error: ""
+    };
   },
   validations: {
     prestationData: {
@@ -61,33 +61,34 @@ export default {
       }
     }
   },
-  created: function () {
-    axios.get(`/api/services/${this.$route.params.id}`)
-      .then(res => {
-        this.prestationData = res.data
-      })
+  created: function() {
+    axios.get(`/api/services/${this.$route.params.id}`).then(res => {
+      this.prestationData = res.data;
+    });
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('updatePrestation', {
-        id: this.$route.params.id,
-        name: this.prestationData.name, 
-        price: this.prestationData.price,
-        description: this.prestationData.description,
-      })
-        .then(this.$router.push({ name: 'Prestations' }))
+    onSubmit() {
+      this.$store
+        .dispatch("updatePrestation", {
+          id: this.$route.params.id,
+          name: this.prestationData.name,
+          price: this.prestationData.price,
+          description: this.prestationData.description
+        })
+        .then(this.$router.push({ name: "Prestations" }))
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

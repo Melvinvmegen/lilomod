@@ -1,87 +1,89 @@
-import axios from 'axios'
+import axios from "axios";
 
 const state = {
-    contacts: []
-}
+  contacts: []
+};
 
 const getters = {
-  contacts (state) {
-    return state.contacts
+  contacts(state) {
+    return state.contacts;
   }
-}
+};
 
 const mutations = {
-  setContacts (state, contactsData) {
+  setContacts(state, contactsData) {
     contactsData.forEach(contact => {
-      state.contacts.push(contact)
-    })
+      state.contacts.push(contact);
+    });
   },
-  addContact (state, contactData) {
+  addContact(state, contactData) {
     state.contacts.unshift({
-      id: contactData.id, 
-      name: contactData.name, 
+      id: contactData.id,
+      name: contactData.name,
       firstname: contactData.firstname,
       email: contactData.email,
       phone: contactData.phone,
       query: contactData.query
-    })
+    });
   },
-  updateContact (state, contactData) {
-    const contact = state.contacts.find(item => item.id === contactData.id)
-    state.contacts.splice(state.contacts.indexOf(contact), 1, contactData)
+  updateContact(state, contactData) {
+    const contact = state.contacts.find(item => item.id === contactData.id);
+    state.contacts.splice(state.contacts.indexOf(contact), 1, contactData);
   },
-  deleteContact (state, contact) {
-    state.contacts.splice(state.contacts.indexOf(contact), 1)
+  deleteContact(state, contact) {
+    state.contacts.splice(state.contacts.indexOf(contact), 1);
   }
-}
+};
 
 const actions = {
-  getContacts ({commit}) {
-    axios.get('api/contacts')
-    .then(res =>  commit('setContacts', res.data))
-  }, 
-  addContact ({commit}, contactData) {
-    axios.post('api/contacts', {
-      name: contactData.name, 
-      firstname: contactData.firstname,
-      email: contactData.email,
-      phone: contactData.phone,
-      query: contactData.query
-    })
+  getContacts({ commit }) {
+    axios.get("api/contacts").then(res => commit("setContacts", res.data));
+  },
+  addContact({ commit }, contactData) {
+    axios
+      .post("api/contacts", {
+        name: contactData.name,
+        firstname: contactData.firstname,
+        email: contactData.email,
+        phone: contactData.phone,
+        query: contactData.query
+      })
       .then(res => {
-        commit('addContact', {
+        commit("addContact", {
           id: res.data.id,
-          name: contactData.name, 
+          name: contactData.name,
           firstname: contactData.firstname,
           email: contactData.email,
           phone: contactData.phone,
           query: contactData.query
-        })
+        });
       })
       .catch(error => {
         if (error) {
-          this.setError(error, "Une erreur s'est produite")
+          this.setError(error, "Une erreur s'est produite");
         }
-      })
-    },
-    updateContact ({commit}, contactData) {
-      axios.patch(`/api/contacts/${contactData.id}`, contactData)
-      .then(() => commit('updateContact', contactData))
+      });
+  },
+  updateContact({ commit }, contactData) {
+    axios
+      .patch(`/api/contacts/${contactData.id}`, contactData)
+      .then(() => commit("updateContact", contactData))
       .catch(error => {
         if (error) {
-          this.setError(error, "Une erreur s'est produite")
+          this.setError(error, "Une erreur s'est produite");
         }
-      })
-    },
-    deleteContact ({commit}, contact) {
-      axios.delete(`api/contacts/${contact.id}`)
-        .then(() => commit('deleteContact', contact))
-    }
+      });
+  },
+  deleteContact({ commit }, contact) {
+    axios
+      .delete(`api/contacts/${contact.id}`)
+      .then(() => commit("deleteContact", contact));
   }
+};
 
 export default {
   state,
   mutations,
   getters,
   actions
-}
+};

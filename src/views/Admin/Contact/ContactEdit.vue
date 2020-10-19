@@ -45,22 +45,22 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { email, required } from 'vuelidate/lib/validators'
+import axios from "axios";
+import { email, required } from "vuelidate/lib/validators";
 
 export default {
-  name: 'ArticleNew',
+  name: "ArticleNew",
   data: function() {
     return {
       contactData: {
-        name: '',
-        firstname: '',
-        email: '',
-        phone: '',
-        question: '',
+        name: "",
+        firstname: "",
+        email: "",
+        phone: "",
+        question: ""
       },
-      error: ''
-    }
+      error: ""
+    };
   },
   validations: {
     contactData: {
@@ -82,35 +82,36 @@ export default {
       }
     }
   },
-  created: function () {
-    axios.get(`/api/contacts/${this.$route.params.id}`)
-      .then(res => {
-        this.contactData = res.data
-      })
+  created: function() {
+    axios.get(`/api/contacts/${this.$route.params.id}`).then(res => {
+      this.contactData = res.data;
+    });
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('updateContact', {
-        id: this.$route.params.id,
-        name: this.contactData.name, 
-        firstname: this.contactData.firstname,
-        email: this.contactData.email,
-        phone: this.contactData.phone,
-        query: this.contactData.query
-      })
+    onSubmit() {
+      this.$store
+        .dispatch("updateContact", {
+          id: this.$route.params.id,
+          name: this.contactData.name,
+          firstname: this.contactData.firstname,
+          email: this.contactData.email,
+          phone: this.contactData.phone,
+          query: this.contactData.query
+        })
         .then(this.$router.push("/contacts"))
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

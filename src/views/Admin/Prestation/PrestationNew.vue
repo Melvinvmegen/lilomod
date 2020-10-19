@@ -33,19 +33,19 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required } from "vuelidate/lib/validators";
 
 export default {
-  name: 'ArticleNew',
+  name: "ArticleNew",
   data: function() {
     return {
       prestationData: {
-        name: '',
-        price: '',
-        description: ''
+        name: "",
+        price: "",
+        description: ""
       },
-      error: ''
-    }
+      error: ""
+    };
   },
   validations: {
     prestationData: {
@@ -61,25 +61,27 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('addPrestation', {
-        name: this.prestationData.name, 
-        price: this.prestationData.price,
-        description: this.prestationData.description
-      })
-        .then(this.$router.push({ name: 'Prestations' }))
+    onSubmit() {
+      this.$store
+        .dispatch("addPrestation", {
+          name: this.prestationData.name,
+          price: this.prestationData.price,
+          description: this.prestationData.description
+        })
+        .then(this.$router.push({ name: "Prestations" }))
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>
