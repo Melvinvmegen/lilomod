@@ -41,26 +41,26 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required } from "vuelidate/lib/validators";
 import { VueEditor } from "vue2-editor";
 
 export default {
-  name: 'ArticleNew',
+  name: "ArticleNew",
   components: {
     VueEditor
   },
   data: function() {
     return {
       articleData: {
-        title: '',
-        teaser: '',
-        description: '',
+        title: "",
+        teaser: "",
+        description: "",
         image: null,
         published: false,
         featured: false
       },
-      error: ''
-    }
+      error: ""
+    };
   },
   validations: {
     articleData: {
@@ -79,31 +79,33 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('addArticle', {
-        title: this.articleData.title, 
-        teaser: this.articleData.teaser,
-        description: this.articleData.description,
-        published: this.articleData.published,
-        featured: this.articleData.featured,
-        image: this.articleData.image
-      })
-        .then(this.$router.push({ name: 'Articles' }))
+    onSubmit() {
+      this.$store
+        .dispatch("addArticle", {
+          title: this.articleData.title,
+          teaser: this.articleData.teaser,
+          description: this.articleData.description,
+          published: this.articleData.published,
+          featured: this.articleData.featured,
+          image: this.articleData.image
+        })
+        .then(this.$router.push({ name: "Articles" }))
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
     uploadImage(event) {
-      this.articleData.image = event
+      this.articleData.image = event;
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

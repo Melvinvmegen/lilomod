@@ -44,22 +44,22 @@
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
+import { required, email } from "vuelidate/lib/validators";
 
 export default {
-  name: 'ArticleEdit',
+  name: "ArticleEdit",
   data: function() {
     return {
       contactData: {
-        name: '',
-        firstname: '',
-        email: '',
-        phone: '',
-        query: ''
+        name: "",
+        firstname: "",
+        email: "",
+        phone: "",
+        query: ""
       },
-      error: '',
+      error: "",
       success: null
-    }
+    };
   },
   validations: {
     contactData: {
@@ -82,55 +82,59 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('addContact', {
-        name: this.contactData.name, 
-        firstname: this.contactData.firstname,
-        email: this.contactData.email,
-        phone: this.contactData.phone,
-        query: this.contactData.query
-      })
+    onSubmit() {
+      this.$store
+        .dispatch("addContact", {
+          name: this.contactData.name,
+          firstname: this.contactData.firstname,
+          email: this.contactData.email,
+          phone: this.contactData.phone,
+          query: this.contactData.query
+        })
         .then(() => {
-          var self = this
-          Object.keys(this.contactData).forEach(function (key) {
-            self.contactData[key] = ''
-          })
-          this.success = "Votre prise de contact a bien été envoyée"
+          var self = this;
+          Object.keys(this.contactData).forEach(function(key) {
+            self.contactData[key] = "";
+          });
+          this.success = "Votre prise de contact a bien été envoyée";
         })
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
 <style>
+.contact-container {
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 24px 32px,
+    rgba(0, 0, 0, 0.06) 0px 8px 32px;
+  padding: 62px;
+  margin: -5vh 30px -5vh;
+  position: absolute;
+  width: 70%;
+  left: -3vh;
+}
+
+@media only screen and (max-width: 960px) {
   .contact-container {
-    box-shadow: rgba(0, 0, 0, 0.03) 0px 24px 32px, rgba(0, 0, 0, 0.06) 0px 8px 32px;
-    padding: 62px;
-    margin: -5vh 30px -5vh;
-    position: absolute;
-    width: 70%;
-    left: -3vh;
+    left: 0 !important;
+    right: 0;
+    margin: auto;
   }
+}
 
-  @media only screen and (max-width: 960px) {
-    .contact-container {
-      left: 0 !important;
-      right: 0;
-      margin: auto;
-    }
+@media only screen and (max-width: 960px) {
+  .contact-container {
+    padding: 25px !important;
   }
-
-  @media only screen and (max-width: 960px) {
-    .contact-container {
-      padding: 25px !important;
-    }
-  }
+}
 </style>

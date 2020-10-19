@@ -53,74 +53,77 @@
 </template>
 
 <script>
-import pagination from '../../../components/Pagination/Pagination'
+import pagination from "../../../components/Pagination/Pagination";
 
 export default {
   name: "Articles",
   components: {
     pagination
   },
-  data () {
+  data() {
     return {
       currentPage: 1,
       perPage: 10
-    }
+    };
   },
   computed: {
-    articles () {
+    articles() {
       if (this.currentPage > 1) {
-        return this.$store.state.articles.articles.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+        return this.$store.state.articles.articles.slice(
+          this.perPage * (this.currentPage - 1),
+          this.perPage * this.currentPage
+        );
       }
-      return this.$store.state.articles.articles.slice(0, this.perPage)
+      return this.$store.state.articles.articles.slice(0, this.perPage);
     },
-    articlesLength () {
-      return this.$store.state.articles.articles.length
+    articlesLength() {
+      return this.$store.state.articles.articles.length;
     },
-    pages () {
-      return Math.ceil(this.$store.state.articles.articles.length / 10)
+    pages() {
+      return Math.ceil(this.$store.state.articles.articles.length / 10);
     }
   },
-  created: function () {
+  created: function() {
     if (this.$store.state.articles.articles.length > 0) {
-      return
+      return;
     }
-    this.$store.dispatch('getArticles')
+    this.$store.dispatch("getArticles");
   },
   methods: {
-    deleteArticle (article) {
-      const result = confirm(`Vous êtes sur de vouloir supprimer l'article ${article.title}`)
+    deleteArticle(article) {
+      const result = confirm(
+        `Vous êtes sur de vouloir supprimer l'article ${article.title}`
+      );
       if (result) {
-        this.$store.dispatch('deleteArticle', article)
+        this.$store.dispatch("deleteArticle", article);
       }
     },
-    nextPage (page) {
-      this.currentPage = page
-      this.$router.replace({ query: { page: page } })
+    nextPage(page) {
+      this.currentPage = page;
+      this.$router.replace({ query: { page: page } });
     },
-    updateFeatured (article) {
-      this.$store.dispatch('updateArticle', {
+    updateFeatured(article) {
+      this.$store.dispatch("updateArticle", {
         id: article.id,
-        title: article.title, 
+        title: article.title,
         teaser: article.teaser,
         description: article.description,
         published: article.published,
         featured: !article.featured
-      })
+      });
     },
-    updatePublished (article) {
-      this.$store.dispatch('updateArticle', {
+    updatePublished(article) {
+      this.$store.dispatch("updateArticle", {
         id: article.id,
-        title: article.title, 
+        title: article.title,
         teaser: article.teaser,
         description: article.description,
         published: !article.published,
         featured: article.featured
-      })
+      });
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

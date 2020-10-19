@@ -6,9 +6,8 @@
 </template>
 
 <script>
-
-import CTA from '../../CTA/CTA'
-import TextHeader from '../../TextHeader/TextHeader'
+import CTA from "../../CTA/CTA";
+import TextHeader from "../../TextHeader/TextHeader";
 
 export default {
   components: {
@@ -21,29 +20,29 @@ export default {
     link: String,
     contact: Boolean
   }
-}
+};
 </script>
 
 <style>
-  .header {
-    position: relative;
-    text-align: justify;
-    display: flex;
-    width: 100%;
-    margin: auto;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
+.header {
+  position: relative;
+  text-align: justify;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
 
-  .cta-wrapper-home {
-    height: 80%;
-  }
+.cta-wrapper-home {
+  height: 80%;
+}
 
-  .home-text {
-    margin: 50px 0;
-    line-height: 2;
-    font-size: 16px;
-  }
+.home-text {
+  margin: 50px 0;
+  line-height: 2;
+  font-size: 16px;
+}
 </style>

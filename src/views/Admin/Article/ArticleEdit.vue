@@ -34,26 +34,26 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { required } from 'vuelidate/lib/validators'
+import axios from "axios";
+import { required } from "vuelidate/lib/validators";
 import { VueEditor } from "vue2-editor";
 
 export default {
-  name: 'ArticleEdit',
+  name: "ArticleEdit",
   components: {
     VueEditor
   },
   data: function() {
     return {
       articleData: {
-        title: '',
-        teaser: '',
-        description: '',
+        title: "",
+        teaser: "",
+        description: "",
         published: false,
         featured: false
       },
-      error: ''
-    }
+      error: ""
+    };
   },
   validations: {
     articleData: {
@@ -68,35 +68,36 @@ export default {
       }
     }
   },
-  created: function () {
-    axios.get(`/api/posts/${this.$route.params.id}`)
-      .then(res => {
-        this.articleData = res.data
-      })
+  created: function() {
+    axios.get(`/api/posts/${this.$route.params.id}`).then(res => {
+      this.articleData = res.data;
+    });
   },
   methods: {
-    onSubmit () {
-      this.$store.dispatch('updateArticle', {
-        id: this.$route.params.id,
-        title: this.articleData.title, 
-        teaser: this.articleData.teaser,
-        description: this.articleData.description,
-        published: this.articleData.published,
-        featured: this.articleData.featured
-      })
-        .then(this.$router.push({ path: 'articles' }))
+    onSubmit() {
+      this.$store
+        .dispatch("updateArticle", {
+          id: this.$route.params.id,
+          title: this.articleData.title,
+          teaser: this.articleData.teaser,
+          description: this.articleData.description,
+          published: this.articleData.published,
+          featured: this.articleData.featured
+        })
+        .then(this.$router.push({ path: "articles" }))
         .catch(error => {
           if (error) {
-            this.setError(error, "Une erreur s'est produite")
+            this.setError(error, "Une erreur s'est produite");
           }
-        })
+        });
     },
-    setError (error, text) {
-      this.error = (error.response && error.response.data && error.response.data.error) || text
+    setError(error, text) {
+      this.error =
+        (error.response && error.response.data && error.response.data.error) ||
+        text;
     }
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

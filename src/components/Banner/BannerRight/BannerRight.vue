@@ -5,31 +5,31 @@
 </template>
 
 <script>
-import ContactForm from '../../ContactForm/ContactForm'
+import ContactForm from "../../ContactForm/ContactForm";
 
 export default {
   props: {
     image: String,
     contact: Boolean
   },
-  components:{
+  components: {
     ContactForm
   }
-}
+};
 </script>
 
 <style>
-  .header-right {
-    width: 80%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    position: relative;
-  }
-  .sm {
-    padding: 50px 0 !important;
-  }
+.header-right {
+  width: 80%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+.sm {
+  padding: 50px 0 !important;
+}
 </style>

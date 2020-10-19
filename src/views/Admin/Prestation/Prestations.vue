@@ -45,54 +45,57 @@
 </template>
 
 <script>
-import pagination from '../../../components/Pagination/Pagination'
+import pagination from "../../../components/Pagination/Pagination";
 
 export default {
   name: "Prestations",
   components: {
     pagination
   },
-  data () {
+  data() {
     return {
       currentPage: 1,
       perPage: 10
-    }
+    };
   },
   computed: {
-    prestations () {
+    prestations() {
       if (this.currentPage > 1) {
-        return this.$store.state.prestations.prestations.slice(this.perPage * (this.currentPage - 1), this.perPage * this.currentPage)
+        return this.$store.state.prestations.prestations.slice(
+          this.perPage * (this.currentPage - 1),
+          this.perPage * this.currentPage
+        );
       }
-      return this.$store.state.prestations.prestations.slice(0, this.perPage)
+      return this.$store.state.prestations.prestations.slice(0, this.perPage);
     },
-    prestationsLength () {
-      return this.$store.state.prestations.prestations.length
+    prestationsLength() {
+      return this.$store.state.prestations.prestations.length;
     },
-    pages () {
-      return Math.ceil(this.$store.state.prestations.prestations.length / 10)
+    pages() {
+      return Math.ceil(this.$store.state.prestations.prestations.length / 10);
     }
   },
-  created: function () {
+  created: function() {
     if (this.$store.state.prestations.prestations.length > 0) {
-      return
+      return;
     }
-    this.$store.dispatch('getPrestations')
+    this.$store.dispatch("getPrestations");
   },
   methods: {
-    deletePrestation (prestation) {
-      const result = confirm(`Vous êtes sur de vouloir supprimer la prestation ${prestation.name}`)
+    deletePrestation(prestation) {
+      const result = confirm(
+        `Vous êtes sur de vouloir supprimer la prestation ${prestation.name}`
+      );
       if (result) {
-        this.$store.dispatch('deletePrestation', prestation)
+        this.$store.dispatch("deletePrestation", prestation);
       }
     },
-    nextPage (page) {
-      this.currentPage = page
-      this.$router.replace({ query: { page: page } })
+    nextPage(page) {
+      this.currentPage = page;
+      this.$router.replace({ query: { page: page } });
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

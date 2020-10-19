@@ -1,73 +1,73 @@
-import axios from 'axios'
-import router from '../../router/index'
+import axios from "axios";
+import router from "../../router/index";
 
 const state = {
-    token: null,
-    user: null
-}
+  token: null,
+  user: null
+};
 
 const getters = {
-  user (state) {
-    return state.user
+  user(state) {
+    return state.user;
   },
-  isAuthenticated (state) {
-    return state.token !== null
+  isAuthenticated(state) {
+    return state.token !== null;
   }
-}
+};
 
 const mutations = {
-  authToken (state, userData) {
-    state.token = userData.token
+  authToken(state, userData) {
+    state.token = userData.token;
   },
-  storeUser (state, user) {
-    state.user = user
+  storeUser(state, user) {
+    state.user = user;
   },
-  clearAuthData (state) {
-    state.token = null
+  clearAuthData(state) {
+    state.token = null;
   }
-}
+};
 
 const actions = {
-  login ({commit, dispatch}, authData) {
-    axios.post('api/users/sign_in', {
-      user: {
-        email: authData.email,
-        password: authData.password
-      }
-    })
+  login({ commit, dispatch }, authData) {
+    axios
+      .post("api/users/sign_in", {
+        user: {
+          email: authData.email,
+          password: authData.password
+        }
+      })
       .then(res => {
-        commit('authToken', {
+        commit("authToken", {
           token: res.data.token
-        })
-        dispatch('fetchUser')
-        router.push('/dashboard')
+        });
+        dispatch("fetchUser");
+        router.push("/dashboard");
       })
-      .catch(error => error)
+      .catch(error => error);
   },
-  fetchUser ({commit}) {
-    axios.get('api/users/current')
-      .then(res => {
-        commit('storeUser', res.data.user)
-      })
+  fetchUser({ commit }) {
+    axios.get("api/users/current").then(res => {
+      commit("storeUser", res.data.user);
+    });
   },
-  tryAutoLogin ({commit}) {
-    const token = localStorage.getItem('token')
+  tryAutoLogin({ commit }) {
+    const token = localStorage.getItem("token");
     if (!token) {
-      return
+      return;
     }
-    commit('authToken', {
+    commit("authToken", {
       token: token
-    })
+    });
   },
-  logout ({commit}) {
-    commit('clearAuthData')
-    localStorage.removeItem('token')
+  logout({ commit }) {
+    commit("clearAuthData");
+    localStorage.removeItem("token");
   }
-}
+};
 
 export default {
   state,
   mutations,
   actions,
   getters
-}
+};

@@ -111,38 +111,37 @@
 </template>
 
 <script>
-import axios from 'axios'
-import SideBar from '../../components/SideBar/SideBar'
+import axios from "axios";
+import SideBar from "../../components/SideBar/SideBar";
 
 export default {
   components: {
     SideBar
   },
-  data () {
+  data() {
     return {
-      last_post: {description: ""},
+      last_post: { description: "" },
       featured_articles: [],
       last_contacts: []
-    }
+    };
   },
   created: function() {
-    axios.get('api/dashboard')
-    .then(res => {
-      this.last_post = res.data.last_post
+    axios.get("api/dashboard").then(res => {
+      this.last_post = res.data.last_post;
       res.data.featured_posts.forEach(article => {
-        this.featured_articles.push(article)
-      })
+        this.featured_articles.push(article);
+      });
       res.data.last_contacts.forEach(contact => {
-        this.last_contacts.push(contact)
-      })
-    })
+        this.last_contacts.push(contact);
+      });
+    });
   }
-}
+};
 </script>
 
 <style scoped>
-  .d-flex {
-    width: 100%;
-    height: 100%;
-  }
+.d-flex {
+  width: 100%;
+  height: 100%;
+}
 </style>
