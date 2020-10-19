@@ -1,27 +1,45 @@
 <template lang="pug">
-  .div-marged
-    h2.title-bold {{blabla.title}}
-    h3.featured-item-subheader.italic.text-center {{blabla.subtitle}}
+  v-container(:class="{'align-center': $vuetify.breakpoint.smAndDown}")
+    h1.text-left.color-purple(:class="{'text-center' : side}") {{ blabla.title }}
+    br
+    h3(:class="{'text-center' : side}") {{ blabla.teaser }}
+    p.subtitle-1(:class="{'text-justify' : side}") {{ blabla.text }}
+    slot
 </template>
 
 <script>
 export default {
   props: {
-    blabla: Object
+    blabla: Object,
+    side: Boolean
   }
 }
 </script>
 
-<style>
-  .div-marged {
-    margin: 30px;
+<style scoped>
+  h1:after {
+    content: "";
+    display: block;
+    margin-top: 1rem;
+    height: 10px;
+    width: 65px;
+    border-bottom: .1rem solid #d8d8d8;
   }
 
-  .featured-item-subheader {
-    color: #254A5D;
-    font-size: 18px;
-    text-decoration: none;
-    line-height: 2.5;
-    text-align: center;
+  h1.text-center:after {
+    content: "";
+    display: block;
+    margin: 2rem auto 1rem;
+    height: 10px;
+    width: 65px;
+    border-bottom: .1rem solid #d8d8d8;
+  }
+
+  .color-purple {
+    background: linear-gradient(90deg,#ab6bff,#9ad5f9 15%,#575df0 35%,#ab6bff 50%,#9ad5f9 65%,#575df0 85%,#ab6bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 </style>

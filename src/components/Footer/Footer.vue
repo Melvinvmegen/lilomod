@@ -3,12 +3,13 @@
     v-footer(dark='' padless='' absolute)
       v-card.indigo.lighten-1.white--text.flex(flat='' tile='')
         v-card-title.indigo.lighten-1.white--text
-          v-container.d-flex
-            strong.subheading Vous pouvez également me contacter sur les réseaux sociaux !
+          v-container.d-flex.flex-row(:class="{'flex-column': $vuetify.breakpoint.smAndDown, 'align-center': $vuetify.breakpoint.smAndDown}")
+            strong.subheading Retrouvez moi sur les réseaux sociaux !
             v-spacer
-            v-btn.mx-4.white--text(v-for='link in socialLinks' :key='link.id' icon='' :to='link.link')
-              v-icon(size='24px')
-                | {{ link.icon }}
+            .icons
+              v-btn.white--text(v-for='link in socialLinks' :key='link.id' icon='' :to='link.link')
+                v-icon(size='24px')
+                  | {{ link.icon }}
         v-divider
         v-card-text.white--text.text-center
           | {{ new Date().getFullYear() }} &mdash; 
