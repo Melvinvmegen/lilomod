@@ -50,15 +50,13 @@ const routes = [
     name: "Login",
     beforeEnter: (to, from, next) => {
       if (window.localStorage.token) {
-        next('/admin')
+        next("/admin");
       } else {
-        next()
+        next();
       }
     },
     component: () =>
-      import(
-        /* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"
-      )
+      import(/* webpackChunkName: "login" */ "../views/Admin/User/Login.vue")
   },
   // Admin
   {
@@ -66,9 +64,9 @@ const routes = [
     name: "Admin",
     beforeEnter: (to, from, next) => {
       if (window.localStorage.token) {
-        next()
+        next();
       } else {
-        next('/login')
+        next("/login");
       }
     },
     component: () =>

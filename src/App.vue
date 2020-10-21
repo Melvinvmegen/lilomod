@@ -68,7 +68,7 @@ body {
 
 body {
   min-height: 100%;
-  color: #1D1148
+  color: #1d1148;
 }
 
 .v-application a {
