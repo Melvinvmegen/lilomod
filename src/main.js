@@ -10,7 +10,7 @@ import Vuelidate from "vuelidate";
 
 Vue.use(Vuelidate);
 Vue.use(VueAxios);
-axios.defaults.baseURL = process.env.VUE_APP_API_URL || "https://lilomod.herokuapp.com/";
+axios.defaults.baseURL = process.env.VUE_APP_API_URL ||"https://lilomod.herokuapp.com/";
 axios.defaults.headers.get["Accepts"] = "application/json";
 
 Vue.config.productionTip = false;
