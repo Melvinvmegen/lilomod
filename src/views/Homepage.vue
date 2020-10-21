@@ -1,7 +1,7 @@
 <template lang="pug">
   .full 
     .d-flex
-      Banner(:blabla='blabla', :image="image" :ctaText="ctaText")
+      Banner(:blabla='blabla', :image="image" :ctaText="ctaText" :link="link")
     SectionAbout
     SectionService
     SectionBlog
@@ -29,7 +29,8 @@ export default {
         text:
           "Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié). Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié)."
       },
-      ctaText: "Découvrez en plus",
+      ctaText: "Découvrez l'espace Blog",
+      link: "/blog",
       image:
         "https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80"
     };

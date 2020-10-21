@@ -44,21 +44,36 @@ const routes = [
       }
     ]
   },
+  { path: "*", redirect: "/" },
+  {
+    path: "/login",
+    name: "Login",
+    beforeEnter: (to, from, next) => {
+      if (window.localStorage.token) {
+        next('/admin')
+      } else {
+        next()
+      }
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"
+      )
+  },
   // Admin
   {
     path: "/admin",
     name: "Admin",
+    beforeEnter: (to, from, next) => {
+      if (window.localStorage.token) {
+        next()
+      } else {
+        next('/login')
+      }
+    },
     component: () =>
       import(/* webpackChunkName: "admin" */ "../views/Admin/Admin.vue"),
     children: [
-      {
-        path: "/login",
-        name: "Login",
-        component: () =>
-          import(
-            /* webpackChunkName: "login" */ "../views/Admin/User/Login.vue"
-          )
-      },
       {
         path: "articles",
         name: "Articles",

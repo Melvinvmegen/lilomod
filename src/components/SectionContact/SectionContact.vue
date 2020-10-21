@@ -2,7 +2,7 @@
   .section#section-contact
     a.section-anchor(id='Section-Tarifs')
     .section-main
-      .section-wrapper(:class="{'flex-column' : upside, 'flex-column': $vuetify.breakpoint.smAndDown}")
+      .section-wrapper(:class="{'flex-column': $vuetify.breakpoint.smAndDown}")
         .header-right.sm.col-md-5.col-12
           .d-flex.justify-center
             v-img(:src="image" :max-width="maxWidth")

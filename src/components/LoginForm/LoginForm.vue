@@ -1,12 +1,22 @@
 <template lang="pug">
   form(ref="form")
     span.error-message(v-if="error") {{ error }}
-    .form-group(:class="{invalid: $v.userData.email.$error}")
-      input(type="text" id="email" placeholder="Email" class="form-control" v-model.lazy="userData.email" @blur="$v.userData.email.$touch()")
-    .form-group(:class="{invalid: $v.userData.password.$error}")
-      input(type="password" id="password" placeholder="Mot de passe" class="form-control" v-model.lazy="userData.password" @blur="$v.userData.password.$touch()")
-    .form-button
-      button.button-form(type="submit" :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button") Se connecter
+    v-text-field#email.form-control(
+      label="Email",
+      type="text",
+      v-model.lazy="userData.email",
+      @blur="$v.userData.email.$touch()"
+    )
+    v-text-field#password.form-control( 
+      label="Mot de passe",
+      type="text",
+      v-model.lazy="userData.password",
+      @blur="$v.userData.password.$touch()"
+    )
+    .d-flex
+      .form-button.my-2.mr-2
+        v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")
+          | Se connecter
 </template>
 
 <script>

@@ -7,6 +7,7 @@
     .main-header-center.col-lg-6(v-if="this.$vuetify.breakpoint.mdAndUp") 
       v-list-item.nav-item(v-for="item in navItems" dark exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
         | {{ item.title }}
+      v-list-item.nav-item(v-if="auth && !$route.path.includes('admin')" to='/admin' dark) ADMIN
     .main-header-center(v-else)
       v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
     .d-flex(v-if="$route.path.includes('admin')")
@@ -14,6 +15,7 @@
         span.mr-2 Se connecter
       v-btn(href='' text='' v-if="auth" @click="onLogout" dark)
         span.mr-2 Se deconnecter
+
     v-navigation-drawer(v-model='drawer' absolute='' temporary='' fixed right)
       v-icon.float-right(@click.stop="drawer = false") mdi-close
       br
@@ -113,11 +115,11 @@ aside .v-navigation-drawer__content {
 }
 
 .nav-item:hover {
-  background-color: #6876C5;
+  background-color: #6876c5;
 }
 
 .nav-item .router-link-active {
-  background: #6876C5;
+  background: #6876c5;
 }
 
 .router-link-active :after {

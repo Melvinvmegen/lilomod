@@ -68,6 +68,7 @@ body {
 
 body {
   min-height: 100%;
+  color: #1D1148
 }
 
 .v-application a {
@@ -80,7 +81,7 @@ body {
 }
 
 .v-application a {
-  color: white !important;
+  color: white;
 }
 
 @media only screen and (max-width: 330px) {

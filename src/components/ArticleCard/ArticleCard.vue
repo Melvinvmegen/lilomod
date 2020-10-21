@@ -3,11 +3,9 @@
     template(slot='progress')
       v-progress-linear(color='deep-purple' height='10' indeterminate='')
     v-img(height='250' :src='"http://localhost:3000/" + article.image')
-    v-card-title
-      | {{ article.title }}
-    v-card-subtitle
-      | {{ article.teaser }}
-      div(v-html="article.description")
+    v-card-title {{ article.title }}
+    v-card-subtitle {{ article.teaser }}
+    v-card-text {{ articleDescription }}
     v-card-subtitle
       span Publié le {{ articleCreatedAt }}
     v-divider.mx-4
@@ -42,6 +40,10 @@ export default {
         return "1 minute";
       }
       return lectureTime + "minutes";
+    },
+    articleDescription() {
+      const description = this.article.description.replace(/(<([^>]+)>)/gi, "")
+      return description.length > 50 ? description.substring(0, 60) + "..." : description
     }
   }
 };
@@ -50,6 +52,10 @@ export default {
 <style>
 .article-card {
   border-radius: 16px !important;
+}
+
+.article-time {
+  color: black;
 }
 
 @media only screen and (max-width: 400px) {

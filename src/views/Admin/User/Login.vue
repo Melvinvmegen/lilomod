@@ -1,6 +1,6 @@
 <template lang="pug">
   .login-back
-    TextHeader(:blabla="blabla")
+    TextHeader(:blabla="blabla" :side="true")
     LoginForm
 </template>
 

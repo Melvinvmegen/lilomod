@@ -1,8 +1,8 @@
 <template lang="pug">
   .d-flex
-    SideBar
+    SideBar(v-if="!this.$route.path.includes('login')")
     v-container
-      #admin
+      .admin
         #dashboard(v-if="$route.name === 'Admin'")
           h1 Bienvenu sur le dashboard Lilomod
           h3.subtitle-1 Vous trouverez ci-dessous un résumé des dernieres activités.
@@ -140,8 +140,12 @@ export default {
 </script>
 
 <style scoped>
-.d-flex {
-  width: 100%;
-  height: 100%;
-}
+  .d-flex {
+    width: 100%;
+    height: 100%;
+  }
+
+  .admin {
+    height: 100%;
+  }
 </style>

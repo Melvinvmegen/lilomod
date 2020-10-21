@@ -29,7 +29,7 @@ const mutations = {
 
 const actions = {
   login({ commit, dispatch }, authData) {
-    axios
+    return axios
       .post("api/users/sign_in", {
         user: {
           email: authData.email,
@@ -41,7 +41,7 @@ const actions = {
           token: res.data.token
         });
         dispatch("fetchUser");
-        router.push("/dashboard");
+        router.push("/admin");
       })
       .catch(error => error);
   },
@@ -62,6 +62,7 @@ const actions = {
   logout({ commit }) {
     commit("clearAuthData");
     localStorage.removeItem("token");
+    router.push("/");
   }
 };
 
