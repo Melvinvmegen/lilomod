@@ -3,7 +3,7 @@
     h1.text-center {{ article.title }}
     br
     .d-flex.justify-center
-      v-img(:lazy-src="'http://localhost:3000/' + article.image" :src="'http://localhost:3000/' + article.image" max-height="500")
+      v-img(:lazy-src="process.env.VUE_APP_API_URL + article.image" :src="process.env.VUE_APP_API_URL + article.image" max-height="500")
     br
     h3.font-italic.h4.text-center {{ article.teaser }}
     br
