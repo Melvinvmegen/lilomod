@@ -25,9 +25,9 @@ export default {
 </script>
 
 <style>
-  .icons {
-    display: flex;
-    justify-content: space-around;
-    width: 40%;
-  }
+.icons {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
 </style>

@@ -42,8 +42,10 @@ export default {
       return lectureTime + "minutes";
     },
     articleDescription() {
-      const description = this.article.description.replace(/(<([^>]+)>)/gi, "")
-      return description.length > 50 ? description.substring(0, 60) + "..." : description
+      const description = this.article.description.replace(/(<([^>]+)>)/gi, "");
+      return description.length > 50
+        ? description.substring(0, 60) + "..."
+        : description;
     }
   }
 };
