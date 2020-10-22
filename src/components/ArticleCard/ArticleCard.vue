@@ -35,12 +35,11 @@ export default {
       });
     },
     lectureTime() {
-      const lectureTime =
-        this.article.description.replace(/(<([^>]+)>)/gi, "").length / 500;
+      const lectureTime = this.article.description.replace(/(<([^>]+)>)/gi, "").length / 500;
       if (lectureTime < 1) {
         return "1 minute";
       }
-      return lectureTime + "minutes";
+      return Math.round(lectureTime) + "minutes";
     },
     articleDescription() {
       const description = this.article.description.replace(/(<([^>]+)>)/gi, "");

@@ -47,7 +47,7 @@ export default {
       if (lectureTime < 1) {
         return "1 minute de lecture";
       }
-      return lectureTime + "minutes de lecture";
+      return Math.round(lectureTime) + "minutes de lecture";
     }
   },
   async created() {
