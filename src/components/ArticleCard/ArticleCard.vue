@@ -39,7 +39,7 @@ export default {
       if (lectureTime < 1) {
         return "1 minute";
       }
-      return Math.round(lectureTime) + "minutes";
+      return Math.round(lectureTime) + " minutes";
     },
     articleDescription() {
       const description = this.article.description.replace(/(<([^>]+)>)/gi, "");
