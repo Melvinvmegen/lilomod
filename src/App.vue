@@ -41,10 +41,21 @@ export default {
         }
       ],
       socialLinks: [
-        { id: 1, icon: "mdi-facebook", link: "" },
-        { id: 2, icon: "mdi-twitter", link: "" },
-        { id: 3, icon: "mdi-instagram", link: "" },
-        { id: 4, icon: "mdi-linkedin", link: "" }
+        {
+          id: 1,
+          icon: "mdi-facebook",
+          link: "https://www.facebook.com/lilomod-le-blog--114864721893481/"
+        },
+        {
+          id: 2,
+          icon: "mdi-pinterest",
+          link: "https://www.pinterest.fr/pin/852165560716401451/"
+        },
+        {
+          id: 3,
+          icon: "mdi-instagram",
+          link: "https://www.instagram.com/lilomod/"
+        }
       ]
     };
   },
