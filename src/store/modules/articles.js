@@ -75,9 +75,24 @@ const actions = {
       });
   },
   updateArticle({ commit }, articleData) {
+    const formData = new FormData();
+    Object.keys(articleData).forEach(article => {
+      formData.append(article, articleData[article]);
+    });
     axios
-      .patch(`/api/posts/${articleData.id}`, articleData)
-      .then(() => commit("updateArticle", articleData))
+      .patch(`/api/posts/${articleData.id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      })
+      .then(res => {
+        commit("updateArticle", {
+          id: res.data.id,
+          title: articleData.title,
+          teaser: articleData.teaser,
+          description: articleData.description,
+          published: articleData.published,
+          featured: articleData.featured
+        });
+      })
       .catch(error => {
         if (error) {
           this.setError(error, "Une erreur s'est produite");
