@@ -94,7 +94,7 @@ export default {
           featured: this.articleData.featured,
           image: this.articleData.image
         })
-        .then(this.$router.push({ path: "articles" }))
+        .then(this.$router.push({ name: "Articles" }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite");
