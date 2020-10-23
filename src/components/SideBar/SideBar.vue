@@ -18,6 +18,7 @@ export default {
         { title: "Dashboard", icon: "mdi-view-dashboard", link: "/admin" },
         { title: "Acceder au site", icon: "mdi-home", link: "/" },
         { title: "Articles", icon: "mdi-post", link: { name: "Articles" } },
+        { title: "Acceder au blog", icon: "mdi-blogger", link: { name: "Blog" } },
         { title: "Contacts", icon: "mdi-contacts", link: { name: "Contacts" } },
         {
           title: "Prestations",
