@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container#articleShow(v-if="dataReady")
+  v-container#articleShow(v-show="dataReady" ref="articleShow")
     h1.text-center {{ article.title }}
     br
     .d-flex.justify-center
@@ -55,6 +55,10 @@ export default {
       this.article = res.data;
       this.dataReady = true;
     });
+  },
+  mounted(){
+    const articleShowPos = this.$refs.articleShow
+    articleShowPos.scrollIntoView()
   }
 };
 </script>
