@@ -7,11 +7,11 @@
     br
     h3.font-italic.h4.text-center {{ article.teaser }}
     br
-    span.font-italic Publié le {{ articleCreatedAt }}
-    br
-    .time
-      v-icon mdi-clock-outline
-      |  {{ lectureTime }}
+    .d-flex.justify-space-between
+      span.font-italic Publié le {{ articleCreatedAt }}
+      .time
+        v-icon mdi-clock-outline
+        |  {{ lectureTime }}
     br
     .post-container
       span(v-html="article.description")
@@ -47,7 +47,7 @@ export default {
       if (lectureTime < 1) {
         return "1 minute de lecture";
       }
-      return Math.round(lectureTime) + "minutes de lecture";
+      return Math.round(lectureTime) + " minutes de lecture";
     }
   },
   async created() {
