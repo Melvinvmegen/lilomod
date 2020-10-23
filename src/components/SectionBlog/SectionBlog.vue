@@ -39,7 +39,6 @@ export default {
     }
   },
   created: function() {
-    console.log(this.$store.state.articles.featuredArticles);
     if (this.$store.state.articles.featuredArticles.length > 0) {
       return;
     }

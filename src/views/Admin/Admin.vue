@@ -140,12 +140,12 @@ export default {
 </script>
 
 <style scoped>
-  .d-flex {
-    width: 100%;
-    height: 100%;
-  }
+.d-flex {
+  width: 100%;
+  height: 100%;
+}
 
-  .admin {
-    height: 100%;
-  }
+.admin {
+  height: 100%;
+}
 </style>

@@ -7,9 +7,10 @@
             strong.subheading Retrouvez moi sur les réseaux sociaux !
             v-spacer
             .icons
-              v-btn.white--text(v-for='link in socialLinks' :key='link.id' icon='' :to='link.link')
-                v-icon(size='24px')
-                  | {{ link.icon }}
+              v-btn.white--text(v-for='link in socialLinks' :key='link.id' icon='')
+                a(:href="link.link")
+                  v-icon(size='24px')
+                    | {{ link.icon }}
         v-divider
         v-card-text.white--text.text-center
           | {{ new Date().getFullYear() }} &mdash; 
@@ -25,9 +26,9 @@ export default {
 </script>
 
 <style>
-  .icons {
-    display: flex;
-    justify-content: space-around;
-    width: 40%;
-  }
+.icons {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
 </style>
