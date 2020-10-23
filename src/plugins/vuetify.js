@@ -7,10 +7,10 @@ const vuetify = new Vuetify({
   theme: {
     themes: {
       light: {
-        anchor: 'white',
-      },
-    },
-  },
-})
+        anchor: "white"
+      }
+    }
+  }
+});
 
 export default vuetify;
