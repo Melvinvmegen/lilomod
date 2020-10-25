@@ -16,6 +16,18 @@ export default {
     NavBar,
     Footer
   },
+  metaInfo: {
+    title: 'Conseil en image Lilomod',
+    titleTemplate: 'Découvrez tous mes conseils modes et bien être sur mon blog.',
+    htmlAttrs: {
+      lang: 'fr'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'Découvrez tous mes conseils modes et bien être sur mon blog.' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
+  },
   data() {
     return {
       navItems: [
