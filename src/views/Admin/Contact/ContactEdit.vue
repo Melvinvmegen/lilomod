@@ -98,7 +98,7 @@ export default {
           phone: this.contactData.phone,
           query: this.contactData.query
         })
-        .then(this.$router.push("/contacts"))
+        .then(this.$router.push({ name: "Contacts" }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite");
