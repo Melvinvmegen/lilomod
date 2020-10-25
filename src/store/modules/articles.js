@@ -2,7 +2,8 @@ import axios from "axios";
 
 const state = {
   articles: [],
-  featuredArticles: []
+  featuredArticles: [],
+  publishedArticles: []
 };
 const getters = {
   articles(state) {
@@ -19,6 +20,11 @@ const mutations = {
   setFeaturedArticles(state, featuredArticlesData) {
     featuredArticlesData.forEach(article => {
       state.featuredArticles.push(article);
+    });
+  },
+  setPublishedArticles(state, publishedArticlesData) {
+    publishedArticlesData.forEach(article => {
+      state.publishedArticles.push(article);
     });
   },
   addArticle(state, articleData) {
@@ -48,6 +54,11 @@ const actions = {
     axios
       .get("api/posts", { params: { featured: true } })
       .then(res => commit("setFeaturedArticles", res.data));
+  },
+  getPublishedArticles({ commit }) {
+    axios
+      .get("api/posts", { params: { published: true } })
+      .then(res => commit("setPublishedArticles", res.data));
   },
   addArticle({ commit }, articleData) {
     const formData = new FormData();
