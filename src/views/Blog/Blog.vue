@@ -46,14 +46,14 @@ export default {
   },
   computed: {
     articles() {
-      return this.$store.state.articles.articles;
+      return this.$store.state.articles.publishedArticles;
     }
   },
   created: function() {
-    if (this.$store.state.articles.articles.length > 0) {
+    if (this.$store.state.articles.publishedArticles.length > 0) {
       return;
     }
-    this.$store.dispatch("getArticles");
+    this.$store.dispatch("getPublishedArticles");
   }
 };
 </script>
