@@ -22,6 +22,17 @@
     @blur="$v.articleData.description.$touch()"
     placeholder="Ecrivez ici le contenu de votre article, faites preuve de créativité !"
    )
+   v-file-input(
+      show-size
+      counter
+      label="Image"
+      accept="image/*"
+      @change="uploadImage"
+   )
+   v-card(v-if="articleData.image")
+     v-img( height='250' :src='`${articleData.image.url}`')
+     v-card-title.title
+      | Image actuelle
    v-switch(v-model='articleData.published' :label='`Publié`')
    v-switch(v-model='articleData.featured' :label='`Mis en avant`')
   .d-flex
@@ -50,7 +61,8 @@ export default {
         teaser: "",
         description: "",
         published: false,
-        featured: false
+        featured: false,
+        article: null
       },
       error: ""
     };
@@ -70,6 +82,7 @@ export default {
   },
   created: function() {
     axios.get(`/api/posts/${this.$route.params.id}`).then(res => {
+      console.log(res.data)
       this.articleData = res.data;
     });
   },
@@ -82,14 +95,18 @@ export default {
           teaser: this.articleData.teaser,
           description: this.articleData.description,
           published: this.articleData.published,
-          featured: this.articleData.featured
+          featured: this.articleData.featured,
+          image: this.articleData.image
         })
-        .then(this.$router.push({ path: "articles" }))
+        .then(this.$router.push({ name: "Articles" }))
         .catch(error => {
           if (error) {
             this.setError(error, "Une erreur s'est produite");
           }
         });
+    },
+    uploadImage(event) {
+      this.articleData.image = event;
     },
     setError(error, text) {
       this.error =

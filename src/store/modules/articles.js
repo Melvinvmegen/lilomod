@@ -75,8 +75,22 @@ const actions = {
       });
   },
   updateArticle({ commit }, articleData) {
+    const formData = new FormData();
+    Object.keys(articleData).forEach(article => {
+      if (article === 'image') {
+        if (articleData[article].signed_id) {
+          formData.append(article, articleData[article].signed_id);
+        } else {
+          formData.append(article, articleData[article]);
+        }
+      } else {
+        formData.append(article, articleData[article]);
+      }
+    });
     axios
-      .patch(`/api/posts/${articleData.id}`, articleData)
+      .patch(`/api/posts/${articleData.id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      })
       .then(() => commit("updateArticle", articleData))
       .catch(error => {
         if (error) {
