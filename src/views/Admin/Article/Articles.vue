@@ -43,7 +43,7 @@
                 v-icon mdi-star-outline
               td(v-if="article.published" @click="updatePublished(article)") Oui
               td(v-else @click="updatePublished(article)") Non
-              td
+              td.d-flex.align-center
                 router-link(:to="{name: 'ArticleEdit', params: {id: article.id}}")
                   v-icon(medium) mdi-pen
                 button(@click="deleteArticle(article)" :key='article.id')
