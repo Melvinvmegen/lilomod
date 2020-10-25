@@ -1,6 +1,6 @@
 <template lang="pug">
-  .d-flex.flex-column.align-center.card-service
-    v-img(:lazy-src="prestation.image" max-height="80" max-width="80" src="https://conseilenimage.jenniferettori.fr/wp-content/uploads/2019/08/pantone-80x80.png")
+  .d-flex.flex-column.align-center.card-service(v-if="prestation")
+    v-img(v-if="prestation.logo" :lazy-src='`${prestation.logo.url}`' max-height="80" max-width="80" :src='`${prestation.logo.url}`')
     br
     h3.text-center {{ prestation.name }}
     p.text-center {{ prestation.description }}
@@ -9,8 +9,8 @@
 <script>
 export default {
   props: {
-    prestation: Object
-  }
+    prestation: Object,
+  },
 };
 </script>
 <style scoped>
