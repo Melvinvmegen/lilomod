@@ -22,14 +22,17 @@
     @blur="$v.articleData.description.$touch()"
     placeholder="Ecrivez ici le contenu de votre article, faites preuve de créativité !"
    )
-  v-file-input(
-    show-size
-    counter
-    label="Image"
-    accept="image/*"
-    @change="uploadImage"
-    v-model="image"
-  )
+   v-file-input(
+      show-size
+      counter
+      label="Image"
+      accept="image/*"
+      @change="uploadImage"
+   )
+   v-card(v-if="articleData.image")
+     v-img( height='250' :src='`${articleData.image.url}`')
+     v-card-title.title
+      | Image actuelle
    v-switch(v-model='articleData.published' :label='`Publié`')
    v-switch(v-model='articleData.featured' :label='`Mis en avant`')
   .d-flex
@@ -79,6 +82,7 @@ export default {
   },
   created: function() {
     axios.get(`/api/posts/${this.$route.params.id}`).then(res => {
+      console.log(res.data)
       this.articleData = res.data;
     });
   },
