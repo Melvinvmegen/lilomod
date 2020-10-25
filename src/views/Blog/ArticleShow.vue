@@ -3,7 +3,7 @@
     h1.text-center {{ article.title }}
     br
     .d-flex.justify-center
-      v-img(:lazy-src="`${env}${this.article.image}`" :src='`${env}${this.article.image}`' max-height="500")
+      v-img(v-if="article.image" :lazy-src="article.image.url" :src='article.image.url' max-height="500")
     br
     h3.font-italic.h4.text-center {{ article.teaser }}
     br
@@ -27,8 +27,7 @@ export default {
       article: {
         description: ""
       },
-      dataReady: false,
-      env: process.env.VUE_APP_API_URL
+      dataReady: false
     };
   },
   computed: {

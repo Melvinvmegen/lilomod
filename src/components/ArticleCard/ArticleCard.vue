@@ -2,7 +2,7 @@
   v-card.mx-auto.my-12.article-card(max-width='374' :to="{name: 'ArticleShow', params: {id: article.id}}")
     template(slot='progress')
       v-progress-linear(color='deep-purple' height='10' indeterminate='')
-    v-img(v-if="article.image" height='250' :src='`${article.image.url}`')
+    v-img(v-if="article.image" height='250' :src='article.image.url')
     v-card-title {{ article.title }}
     v-card-subtitle {{ article.teaser }}
     v-card-text {{ articleDescription }}
