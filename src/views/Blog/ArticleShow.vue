@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container#articleShow(v-if="dataReady")
+  v-container#articleShow(v-show="dataReady" ref="articleShow")
     h1.text-center {{ article.title }}
     br
     .d-flex.justify-center
@@ -47,13 +47,18 @@ export default {
         return "1 minute de lecture";
       }
       return Math.round(lectureTime) + " minutes de lecture";
-    }
+    },
   },
   async created() {
+    console.log()
     await axios.get(`/api/posts/${this.$route.params.id}`).then(res => {
       this.article = res.data;
       this.dataReady = true;
     });
+  },
+  mounted() {
+    console.log('scrolling...', this.$refs.articleShow.offsetTop)
+    this.$refs.articleShow.scrollIntoView({behavior: "smooth"});
   }
 };
 </script>
