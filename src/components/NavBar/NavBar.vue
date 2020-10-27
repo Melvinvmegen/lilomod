@@ -8,17 +8,15 @@
       v-list-item.nav-item(v-for="item in navItems" dark exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
         | {{ item.title }}
       v-list-item.nav-item(v-if="auth && !$route.path.includes('admin')" to='/admin' dark) ADMIN
+    .main-header-center(v-else)
+      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
     .d-flex(v-if="$route.path.includes('admin') && this.$vuetify.breakpoint.mdAndUp")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
         span.mr-2 Se connecter
       v-btn(href='' text='' v-if="auth" @click="onLogout" dark)
         span.mr-2 Se deconnecter
-    .main-header-center(v-else)
-      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
-
-
     v-navigation-drawer(v-model='drawer' absolute='' temporary='' fixed right)
-      v-icon.float-right(@click.stop="drawer = false") mdi-close
+      v-icon.mr-4.mt-1.float-right(@click.stop="drawer = false") mdi-close
       br
       v-list(nav='' dense='')
         v-list-item-group(active-class='deep-purple--text text--accent-4')
