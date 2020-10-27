@@ -158,19 +158,16 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    if (to.name === "ArticleShow") {
+      return
+    }
+    return { x: 0, y: 0}
+  },
   routes
 });
-
-// router.beforeEach((to, from, next) => {
-//   console.log(store.state.token)
-//   if (to.name !== 'Login' && store.state.token === null) {
-//     console.log('jsuis dans le if')
-//     next('/login')
-//   }
-//   else {
-//     console.log('jsuis dans le else')
-//     next()
-//   }
-// });
 
 export default router;
