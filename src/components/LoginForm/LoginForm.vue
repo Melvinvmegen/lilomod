@@ -7,12 +7,14 @@
       v-model.lazy="userData.email",
       @blur="$v.userData.email.$touch()"
     )
-    v-text-field#password.form-control( 
-      label="Mot de passe",
-      type="text",
-      v-model.lazy="userData.password",
-      @blur="$v.userData.password.$touch()"
-    )
+    .password
+      v-text-field#password.form-control( 
+        label="Mot de passe",
+        :type="passwordVisibility",
+        v-model.lazy="userData.password",
+        @blur="$v.userData.password.$touch()"
+      )
+      v-icon.password-visibility(@click="visibilePassword = !visibilePassword") {{ passwordIcon }}
     .d-flex
       .form-button.my-2.mr-2
         v-btn(color='success' :disabled="$v.$invalid" @click.prevent="onSubmit" ref="button")
@@ -28,7 +30,8 @@ export default {
         email: "",
         password: ""
       },
-      error: ""
+      error: "",
+      visibilePassword: false
     };
   },
   validations: {
@@ -40,6 +43,14 @@ export default {
       password: {
         required
       }
+    }
+  },
+  computed: { 
+    passwordVisibility () {
+      return this.visibilePassword ? 'text' : 'password'
+    },
+    passwordIcon () {
+      return this.visibilePassword ? 'mdi-eye' : 'mdi-eye-off'
     }
   },
   methods: {
@@ -158,5 +169,15 @@ form {
   width: 80%;
   margin: 0 auto !important;
   font-style: italic;
+}
+
+.password {
+  position: relative;
+}
+
+.password-visibility {
+  position: absolute !important;
+  top: 12px;
+  right: 0;
 }
 </style>
