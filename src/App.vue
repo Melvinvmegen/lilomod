@@ -18,7 +18,6 @@ export default {
   },
   metaInfo: {
     title: 'Conseil en image Lilomod',
-    titleTemplate: 'Découvrez tous mes conseils modes et bien être sur mon blog.',
     htmlAttrs: {
       lang: 'fr'
     },

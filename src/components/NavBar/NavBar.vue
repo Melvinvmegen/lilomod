@@ -10,14 +10,13 @@
       v-list-item.nav-item(v-if="auth && !$route.path.includes('admin')" to='/admin' dark) ADMIN
     .main-header-center(v-else)
       v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
-    .d-flex(v-if="$route.path.includes('admin')")
+    .d-flex(v-if="$route.path.includes('admin') && this.$vuetify.breakpoint.mdAndUp")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
         span.mr-2 Se connecter
       v-btn(href='' text='' v-if="auth" @click="onLogout" dark)
         span.mr-2 Se deconnecter
-
     v-navigation-drawer(v-model='drawer' absolute='' temporary='' fixed right)
-      v-icon.float-right(@click.stop="drawer = false") mdi-close
+      v-icon.mr-4.mt-1.float-right(@click.stop="drawer = false") mdi-close
       br
       v-list(nav='' dense='')
         v-list-item-group(active-class='deep-purple--text text--accent-4')
@@ -26,6 +25,11 @@
               v-icon {{ item.icon }}
             v-list-item-content
               v-list-item-title {{ item.title }}
+          v-list-item(v-if="auth && !$route.path.includes('admin')" to='/admin')
+            v-list-item-icon.align-self-center
+              v-icon mdi-account-supervisor
+            v-list-item-content
+              v-list-item-title ADMIN
           v-divider
           br
           v-list-item.d-flex(:class="{'flex-column': $vuetify.breakpoint.smAndDown}")
@@ -34,7 +38,11 @@
               v-btn.deep-purple--text(v-for='link in socialLinks' :key='link.id' icon='' :to='link.link')
                 v-icon(size='20px' color="#9575CD")
                   | {{ link.icon }}
-
+          .full-width
+            v-btn.col-12(href='' text='' v-if="!auth" to="/login")
+              span.mr-2 Se connecter
+            v-btn.col-12(href='' text='' v-if="auth" @click="onLogout")
+              span.mr-2 Se deconnecter
 
 </template>
 
@@ -99,7 +107,6 @@ aside .v-navigation-drawer__content {
   display: flex;
   align-items: center;
   height: 100%;
-  width: 45%;
 }
 
 .main-header-center .nav-item {
@@ -167,6 +174,10 @@ aside .v-navigation-drawer__content {
 .router-link-active :active .line.-bottom {
   transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
   transform-origin: left;
+}
+
+.full-width {
+  width: 100%;
 }
 
 @media (max-width: 960px) {

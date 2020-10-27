@@ -1,7 +1,7 @@
 <template lang="pug">
   .d-flex
     SideBar(v-if="!this.$route.path.includes('login')")
-    v-container
+    v-container.col-10
       .admin
         #dashboard(v-if="$route.name === 'Admin'")
           h1 Bienvenu sur le dashboard Lilomod

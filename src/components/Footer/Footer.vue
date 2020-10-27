@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-card.flex(height="150")
+  v-card.flex(:height="footerHeight")
     v-footer(dark='' padless='' absolute)
       v-card.indigo.lighten-1.white--text.flex(flat='' tile='')
         v-card-title.indigo.lighten-1.white--text
@@ -21,6 +21,14 @@
 export default {
   props: {
     socialLinks: Array
+  },
+  computed: {
+    footerHeight() {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return 180
+      }
+      return 150
+    }
   }
 };
 </script>

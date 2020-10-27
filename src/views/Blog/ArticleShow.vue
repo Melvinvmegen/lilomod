@@ -7,7 +7,7 @@
     br
     h3.font-italic.h4.text-center {{ article.teaser }}
     br
-    .d-flex.justify-space-between
+    .d-flex.justify-space-between(:class="{'flex-column text-center': $vuetify.breakpoint.smAndDown}")
       span.font-italic Publié le {{ articleCreatedAt }}
       .time
         v-icon mdi-clock-outline
