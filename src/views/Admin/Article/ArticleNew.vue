@@ -1,5 +1,5 @@
 <template lang="pug">
-.flex
+.flex.col-11
  h1 Créer un nouvel article
  form(ref="form")
   span.error-message(v-if="error") {{ error }}

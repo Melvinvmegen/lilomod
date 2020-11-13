@@ -1,13 +1,13 @@
 <template lang="pug">
   v-card.overflow-hidden.sidebar(height='100%' :class="{'sidebar-sm' : mini }")
-    v-navigation-drawer.indigo.lighten-1(fixed absolute dark :mini-variant="mini" permanent)
+    v-navigation-drawer.purple.darken-3(fixed absolute :mini-variant="mini" permanent)
       v-list.py-0(dense='' nav='')
         v-divider
         v-list-item(v-for='item in items' :key='item.title' :to='item.link' two-line exact)
           v-list-item-icon.align-self-center
-            v-icon {{ item.icon }}
+            v-icon.white--text {{ item.icon }}
           v-list-item-content
-            v-list-item-title {{ item.title }}
+            v-list-item-title.white--text {{ item.title }}
 </template>
 
 <script>

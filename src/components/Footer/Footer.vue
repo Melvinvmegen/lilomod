@@ -1,15 +1,15 @@
 <template lang="pug">
-  v-card.flex(:height="footerHeight")
+  v-card.footer
     v-footer(dark='' padless='' absolute)
-      v-card.indigo.lighten-1.white--text.flex(flat='' tile='')
-        v-card-title.indigo.lighten-1.white--text
+      v-card.purple.darken-3.white--text.flex(flat='' tile='')
+        v-card-title.purple.darken-3.white--text
           v-container.d-flex.flex-row(:class="{'flex-column': $vuetify.breakpoint.smAndDown, 'align-center': $vuetify.breakpoint.smAndDown}")
             strong.subheading Retrouvez moi sur les réseaux sociaux !
             v-spacer
             .icons
               v-btn.white--text(v-for='link in socialLinks' :key='link.id' icon='')
                 a(:href="link.link")
-                  v-icon(size='24px')
+                  v-icon.white--text(size='24px')
                     | {{ link.icon }}
         v-divider
         v-card-text.white--text.text-center
@@ -21,14 +21,6 @@
 export default {
   props: {
     socialLinks: Array
-  },
-  computed: {
-    footerHeight() {
-      if (this.$vuetify.breakpoint.smAndDown) {
-        return 180
-      }
-      return 150
-    }
   }
 };
 </script>
@@ -38,5 +30,15 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 40%;
+}
+
+.footer {
+  height: 115px !important;
+}
+
+@media only screen and (max-width: 960) {
+  .footer {
+    height: 139px !important;
+  }
 }
 </style>

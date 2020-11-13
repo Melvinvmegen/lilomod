@@ -9,6 +9,7 @@
 <script>
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import Logo from './assets/logo.png'
 
 export default {
   name: "App",
@@ -30,22 +31,25 @@ export default {
   data() {
     return {
       navItems: [
-        {
-          id: 1,
-          title: "ACCUEIL",
-          icon: "mdi-home",
-          link: { name: "Homepage" }
+        { id: 1, 
+          title: "A PROPOS", 
+          icon: "mdi-post", 
+          link: { name: "About" } 
         },
-        { id: 1, title: "A PROPOS", icon: "mdi-post", link: { name: "About" } },
         {
           id: 2,
           title: "PRESTATIONS",
           icon: "mdi-contacts",
           link: { name: "Services" }
         },
-        { id: 3, title: "BLOG", icon: "mdi-blogger", link: { name: "Blog" } },
         {
-          id: 4,
+          id: 3,
+          logo: Logo,
+          link: { name: "Homepage" }
+        },
+        { id: 4, title: "BLOG", icon: "mdi-blogger", link: { name: "Blog" } },
+        {
+          id: 5,
           title: "CONTACT",
           icon: "mdi-briefcase",
           link: { name: "Contact" }
@@ -103,7 +107,25 @@ body {
 }
 
 .v-application a {
-  color: white;
+  color: #6a1b9a !important;
+}
+
+.v-application a .v-btn__content {
+  color: white !important;
+}
+
+
+.v-application.theme--light.v-list-item {
+  color: #6a1b9a !important;
+}
+
+.theme--light.v-list-item:hover::before {
+  opacity: 0;
+}
+
+.theme--light.v-list-item--active::before {
+  opacity: 0;
+  background-color: none;
 }
 
 @media only screen and (max-width: 330px) {

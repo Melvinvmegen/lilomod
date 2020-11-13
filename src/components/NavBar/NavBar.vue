@@ -1,15 +1,15 @@
 <template lang="pug">
-  v-app-bar.indigo.lighten-1.white--text(app='' fixed elevate-on-scroll)
-    .d-flex.align-center.main-header-left
-      router-link(:to="navItems ? {name: 'Homepage'} : {name: 'Admin'}")
-        v-img.shrink.mr-2(alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
+  v-app-bar.justify-center.d-flex.align-center(app='' fixed elevate-on-scroll :class="{'white': !$route.path.includes('admin'), 'purple darken-3': $route.path.includes('admin')}")
+    .main-header-center.col-lg-6.col-md-9(v-if="this.$vuetify.breakpoint.mdAndUp") 
+      v-list-item.nav-item.primary--text(v-for="item in navItems" exact :key="item.id" :to="item.link" v-if="!$route.path.includes('admin')")
+        span(v-if="item.title") {{ item.title }}
+        v-img.logo.shrink.mr-2(v-else alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
           v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
-    .main-header-center.col-lg-6(v-if="this.$vuetify.breakpoint.mdAndUp") 
-      v-list-item.nav-item(v-for="item in navItems" dark exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
-        | {{ item.title }}
-      v-list-item.nav-item(v-if="auth && !$route.path.includes('admin')" to='/admin' dark) ADMIN
-    .main-header-center(v-else)
-      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
+      v-list-item.nav-item.primary--text(v-if="auth && !$route.path.includes('admin')" to='/admin') ADMIN
+    .main-header-center.col-12.justify-space-between(v-else)
+      v-img.logo.shrink.mr-2(alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
+        v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
+      v-app-bar-nav-icon.black--text(@click.stop="drawer= true")
     .d-flex(v-if="$route.path.includes('admin') && this.$vuetify.breakpoint.mdAndUp")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
         span.mr-2 Se connecter
@@ -20,7 +20,7 @@
       br
       v-list(nav='' dense='')
         v-list-item-group(active-class='deep-purple--text text--accent-4')
-          v-list-item(v-for='item in navItems' :key='item.title' :to='item.link' two-line exact)
+          v-list-item(v-for='item in navItems' :key='item.id' :to='item.link' two-line exact v-if="item.title")
             v-list-item-icon.align-self-center
               v-icon {{ item.icon }}
             v-list-item-content
@@ -93,7 +93,7 @@ aside .v-navigation-drawer__content {
 }
 
 .nav-item a {
-  color: white !important;
+  color: #6a1b9a !important;
 }
 
 .main-header-left {
@@ -107,6 +107,12 @@ aside .v-navigation-drawer__content {
   display: flex;
   align-items: center;
   height: 100%;
+  margin: 0 auto
+}
+
+.v-toolbar__content {
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
 .main-header-center .nav-item {
@@ -122,11 +128,13 @@ aside .v-navigation-drawer__content {
 }
 
 .nav-item:hover {
-  background-color: #6876c5;
+  background-color: none;
+  opacity: 1;
 }
 
 .nav-item .router-link-active {
-  background: #6876c5;
+  background: none;
+  opacity: 1;
 }
 
 .router-link-active :after {
@@ -186,6 +194,13 @@ aside .v-navigation-drawer__content {
     margin-right: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .v-navigation-drawer {
     width: 70vw !important;
