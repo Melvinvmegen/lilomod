@@ -27,7 +27,10 @@ export default {
         title: "BIENVENUE SUR L'ESPACE LILOMOD",
         teaser: "De la colometire au paramètre blabla",
         text:
-          "Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié). Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié)."
+          `Dans une société où l'image a une place essentielle, nous disposons seulement de 4 minutes pour faire une bonne ou une mauvaise impression.
+          Mon objectif, en tant que conseillère en image, est de vous aider à vous épanouir, à vous sublimer, à reprendre confiance en vous afin que ces 4 minutes soient toujours en votre faveur. 
+          Grâce à mes conseils et aux différentes techniques (colorimétrie, morphologie, découverte de votre style…) vous  vous sentirez toujours à votre avantage. 
+          Préparez-vous ainsi à rencontrer la meilleure version de vous-même ! `
       },
       ctaText: "Découvrez l'espace Blog",
       link: "/blog",
