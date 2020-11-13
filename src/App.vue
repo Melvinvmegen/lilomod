@@ -103,7 +103,16 @@ body {
 }
 
 .v-application a {
-  color: white;
+  color: #6a1b9a !important;
+}
+
+.v-application a .v-btn__content {
+  color: white !important;
+}
+
+
+.v-application.theme--light.v-list-item {
+  color: #6a1b9a !important;
 }
 
 @media only screen and (max-width: 330px) {
