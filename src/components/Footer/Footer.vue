@@ -2,7 +2,7 @@
   v-card.footer
     v-footer(dark='' padless='' absolute)
       v-card.purple.darken-3.white--text.flex(flat='' tile='')
-        v-card-titlepurple.darken-3.white--text
+        v-card-title.purple.darken-3.white--text
           v-container.d-flex.flex-row(:class="{'flex-column': $vuetify.breakpoint.smAndDown, 'align-center': $vuetify.breakpoint.smAndDown}")
             strong.subheading Retrouvez moi sur les réseaux sociaux !
             v-spacer
