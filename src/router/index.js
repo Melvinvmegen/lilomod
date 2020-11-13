@@ -161,16 +161,4 @@ const router = new VueRouter({
   routes
 });
 
-// router.beforeEach((to, from, next) => {
-//   console.log(store.state.token)
-//   if (to.name !== 'Login' && store.state.token === null) {
-//     console.log('jsuis dans le if')
-//     next('/login')
-//   }
-//   else {
-//     console.log('jsuis dans le else')
-//     next()
-//   }
-// });
-
 export default router;
