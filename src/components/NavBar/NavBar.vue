@@ -1,15 +1,15 @@
 <template lang="pug">
-  v-app-bar.indigo.lighten-1.white--text(app='' fixed elevate-on-scroll)
+  v-app-bar.white.lighten-1(app='' fixed elevate-on-scroll)
     .d-flex.align-center.main-header-left
       router-link(:to="navItems ? {name: 'Homepage'} : {name: 'Admin'}")
         v-img.shrink.mr-2(alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
           v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
     .main-header-center.col-lg-6(v-if="this.$vuetify.breakpoint.mdAndUp") 
-      v-list-item.nav-item(v-for="item in navItems" dark exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
+      v-list-item.nav-item.primary--text(v-for="item in navItems" exact :key="item.name" :to="item.link" v-if="!$route.path.includes('admin')")
         | {{ item.title }}
       v-list-item.nav-item(v-if="auth && !$route.path.includes('admin')" to='/admin' dark) ADMIN
     .main-header-center(v-else)
-      v-app-bar-nav-icon.white--text(@click.stop="drawer= true")
+      v-app-bar-nav-icon.black--text(@click.stop="drawer= true")
     .d-flex(v-if="$route.path.includes('admin') && this.$vuetify.breakpoint.mdAndUp")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
         span.mr-2 Se connecter
@@ -93,7 +93,7 @@ aside .v-navigation-drawer__content {
 }
 
 .nav-item a {
-  color: white !important;
+  color: #6a1b9a !important;
 }
 
 .main-header-left {
