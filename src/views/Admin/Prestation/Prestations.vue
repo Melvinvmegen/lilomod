@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#prestation
+  .col-11#prestation
     div#prestations(v-if="$route.name === 'Prestations'")
       div.d-flex.justify-space-between
         h1 Prestations

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#article
+  .col-11#article
     div#articles(v-if="$route.name === 'Articles'")
       div.d-flex.justify-space-between
         h1 Articles

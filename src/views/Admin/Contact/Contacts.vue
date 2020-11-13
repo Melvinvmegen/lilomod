@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#contact
+  .col-11#contact
     div#contacts(v-if="$route.name === 'Contacts'")
       div.d-flex.justify-space-between
         h1 Contacts
