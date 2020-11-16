@@ -90,11 +90,14 @@ html,
 body {
   height: 100%;
   width: 100%;
+  height: -webkit-fill-available;
 }
 
 body {
-  min-height: 100%;
   color: #1d1148;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
 }
 
 .v-application a {
@@ -109,11 +112,6 @@ body {
 .v-application a {
   color: #6a1b9a !important;
 }
-
-.v-application a .v-btn__content {
-  color: white !important;
-}
-
 
 .v-application.theme--light.v-list-item {
   color: #6a1b9a !important;
