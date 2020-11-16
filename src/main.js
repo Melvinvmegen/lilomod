@@ -12,7 +12,7 @@ import VueMeta from 'vue-meta';
 Vue.use(Vuelidate);
 Vue.use(VueAxios);
 Vue.use(VueMeta);
-axios.defaults.baseURL = process.env.VUE_APP_API_URL ||"https://lilomod.herokuapp.com/";
+axios.defaults.baseURL = "https://lilomod.herokuapp.com/";
 axios.defaults.headers.get["Accepts"] = "application/json";
 
 Vue.config.productionTip = false;

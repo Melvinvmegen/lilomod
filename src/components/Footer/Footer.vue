@@ -36,9 +36,15 @@ export default {
   height: 115px !important;
 }
 
-@media only screen and (max-width: 960) {
+@media only screen and (max-width: 960px) {
   .footer {
-    height: 139px !important;
+    height: 179px !important;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .footer {
+    height: 211px !important;
   }
 }
 </style>

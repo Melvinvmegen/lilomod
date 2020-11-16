@@ -1,6 +1,6 @@
 <template lang="pug">
   .my-2(:class="{centered: centered}")
-    v-btn(:color='color' dark='' large='' :to="link")
+    v-btn.white--text(:color='color' large='' :to="link")
       | {{ text }}
 </template>
 
