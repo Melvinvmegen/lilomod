@@ -93,6 +93,7 @@ export default {
 
   .header {
     margin: 0 !important;
+    max-height: initial !important;
   }
 
   .contact-container {
@@ -107,7 +108,7 @@ export default {
   }
 
   .header-right {
-    min-height: 800px;
+    min-height: 800px !important;
     max-height: 100% !important;
   }
 }

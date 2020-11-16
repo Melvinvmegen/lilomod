@@ -95,19 +95,8 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .section {
-    min-height: 140vh;
+    min-height: inherit;
     align-items: flex-start;
-  }
-  .section-wrapper {
-    height: 100vh !important;
-  }
-
-  .section-left {
-    max-height: 20vh !important;
-  }
-
-  .section-right {
-    max-height: 80vh !important;
   }
 }
 

@@ -95,10 +95,4 @@ export default {
 .section-wrapper-right {
   display: inline-block;
 }
-
-@media only screen and (max-width: 600px) {
-  .section {
-    min-height: 100vh;
-  }
-}
 </style>
