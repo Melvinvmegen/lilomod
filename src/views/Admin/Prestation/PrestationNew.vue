@@ -89,7 +89,7 @@ export default {
           name: this.prestationData.name,
           price: this.prestationData.price,
           description: this.prestationData.description,
-          image: this.prestationData.image,
+          // image: this.prestationData.image,
           logo: this.prestationData.logo
         })
         .then(this.$router.push({ name: "Prestations" }))
