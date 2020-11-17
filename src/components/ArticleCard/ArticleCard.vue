@@ -5,7 +5,7 @@
     v-img(v-if="article.image" height='250' :src='article.image.url')
     v-card-title {{ article.title }}
     v-card-subtitle {{ article.teaser }}
-    v-card-text {{ articleDescription }}
+    v-card-text(v-html="articleDescription")
     v-card-subtitle
       span Publié le {{ articleCreatedAt }}
     v-divider.mx-4

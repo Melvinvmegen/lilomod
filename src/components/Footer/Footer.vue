@@ -33,7 +33,7 @@ export default {
 }
 
 .footer {
-  height: 115px !important;
+  height: 147px !important;
 }
 
 @media only screen and (max-width: 960px) {

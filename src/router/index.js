@@ -33,16 +33,14 @@ const routes = [
     name: "Blog",
     component: () =>
       import(/* webpackChunkName: "blog" */ "../views/Blog/Blog.vue"),
-    children: [
-      {
-        path: ":id",
-        name: "ArticleShow",
-        component: () =>
-          import(
-            /* webpackChunkName: "articleShow" */ "../views/Blog/ArticleShow.vue"
-          )
-      }
-    ]
+  },
+  {
+    path: "blog/:id",
+    name: "ArticleShow",
+    component: () =>
+      import(
+        /* webpackChunkName: "articleShow" */ "../views/Blog/ArticleShow.vue"
+      )
   },
   { path: "*", redirect: "/" },
   {
