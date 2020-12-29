@@ -15,7 +15,7 @@
           tbody
             tr(v-for="prestation in prestations" :key="prestation.id")
               td {{ prestation.name }}
-              td {{ prestation.price }}
+              td {{ prestation.price + '€' }}
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Mes tarifs",
+        title: "A la carte",
         teaser: "",
         text:
           "Suspendisse molestie porta tincidunt. Phasellus eros est, finibus a libero ac, euismod viverra metus. Sed sollicitudin rutrum pulvinar. Donec egestas ultricies iaculis. Praesent euismod nisl nulla. Nam fringilla sed erat id molestie. Duis tempor sed augue ac porttitor. Phasellus rutrum urna sed ipsum maximus pellentesque. Aenean est turpis, aliquam ac nisi vel, egestas laoreet metus. Nullam aliquam interdum vehicula."
