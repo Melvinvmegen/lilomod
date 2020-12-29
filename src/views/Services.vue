@@ -4,6 +4,7 @@
     SectionService(:upside='true')
     SectionContact
     SectionTarifs
+    SectionFormules
 </template>
 
 <script>
@@ -11,6 +12,7 @@ import Banner from "../components/Banner/Banner";
 import SectionService from "../components/SectionService/SectionService";
 import SectionTarifs from "../components/SectionTarifs/SectionTarifs";
 import SectionContact from "../components/SectionContact/SectionContact";
+import SectionFormules from "../components/SectionFormules/SectionFormules";
 
 export default {
   name: "Services",
@@ -18,6 +20,7 @@ export default {
     SectionService,
     SectionTarifs,
     SectionContact,
+    SectionFormules,
     Banner
   },
   data() {
