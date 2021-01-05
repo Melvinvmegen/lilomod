@@ -4,7 +4,7 @@
     v-container.col-10
       .admin
         #dashboard(v-if="$route.name === 'Admin'")
-          h1 Bienvenu sur le dashboard Lilomod
+          h1 Bienvenu sur le tableau de bord Lilomod
           h3.subtitle-1 Vous trouverez ci-dessous un résumé des dernieres activités.
           br
           v-divider

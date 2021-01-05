@@ -24,13 +24,11 @@ export default {
   data() {
     return {
       blabla: {
-        title: "BIENVENUE SUR L'ESPACE LILOMOD",
-        teaser: "De la colometire au paramètre blabla",
-        text:
-          `Dans une société où l'image a une place essentielle, nous disposons seulement de 4 minutes pour faire une bonne ou une mauvaise impression.
-          Mon objectif, en tant que conseillère en image, est de vous aider à vous épanouir, à vous sublimer, à reprendre confiance en vous afin que ces 4 minutes soient toujours en votre faveur. 
-          Grâce à mes conseils et aux différentes techniques (colorimétrie, morphologie, découverte de votre style…) vous  vous sentirez toujours à votre avantage. 
-          Préparez-vous ainsi à rencontrer la meilleure version de vous-même ! `
+        title: "Bienvenue chez Lilomod",
+        teaser: "De la colometrie à l'accompagnement shopping",
+        text: `Quel bonheur de se sentir belle, confiante et en harmonie avec soi-même ! 
+        Mais il est parfois difficile d’y parvenir seule. Je suis Laurence, votre conseillère en image. 
+        Je vous accompagne avec bienveillance et empathie avec des techniques apprises durant ma formation à l’ESR Paris. `
       },
       ctaText: "Découvrez l'espace Blog",
       link: "/blog",

@@ -26,13 +26,12 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Pourquoi le conseil en image ?",
+        title: "Le Conseil en Image",
         teaser: "",
         text:
-          "Community Manager depuis plus de 7 ans sur Aix-en-Provence, je propose aujourd’hui des formations sur les réseaux sociaux en entreprises, en centre de formation mais aussi à l’Université où je suis prof. Mon constat ? Les entrepreneurs et les étudiants que je forme ne souhaitent pas se montrer sur les écrans par peur de leur image. C’est pourquoi je me suis formée en Conseil en Image pour aller plus loin dans ma prestation et accompagner mes clients à retrouver confiance en eux derrière un objectif, savoir se mettre en valeur et être à l’aise auprès de leur communauté sur les réseaux sociaux."
+          "Dans une société où l'image a une place essentielle, nous disposons seulement de 4 minutes pour faire une bonne ou une mauvaise impression. <br><br> Mon objectif, en tant que conseillère en image, est de vous aider à vous épanouir, à vous sublimer, à reprendre confiance en vous afin que ces 4 minutes soient toujours en votre faveur. Grâce à mes conseils et aux différentes techniques (colorimétrie, morphologie, découverte de votre style…) vous  vous sentirez toujours à votre avantage. Préparez-vous ainsi à rencontrer la meilleure version de vous-même ! "
       },
-      text:
-        "Community Manager depuis plus de 7 ans sur Aix-en-Provence, je propose aujourd’hui des formations sur les réseaux sociaux en entreprises, en centre de formation mais aussi à l’Université où je suis prof. Mon constat ? Les entrepreneurs et les étudiants que je forme ne souhaitent pas se montrer sur les écrans par peur de leur image. C’est pourquoi je me suis formée en Conseil en Image pour aller plus loin dans ma prestation et accompagner mes clients à retrouver confiance en eux derrière un objectif, savoir se mettre en valeur et être à l’aise auprès de leur communauté sur les réseaux sociaux."
+      text: ""
     };
   }
 };

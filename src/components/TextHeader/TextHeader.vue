@@ -3,7 +3,7 @@
     h1.text-left(:class="{'text-center' : side}") {{ blabla.title }}
     br
     h3(:class="{'text-center' : side}") {{ blabla.teaser }}
-    p.subtitle-1(:class="{'text-justify' : side}") {{ blabla.text }}
+    p.subtitle-1(:class="{'text-justify' : side}" v-html="blabla.text")
     slot
 </template>
 
