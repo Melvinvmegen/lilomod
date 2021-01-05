@@ -17,10 +17,10 @@ export default {
   data() {
     return {
       blabla: {
-        title: "QUI SE CACHE DERRIERE LILOMOD",
+        title: "Derrière Lilomod",
         teaser: "De la colometire au paramètre blabla",
         text:
-          "Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié). Je suis Jennifer, votre conseillère en image sur Aix-en-Provence et ses alentours, formée et diplômée en Conseil en image, Relooking et Personal Shopping chez JBM Consulting (centre de formation certifié)."
+          "Passionnée de mode depuis toujours, j’ai étudié à l’IICC à Aix-en-Provence. J’y ai appris les formes, les couleurs, les matières. Arrivée à Paris, j’ai été styliste textile, assistante styliste et visuel merchandiser. En parallèle, j’ai créé mon blog de mode où je parle essentiellement de jeunes créateurs. J’ai eu la chance d’être chroniqueuse mode pendant 3mois sur la radio MOIfm. <br> Ne me sentant plus en accord avec ma vie professionnelle, j’ai recherché un métier plus en phase avec ma passion, ma personnalité et mes valeurs humaines. C’est ainsi que j’ai découvert celui de conseillère en image. Et ça a été LA révélation ! <br> La formation à l’ESR a confirmé que j’étais faite pour ce métier. Je vois tellement de femmes, qui, passées 35ans, se dévalorisent, ne sentent plus désirables… Elles voudraient changer mais seules n’osent pas, ou ne savent pas comment s’y prendre. J’ai choisi de devenir conseillère en image pour aider ces femmes à s’épanouir, leur faire prendre conscience de leur beauté et de leurs atouts."
       },
       ctaText: "Prendre contact",
       link: "/contact",

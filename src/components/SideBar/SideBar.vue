@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard", link: "/admin" },
+        { title: "Tableau de bord", icon: "mdi-view-dashboard", link: "/admin" },
         { title: "Acceder au site", icon: "mdi-home", link: "/" },
         { title: "Articles", icon: "mdi-post", link: { name: "Articles" } },
         { title: "Contacts", icon: "mdi-contacts", link: { name: "Contacts" } },
