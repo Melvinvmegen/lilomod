@@ -1,21 +1,9 @@
 <template lang="pug">
-  .section.section-one#section-tarif
-    a.section-anchor(id='Section-Tarifs')
+  .section.section-one#section-card
+    a.section-anchor(id='Section-Cards')
     .section-main
       .section-wrapper(:class="{'flex-column' : upside}")
         TextHeader(:blabla="blabla" :side="true")
-      v-simple-table(v-if="prestations.length > 0")
-        template(v-slot:default='')
-          thead
-            tr
-              th.text-left
-                | Prestation
-              th.text-left
-                | Tarif
-          tbody
-            tr(v-for="prestation in prestations" :key="prestation.id")
-              td {{ prestation.name }}
-              td {{ prestation.price + '€' }}
 </template>
 
 <script>
@@ -33,17 +21,12 @@ export default {
   data() {
     return {
       blabla: {
-        title: "A la carte",
+        title: "Carte Cadeau",
         teaser: "",
         text:
-          "Suspendisse molestie porta tincidunt. Phasellus eros est, finibus a libero ac, euismod viverra metus. Sed sollicitudin rutrum pulvinar. Donec egestas ultricies iaculis. Praesent euismod nisl nulla. Nam fringilla sed erat id molestie. Duis tempor sed augue ac porttitor. Phasellus rutrum urna sed ipsum maximus pellentesque. Aenean est turpis, aliquam ac nisi vel, egestas laoreet metus. Nullam aliquam interdum vehicula."
+          "Vous aimeriez offrir un relooking, une prestation de conseillère en image pour votre mère, votre sœur, une amie ? Je vous propose un carte cadeau qui pourra être utiliser comme bon vous semble : pour une prestation à la carte ou une formule. <strong>Toute formule prise avec une carte cadeau aura une remise de -10%.</strong>",
       }
     };
-  },
-  computed: {
-    prestations() {
-      return this.$store.state.prestations.prestations;
-    }
   }
 };
 </script>
@@ -51,7 +34,7 @@ export default {
 <style scoped>
 .section {
   width: 100%;
-  min-height: 70vh;
+  min-height: 40vh;
   position: relative;
   align-items: center;
 }
