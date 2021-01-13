@@ -31,7 +31,7 @@ export default {
         title: "Mes prestations",
         teaser: "",
         text:
-          "En séance individuelle ou collective je vous apprends à valoriser votre image grâce à de nombreux outils comme la colorimétrie pour apprendre les tonalités de couleurs qui vont avec votre visage et votre carnation ou encore l’analyse de votre style vestimentaire, l’étude de votre morphologie pour apprendre les coupes de vêtements qui mettront en valeur votre corps, et bien plus encore en fonction de votre style personnel et de votre mode de vie."
+          "Puisque chaque personne est unique, chaque prestation l’est également. Elles sont donc toutes adaptées à vos besoins, vos objectifs et à votre personnalité. La bienveillance et la bonne humeur seront toujours au rendez-vous. <br><br>Toutes les prestations sont précédées d’un rendez-vous « découverte » offert, et sont possibles en digitales (sauf accompagnement chez le coiffeur) "
       }
     };
   },

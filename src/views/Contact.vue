@@ -24,9 +24,8 @@ export default {
     return {
       blabla: {
         title: "Hello, on discute ?",
-        teaser: "Vous avez des questions ? ",
-        text:
-          "Sed nec magna sed augue tempor iaculis a in sapien. Aenean dapibus felis enim, vel efficitur dui posuere at. Donec purus odio, posuere nec posuere sit amet, commodo ut erat. Donec et erat nibh. Pellentesque diam diam, congue vel aliquet ac, pretium non neque. Phasellus consectetur dui sed ligula dictum mollis ac eu mi. Praesent aliquam metus a augue tempor commodo. Cras venenatis, dui a eleifend blandit, dui nunc ullamcorper dolor, sit amet rutrum velit metus non erat."
+        teaser: "",
+        text: "Vous avez des questions ? Des demandes en particulier ? N’hésitez pas à me contacter. Je me ferais un plaisir d’y répondre dans les plus brefs délais."
       }
     };
   }

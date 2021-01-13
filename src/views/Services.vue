@@ -28,7 +28,7 @@ export default {
       blabla: {
         title: "PRESTATIONS",
         teaser:
-          "Informations de qualité pour votre santé, prévention et bien-être",
+          "",
         text:
           "En séance individuelle ou collective je vous apprends à valoriser votre image grâce à de nombreux outils comme la colorimétrie pour apprendre les tonalités de couleurs qui vont avec votre visage et votre carnation ou encore l’analyse de votre style vestimentaire, l’étude de votre morphologie pour apprendre les coupes de vêtements qui mettront en valeur votre corps, et bien plus encore en fonction de votre style personnel et de votre mode de vie."
       },

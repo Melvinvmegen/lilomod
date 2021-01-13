@@ -28,13 +28,13 @@ export default {
       blabla: {
         title: "BLOG LILOMOD",
         teaser:
-          "Informations de qualité pour votre santé, prévention et bien-être",
+          "",
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ultrices magna. Duis quis pulvinar sem. In consectetur rhoncus enim sit amet ornare. Aliquam sit amet risus imperdiet, tincidunt urna in, pulvinar eros. Duis est purus, lacinia consequat interdum et, egestas at risus. Phasellus ac tincidunt nisl. Aenean tincidunt nulla porta, sodales ligula ut, tempus mauris. Retrouvez nos derniers articles mis en ligne :"
+          "J’ai lancé mon blog en 2010. Je voulais parler de mode, ma passion depuis toujours. Mais des blogs mode ce n’était pas ce qui manquaient (déjà à l’époque) et le sujet est vaste. Je me suis rendue compte, alors, qu’on parlait peu de jeunes créateurs. Je ne parle pas de créateurs plus ou moins proches des rédactrices de mode. Non. Je parle de jeunes créateurs qui créent avec enthousiasme et authenticité. C’est ce côté-là de la mode qui me passionne et pour lequel j’ai une forte admiration. <br> Rapidement j’ai décidé de poster des articles de jeunes créateurs pour lesquels j’avais eu un réel coup de cœur. Au fil de mes balades dans Paris, des salons de jeunes créateurs etc, j’ai fait de merveilleuses découvertes. Il y a tellement de personnes talentueuses et créatives ! <br><br> Je vais donc continuer à vous faire découvrir des marques émergentes et des jeunes créateurs.  Mais également des marques éco-responsable peu connues du grand publique. "
       },
       blabla2: {
         title: "Bienvenu sur le blog Lilomod",
-        teaser: "Un petit bout de mon quotidien pour mes chers lectrices",
+        teaser: "",
         text: ""
       },
       ctaText: "Prendre contact",

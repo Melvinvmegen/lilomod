@@ -25,7 +25,7 @@ export default {
     return {
       blabla: {
         title: "Bienvenue chez Lilomod",
-        teaser: "De la colometrie à l'accompagnement shopping",
+        teaser: "",
         text: `Quel bonheur de se sentir belle, confiante et en harmonie avec soi-même ! 
         Mais il est parfois difficile d’y parvenir seule. Je suis Laurence, votre conseillère en image. 
         Je vous accompagne avec bienveillance et empathie avec des techniques apprises durant ma formation à l’ESR Paris. `
