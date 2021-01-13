@@ -5,6 +5,7 @@
     SectionContact
     SectionTarifs
     SectionFormules
+    SectionCard
 </template>
 
 <script>
@@ -13,6 +14,7 @@ import SectionService from "../components/SectionService/SectionService";
 import SectionTarifs from "../components/SectionTarifs/SectionTarifs";
 import SectionContact from "../components/SectionContact/SectionContact";
 import SectionFormules from "../components/SectionFormules/SectionFormules";
+import SectionCard from "../components/SectionCard/SectionCard";
 
 export default {
   name: "Services",
@@ -21,7 +23,8 @@ export default {
     SectionTarifs,
     SectionContact,
     SectionFormules,
-    Banner
+    Banner,
+    SectionCard
   },
   data() {
     return {
