@@ -84,7 +84,7 @@ export default {
   methods: {
     deletePrestation(prestation) {
       const result = confirm(
-        `Vous êtes sur de vouloir supprimer la prestation ${prestation.name}`
+        `Vous êtes sûr de vouloir supprimer la prestation ${prestation.name}`
       );
       if (result) {
         this.$store.dispatch("deletePrestation", prestation);

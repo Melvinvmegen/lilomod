@@ -31,7 +31,7 @@ export default {
         title: "Mes prestations",
         teaser: "",
         text:
-          "Puisque chaque personne est unique, chaque prestation l’est également. Elles sont donc toutes adaptées à vos besoins, vos objectifs et à votre personnalité. La bienveillance et la bonne humeur seront toujours au rendez-vous. <br><br>Toutes les prestations sont précédées d’un rendez-vous « découverte » offert, et sont possibles en digitales (sauf accompagnement chez le coiffeur) "
+          "Puisque chaque personne est unique, chaque prestation l’est également. Elles sont donc toutes adaptées à vos besoins, vos objectifs et à votre personnalité. La bienveillance et la bonne humeur seront toujours au rendez-vous. <br><br>Toutes les prestations sont précédées d’un rendez-vous « découverte » offert."
       }
     };
   },

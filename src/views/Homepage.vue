@@ -26,9 +26,8 @@ export default {
       blabla: {
         title: "Bienvenue chez Lilomod",
         teaser: "",
-        text: `Quel bonheur de se sentir belle, confiante et en harmonie avec soi-même ! 
-        Mais il est parfois difficile d’y parvenir seule. Je suis Laurence, votre conseillère en image. 
-        Je vous accompagne avec bienveillance et empathie avec des techniques apprises durant ma formation à l’ESR Paris. `
+        text: `Depuis des années, je vous fais découvrir des jeunes créateurs, des marques émergentes sur le blog lilomod.blogspot.com. 
+               C’est une véritable passion et j’adore vous la partager. Je vais désormais, continuer ici.`
       },
       ctaText: "Découvrez l'espace Blog",
       link: "/blog",

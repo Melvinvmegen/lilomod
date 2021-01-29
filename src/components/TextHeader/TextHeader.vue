@@ -2,8 +2,8 @@
   v-container(:class="{'align-center': $vuetify.breakpoint.smAndDown}")
     h1.text-left(:class="{'text-center' : side}") {{ blabla.title }}
     br
-    h3(:class="{'text-center' : side}") {{ blabla.teaser }}
-    p.subtitle-1(:class="{'text-justify' : side}" v-html="blabla.text")
+    h3(:class="[side ? 'text-center' : 'text-justify']") {{ blabla.teaser }}
+    p.subtitle-1(:class="[side ? 'text-center' : 'text-justify']" v-html="blabla.text")
     slot
 </template>
 

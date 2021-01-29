@@ -33,10 +33,10 @@ export default {
   data() {
     return {
       blabla: {
-        title: "A la carte",
+        title: "À la carte",
         teaser: "",
         text:
-          "Suspendisse molestie porta tincidunt. Phasellus eros est, finibus a libero ac, euismod viverra metus. Sed sollicitudin rutrum pulvinar. Donec egestas ultricies iaculis. Praesent euismod nisl nulla. Nam fringilla sed erat id molestie. Duis tempor sed augue ac porttitor. Phasellus rutrum urna sed ipsum maximus pellentesque. Aenean est turpis, aliquam ac nisi vel, egestas laoreet metus. Nullam aliquam interdum vehicula."
+          ""
       }
     };
   },

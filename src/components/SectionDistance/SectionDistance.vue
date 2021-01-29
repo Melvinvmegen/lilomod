@@ -4,22 +4,18 @@
     .section-main
       .section-wrapper(:class="{'flex-column' : upside}")
         TextHeader(:blabla="blabla" :side="true")
-      v-simple-table
+      v-simple-table(v-if="prestations.length > 0")
         template(v-slot:default='')
           thead
             tr
               th.text-left
-                | Formule
+                | Prestation
               th.text-left
                 | Tarif
           tbody
-            tr(v-for="formule in formules" :key="formule.id")
-              td.pa-3
-                .font-weight-medium.text-uppercase {{ formule.name }}
-                br
-                span(v-for="item in formule.items")
-                  | {{ item }}
-              td {{ formule.price + '€' }}
+            tr(v-for="prestation in prestations" :key="prestation.id")
+              td {{ prestation.name }}
+              td {{ prestation.price + '€' }}
 </template>
 
 <script>
@@ -37,46 +33,36 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Les formules",
+        title: "À distance",
         teaser: "",
         text:
-          "Chaque formule bénéficie d'un suivi sur 2 mois après la dernière séance.",
+          "Je vous propose également de vous accompagner à distance, via zoom ou FaceTime"
       },
-      formules: [
+      prestations: [
         {
           id: 1,
-          name: "L'essentielle silhouette (2 rendez-vous)",
-          items: [
-            " - Entretien découverte", 
-            " - Colorimétrie", 
-            " - Morpho style"
-          ], 
-          price: 249
+          name: "Colorimétrie",
+          price: 79
         },
         {
           id: 2,
-          name: "L'essentielle visage (3 rendez-vous + rdv coiffeur)",
-          items: [
-            " - Entretien découverte", 
-            " - Colorimétrie", 
-            " - Morpho visage + coiffure",
-            " - Cosmétologie",
-            " - Cours d'auto maquillage",
-          ], 
-          price: 299
+          name: "Morphologie + Style",
+          price: 179
         },
         {
           id: 3,
-          name: "L'absolue (4 rendez-vous + rdv coiffeur)",
-          items: [
-            " - Entretien découverte", 
-            " - Colorimétrie", 
-            " - Cosmétologie",
-            " - Morpho visage et coiffure",
-            " - Accompagnement coiffeur",
-            " - Cours d'auto maquillage"
-          ],
-          price: 499
+          name: "Morphologie Visage + coiffure",
+          price: 79
+        },
+        {
+          id: 4,
+          name: "Cosmétologie",
+          price: 129
+        },
+        {
+          id: 5,
+          name: "Accompagnement Shopping (2 heures)",
+          price: 99
         }
       ]
     };

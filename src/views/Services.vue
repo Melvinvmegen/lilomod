@@ -5,6 +5,7 @@
     SectionContact
     SectionTarifs
     SectionFormules
+    SectionDistance
     SectionCard
 </template>
 
@@ -15,6 +16,7 @@ import SectionTarifs from "../components/SectionTarifs/SectionTarifs";
 import SectionContact from "../components/SectionContact/SectionContact";
 import SectionFormules from "../components/SectionFormules/SectionFormules";
 import SectionCard from "../components/SectionCard/SectionCard";
+import SectionDistance from "../components/SectionDistance/SectionDistance";
 
 export default {
   name: "Services",
@@ -23,6 +25,7 @@ export default {
     SectionTarifs,
     SectionContact,
     SectionFormules,
+    SectionDistance,
     Banner,
     SectionCard
   },
@@ -33,7 +36,7 @@ export default {
         teaser:
           "",
         text:
-          "En séance individuelle ou collective je vous apprends à valoriser votre image grâce à de nombreux outils comme la colorimétrie pour apprendre les tonalités de couleurs qui vont avec votre visage et votre carnation ou encore l’analyse de votre style vestimentaire, l’étude de votre morphologie pour apprendre les coupes de vêtements qui mettront en valeur votre corps, et bien plus encore en fonction de votre style personnel et de votre mode de vie."
+          "Vous allez découvrir ou redécouvrir la personne sublime que vous êtes et reprendre confiance en vous grâce à mes conseils prodigués et aux techniques que je vous révèlerais. Vous apprendrez les couleurs qui illuminent et rajeunissent votre visage, les coupes de vêtements qui valorisent votre silhouette, la coupe de cheveux la mieux adaptée à votre visage, les soins de beauté qui dévoileront votre beauté. <br> La bienveillance, l'empathie et le plaisir seront toujours au centre des séances, qu’elles soient individuelles, collectives ou à distance."
       },
       ctaText: "Prenons contact",
       link: "/contact",
