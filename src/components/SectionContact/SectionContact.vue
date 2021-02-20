@@ -33,10 +33,8 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Il y a le travail...",
-        teaser: "et la VIE au travail !",
-        text:
-          "Chez Swile, nous pensons que le bien-être est un accélérateur de performance. Notre objectif ? Vous donner les clés pour améliorer la vie au travail et augmenter vos chances d’avoir des salariés heureux !"
+        title: "L’amour de soi est une idylle qui ne finit jamais",
+        text: "Mon objectif premier est de vous aider à vous épanouir, aussi bien dans votre vie privée, que professionnelle. Ensemble nous révèlerons la meilleure version de vous-même et atteindrons vos objectifs."
       },
       ctaText: "Contactez-moi",
       image: contact_img,
@@ -47,6 +45,7 @@ export default {
 </script>
 
 <style scoped>
+
 .section {
   width: 100%;
   min-height: 50vh;

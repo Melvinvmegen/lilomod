@@ -1,7 +1,7 @@
 <template lang="pug">
   .header
     v-container.col-md-9.col-11.justify-center(:class="{'header-container' : !contact }")
-      TextHeader(:blabla="blabla" :side="$vuetify.breakpoint.smAndDown")
+      TextHeader(:blabla="blabla" :side="$vuetify.breakpoint.smAndDown" :contact="true")
         CTA(v-if="ctaText" :className="true" color="purple darken-3" :text="ctaText" :link="link")
 </template>
 
