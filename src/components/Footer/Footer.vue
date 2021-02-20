@@ -3,9 +3,10 @@
     v-footer(dark='' padless='' absolute)
       v-card.purple.darken-3.white--text.flex(flat='' tile='')
         v-card-title.purple.darken-3.white--text
-          v-container.d-flex.flex-row(:class="{'flex-column': $vuetify.breakpoint.smAndDown, 'align-center': $vuetify.breakpoint.smAndDown}")
-            strong.subheading Retrouvez moi sur les réseaux sociaux !
-            v-spacer
+          v-container.d-flex.flex-row.pa-0(:class="{'flex-column': $vuetify.breakpoint.smAndDown, 'align-center': $vuetify.breakpoint.smAndDown}")
+            Logo(color="defaultlogo" :bottom="true")
+            v-spacer.d-flex.justify-center.align-center
+              strong.subheading Retrouvez moi sur les réseaux sociaux :
             .icons
               v-btn.white--text(v-for='link in socialLinks' :key='link.id' icon='')
                 a(:href="link.link")
@@ -18,9 +19,14 @@
 </template>
 
 <script>
+import Logo from '../Logo/Logo'
+
 export default {
   props: {
     socialLinks: Array
+  },
+  components: {
+    Logo
   }
 };
 </script>
@@ -30,6 +36,7 @@ export default {
   display: flex;
   justify-content: space-around;
   width: 40%;
+  align-items: center;
 }
 
 .footer {
