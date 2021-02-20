@@ -33,6 +33,7 @@ export default {
   .logo {
     width: 150px;
     height: auto;
+    object-fit: contain;
   }
 
   .logo img {
