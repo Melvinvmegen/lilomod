@@ -1,5 +1,5 @@
 <template lang="pug">
-  .header-right(:style="{ backgroundImage: 'url(' + image + ')' }" v-if="!contact")
+  .header-right(:style="{ backgroundImage: 'url(' + require(`@/assets/${image}`) + ')' }" v-if="!contact")
   .header-right(v-else)
     ContactForm
 </template>

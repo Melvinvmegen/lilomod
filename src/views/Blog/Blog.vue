@@ -30,17 +30,16 @@ export default {
         teaser:
           "",
         text:
-          "J’ai lancé mon blog en 2010. Je voulais parler de mode, ma passion depuis toujours. Mais des blogs mode ce n’était pas ce qui manquaient (déjà à l’époque) et le sujet est vaste. Je me suis rendue compte, alors, qu’on parlait peu de jeunes créateurs. Je ne parle pas de créateurs plus ou moins proches des rédactrices de mode. Non. Je parle de jeunes créateurs qui créent avec enthousiasme et authenticité. C’est ce côté-là de la mode qui me passionne et pour lequel j’ai une forte admiration. <br> Rapidement j’ai décidé de poster des articles de jeunes créateurs pour lesquels j’avais eu un réel coup de cœur. Au fil de mes balades dans Paris, des salons de jeunes créateurs etc, j’ai fait de merveilleuses découvertes. Il y a tellement de personnes talentueuses et créatives ! <br><br> Je vais donc continuer à vous faire découvrir des marques émergentes et des jeunes créateurs.  Mais également des marques éco-responsable peu connues du grand public. "
+          "J’ai lancé mon blog en 2010. Je voulais parler de mode, ma passion depuis toujours. Mais des blogs mode ce n’était pas ce qui manquaient (déjà à l’époque) et le sujet est vaste. Je me suis rendue compte, alors, qu’on parlait peu de jeunes créateurs. Je ne parle pas de créateurs plus ou moins proches des rédactrices de mode. Non. Je parle de jeunes créateurs qui créent avec enthousiasme et authenticité. C’est ce côté-là de la mode qui me passionne et pour lequel j’ai une forte admiration."
       },
       blabla2: {
         title: "Bienvenu sur le blog Lilomod",
         teaser: "",
-        text: ""
+        text: "Rapidement j’ai décidé de poster des articles de jeunes créateurs pour lesquels j’avais eu un réel coup de cœur. Au fil de mes balades dans Paris, des salons de jeunes créateurs etc, j’ai fait de merveilleuses découvertes. Il y a tellement de personnes talentueuses et créatives ! Je vais donc continuer à vous faire découvrir des marques émergentes et des jeunes créateurs.  Mais également des marques éco-responsable peu connues du grand public."
       },
       ctaText: "Prendre contact",
       link: "/contact",
-      image:
-        "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=714&q=80"
+      image: "blog.jpg"
     };
   },
   computed: {

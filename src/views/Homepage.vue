@@ -2,7 +2,7 @@
   .full 
     .d-flex
       Banner(:blabla='blabla', :image="image" :ctaText="ctaText" :link="link")
-    SectionAbout
+    SectionAbout(:image='sectionAboutImage')
     SectionService
     SectionBlog
 </template>
@@ -26,13 +26,13 @@ export default {
       blabla: {
         title: "Bienvenue chez Lilomod",
         teaser: "",
-        text: `Depuis des années, je vous fais découvrir des jeunes créateurs, des marques émergentes sur le blog lilomod.blogspot.com. 
-               C’est une véritable passion et j’adore vous la partager. Je vais désormais, continuer ici.`
+        text: `Quel bonheur de se sentir belle, confiante et en harmonie avec soi-même !  Mais il est parfois difficile d’y parvenir seule.  
+              Je suis Laurence, votre conseillère en image et je vous accompagnerais avec bienveillance, empathie et enthousiasme grâce aux techniques apprises durant ma formation à l’ESR Paris.`
       },
       ctaText: "Découvrez l'espace Blog",
       link: "/blog",
-      image:
-        "https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80"
+      image: "home_image.jpg",
+      sectionAboutImage: "conseil_en_image.jpg"
     };
   }
 };
