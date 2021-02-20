@@ -29,7 +29,7 @@ export default {
         title: "Lilomod Blog",
         teaser: "Découvrez les articles préférés des lecteurs",
         text:
-          "Vivamus at risus convallis, scelerisque felis ac, rhoncus magna. Vivamus iaculis est diam, non malesuada turpis elementum vitae. Morbi dictum, ante sit amet scelerisque sollicitudin, diam elit rutrum risus, ut lacinia dolor augue sit amet nibh. Praesent tempus, urna vitae vulputate gravida, dui metus eleifend tortor, eu commodo sem purus ut eros. In faucibus suscipit gravida. Nulla egestas id sem id rutrum. Phasellus porttitor viverra rutrum. Pellentesque ultricies, augue eu viverra molestie, mi massa varius nulla, nec placerat lacus neque et mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper congue mauris, ac aliquam diam auctor ut."
+          "Depuis des années, je vous fais découvrir des jeunes créateurs, des marques émergentes sur le blog lilomod.blogspot.com. C’est une véritable passion et j’adore vous la partager. Je vais désormais, continuer ici."
       }
     };
   },
