@@ -4,7 +4,7 @@
     .section-main
       .section-wrapper(:class="{'flex-column' : upside, 'flex-column': $vuetify.breakpoint.smAndDown}")
         .section-left
-          .section-wrapper-image
+          .section-wrapper-image(:style="{ backgroundImage: 'url(' + require(`@/assets/${image}`) + ')' }")
         .section-right
           TextHeader(:blabla="blabla" :side="true")
             .subtitle-1.text-justify(v-if="upside") {{ text }}
@@ -21,7 +21,8 @@ export default {
     CTA
   },
   props: {
-    upside: Boolean
+    upside: Boolean,
+    image: String,
   },
   data() {
     return {
@@ -83,7 +84,6 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: url(https://images.unsplash.com/photo-1510511336377-1a9caa095849?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
   background-size: cover;
   background-position: center;
 }
@@ -95,25 +95,6 @@ export default {
 @media only screen and (max-width: 600px) {
   .section {
     min-height: inherit;
-    align-items: flex-start;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .sm-section {
-    min-height: 1450px;
-    align-items: flex-start;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  .sm-section {
-    min-height: 1620px !important;
-    align-items: flex-start;
-  }
-
-  .section {
-    min-height: 120vh;
     align-items: flex-start;
   }
 }

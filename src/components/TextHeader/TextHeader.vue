@@ -1,6 +1,6 @@
 <template lang="pug">
   v-container(:class="{'align-center': $vuetify.breakpoint.smAndDown}")
-    h1.text-left(:class="{'text-center' : side}") {{ blabla.title }}
+    h1.text-left(:class="{'text-center' : side, 'small' : contact}") {{ blabla.title }}
     br
     h3(:class="[side ? 'text-center' : 'text-justify']") {{ blabla.teaser }}
     p.subtitle-1(:class="[side ? 'text-center' : 'text-justify']" v-html="blabla.text")
@@ -11,7 +11,8 @@
 export default {
   props: {
     blabla: Object,
-    side: Boolean
+    side: Boolean,
+    contact: Boolean
   }
 };
 </script>
@@ -33,5 +34,9 @@ h1.text-center:after {
   height: 10px;
   width: 65px;
   border-bottom: 0.1rem solid #d8d8d8;
+}
+
+h1.small {
+  font-size: 21px;
 }
 </style>

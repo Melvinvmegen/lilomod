@@ -40,8 +40,7 @@ export default {
       },
       ctaText: "Prenons contact",
       link: "/contact",
-      image:
-        "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80 "
+      image: "prestations.jpg"
     };
   }
 };

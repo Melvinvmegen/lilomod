@@ -3,12 +3,11 @@
     .main-header-center.col-lg-6.col-md-9(v-if="this.$vuetify.breakpoint.mdAndUp") 
       v-list-item.nav-item.primary--text(v-for="item in navItems" exact :key="item.id" :to="item.link" v-if="!$route.path.includes('admin')")
         span(v-if="item.title") {{ item.title }}
-        v-img.logo.shrink.mr-2(v-else alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
-          v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
+        Logo(color="defaultlogo" v-else)
       v-list-item.nav-item.primary--text(v-if="auth && !$route.path.includes('admin')" to='/admin') ADMIN
     .main-header-center.col-12.justify-space-between(v-else)
-      v-img.logo.shrink.mr-2(alt='Vuetify Logo' to="admin" contain='' src='https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png' transition='scale-transition' width='40')
-        v-img.shrink.mt-1.hidden-sm-and-down(alt='Vuetify Name' contain='' min-width='100' src='https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png' width='100')
+      v-list-item(to='/')
+        Logo(color="defaultlogo")
       v-app-bar-nav-icon.black--text(@click.stop="drawer= true")
     .d-flex(v-if="$route.path.includes('admin') && this.$vuetify.breakpoint.mdAndUp")
       v-btn(href='' text='' v-if="!auth" to="/login" dark)
@@ -47,10 +46,15 @@
 </template>
 
 <script>
+import Logo from '../Logo/Logo'
+
 export default {
   props: {
     navItems: Array,
     socialLinks: Array
+  },
+  components: {
+    Logo
   },
   computed: {
     auth() {
@@ -192,12 +196,6 @@ aside .v-navigation-drawer__content {
   .main-header-center {
     justify-content: flex-end;
     margin-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .logo {
-    display: none;
   }
 }
 

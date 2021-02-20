@@ -1,5 +1,5 @@
 <template lang="pug">
-  .section.section-one#section-card
+  .section.section-one#section-my-story
     a.section-anchor(id='Section-Cards')
     .section-main
       .section-wrapper(:class="{'flex-column' : upside}")
@@ -21,10 +21,10 @@ export default {
   data() {
     return {
       blabla: {
-        title: "Carte Cadeau",
+        title: "Mon parcours",
         teaser: "",
         text:
-          "Vous aimeriez offrir un relooking, une prestation de conseillère en image pour votre mère, votre sœur, une amie ? Je vous propose un carte cadeau qui pourra être utiliser comme bon vous semble : pour une prestation à la carte ou une formule. <strong>Toute formule prise avec une carte cadeau aura une remise de -10%.</strong>",
+          "La formation à l’ESR a confirmé que j’étais faite pour ce métier. Je vois tellement de femmes, qui, passées 35ans, se dévalorisent, ne sentent plus désirables… Elles voudraient changer mais seules n’osent pas, ou ne savent pas comment s’y prendre. J’ai choisi de devenir conseillère en image pour aider ces femmes à s’épanouir, leur faire prendre conscience de leur beauté et de leurs atouts",
       }
     };
   }
@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .section {
   width: 100%;
-  min-height: 20vh;
+  min-height: 10vh;
   position: relative;
   align-items: center;
 }
@@ -78,18 +78,5 @@ export default {
 
 .section-wrapper-right {
   display: inline-block;
-}
-
-@media only screen and (max-width: 400px) {
-  .section {
-    height: 100% !important;
-    min-height: 70vh !important;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .section {
-    min-height: 80vh !important;
-  }
 }
 </style>
