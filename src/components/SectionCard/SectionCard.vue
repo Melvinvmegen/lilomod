@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .section {
   width: 100%;
-  min-height: 20vh;
+  min-height: 55vh;
   position: relative;
   align-items: center;
 }
