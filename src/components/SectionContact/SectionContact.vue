@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       blabla: {
-        title: "L’amour de soi est une idylle qui ne finit jamais",
+        title: '"L’amour de soi est une idylle qui ne finit jamais."',
         text: "Mon objectif premier est de vous aider à vous épanouir, aussi bien dans votre vie privée, que professionnelle. Ensemble nous révèlerons la meilleure version de vous-même et atteindrons vos objectifs."
       },
       ctaText: "Contactez-moi",
