@@ -5,7 +5,7 @@
       .section-wrapper(:class="{'flex-column' : upside}")
         TextHeader(:blabla="blabla" :side="true")
       br
-    CTA(:className="true", :text="ctaText" color="purple darken-3" link="/services" :centered="true"  v-if="!upside")
+    CTA(:className="true", :text="ctaText" color="purple darken-3" link="/contact" :centered="true"  v-if="!upside")
 </template>
 
 <script>
@@ -35,19 +35,7 @@ export default {
   computed: {
     ctaText() {
       return "Demander un devis";
-    },
-    prestations() {
-      if (this.upside) {
-        return this.$store.state.prestations.prestations;
-      }
-      return this.$store.state.prestations.prestations.slice(0, 3);
     }
-  },
-  created: function() {
-    if (this.$store.state.prestations.prestations.length > 0) {
-      return;
-    }
-    this.$store.dispatch("getPrestations");
   }
 };
 </script>
