@@ -44,12 +44,23 @@ export default {
         },
         {
           id: 3,
+          title: "ATELIERS",
+          icon: "mdi-home-city",
+          link: { name: "Workshop" }
+        },
+        {
+          id: 4,
           logo: Logo,
           link: { name: "Homepage" }
         },
-        { id: 4, title: "BLOG", icon: "mdi-blogger", link: { name: "Blog" } },
+        { 
+          id: 5, 
+          title: "BLOG", 
+          icon: "mdi-blogger", 
+          link: { name: "Blog" } 
+        },
         {
-          id: 5,
+          id: 6,
           title: "CONTACT",
           icon: "mdi-briefcase",
           link: { name: "Contact" }

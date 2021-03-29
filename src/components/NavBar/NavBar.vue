@@ -120,7 +120,6 @@ aside .v-navigation-drawer__content {
 }
 
 .main-header-center .nav-item {
-  padding: 0 20px;
   font-size: 15px;
   font-weight: 500;
   width: 100%;
