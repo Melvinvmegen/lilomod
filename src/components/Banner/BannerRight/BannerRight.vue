@@ -1,5 +1,5 @@
 <template lang="pug">
-  .header-right(:style="{ backgroundImage: 'url(' + require(`@/assets/${image}`) + ')' }" v-if="!contact")
+  .header-right(:style="{ backgroundImage: 'url(' + require(`@/assets/${image}`) + ')', backgroundPosition: backgroundPosition}" v-if="!contact")
   .header-right(v-else)
     ContactForm
 </template>
@@ -10,7 +10,11 @@ import ContactForm from "../../ContactForm/ContactForm";
 export default {
   props: {
     image: String,
-    contact: Boolean
+    contact: Boolean,
+    backgroundPosition: {
+      type: String,
+      default: 'Center'
+    } 
   },
   components: {
     ContactForm
@@ -22,7 +26,7 @@ export default {
 .header-right {
   width: 80%;
   background-size: cover;
-  background-position: center;
+  
   display: flex;
   align-items: center;
   justify-content: center;

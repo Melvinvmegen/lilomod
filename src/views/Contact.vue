@@ -40,7 +40,6 @@ export default {
   position: relative;
   padding: 0;
   height: calc(100vh - 64px);
-  min-height: 900px;
 }
 
 .banner-bottom {

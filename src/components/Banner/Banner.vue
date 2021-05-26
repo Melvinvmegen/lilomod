@@ -1,13 +1,13 @@
 <template lang="pug">
   .section-home(v-if="upside" :class="{'flex-column': $vuetify.breakpoint.smAndDown}")
-    BannerRight.col-md-5.col-12(:image="image")
+    BannerRight.col-md-5.col-12(:image="image" :backgroundPosition='backgroundPosition')
     BannerLeft.col-md-7.col-12(:blabla='blabla' :ctaText="ctaText" :link="link")
     .banner-bottom
       .banner-gradient
       .banner-cancel-gradient
   .section-home(v-else :class="{'flex-column-reverse': $vuetify.breakpoint.smAndDown}")
     BannerLeft.col-md-7.col-12(:blabla='blabla' :ctaText="ctaText" :link="link")
-    BannerRight.col-md-5.col-12(:image="image")
+    BannerRight.col-md-5.col-12(:image="image" :backgroundPosition='backgroundPosition')
     .banner-bottom
       .banner-gradient
       .banner-cancel-gradient
@@ -27,7 +27,8 @@ export default {
     upside: Boolean,
     image: String,
     ctaText: String,
-    link: String
+    link: String,
+    backgroundPosition: String
   }
 };
 </script>
@@ -40,7 +41,6 @@ export default {
   position: relative;
   padding: 0;
   height: calc(100vh - 64px);
-  min-height: 900px;
 }
 
 .banner-bottom {
@@ -95,23 +95,9 @@ export default {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .header {
-    max-height: 90vh !important;
-  }
-
-  .header-right {
-    max-height: 10vh !important;
-  }
-}
-
 @media only screen and (max-width: 330px) {
   .header {
-    max-height: 95vh !important;
-  }
-
-  .header-right {
-    max-height: 5vh !important;
+    max-height: 90vh !important;
   }
 }
 </style>

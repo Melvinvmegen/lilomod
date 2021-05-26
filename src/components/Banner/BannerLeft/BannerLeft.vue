@@ -1,6 +1,6 @@
 <template lang="pug">
   .header
-    v-container.col-md-9.col-11.justify-lg-center.justify-md-start(:class="{'header-container' : !contact }")
+    v-container.col-md-9.col-12.justify-lg-center.justify-md-start.pa-0(:class="{'header-container' : !contact }")
       TextHeader(:blabla="blabla" :side="$vuetify.breakpoint.smAndDown" :contact="true")
         CTA(v-if="ctaText" :className="true" color="purple darken-3" :text="ctaText" :link="link")
 </template>
