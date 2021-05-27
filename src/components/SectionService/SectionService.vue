@@ -31,7 +31,7 @@ export default {
         title: "Mes prestations",
         teaser: "",
         text:
-          "Puisque chaque personne est unique, chaque prestation l’est également. Elles sont donc toutes adaptées à vos besoins, vos objectifs et à votre personnalité. La bienveillance et la bonne humeur seront toujours au rendez-vous. <br><br>Toutes les prestations sont précédées d’un rendez-vous « découverte » offert."
+          "Puisque chaque personne est unique, chaque prestation l’est également. Elles sont donc toutes adaptées à vos besoins, vos objectifs et à votre personnalité. La bienveillance, l'empathie et le plaisir seront toujours au centre des séances, qu’elles soient individuelles, collectives ou à distance. <br><br>Toutes les prestations sont précédées d’un rendez-vous « découverte » offert."
       }
     };
   },
@@ -100,7 +100,7 @@ export default {
   width: 100%;
   background: url(https://images.unsplash.com/photo-1510511336377-1a9caa095849?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
   background-size: cover;
-  background-position: center;
+  
 }
 
 .section-wrapper-right {

@@ -23,7 +23,7 @@ export default {
         title: "Derrière Lilomod",
         teaser: "",
         text:
-          "Passionnée de mode depuis toujours, j’ai étudié à l’IICC à Aix-en-Provence. J’y ai appris les formes, les couleurs, les matières. Arrivée à Paris, j’ai été styliste textile, assistante styliste et visuel merchandiser. En parallèle, j’ai créé mon blog de mode où je parle essentiellement de jeunes créateurs. J’ai eu la chance d’être chroniqueuse mode pendant 3mois sur la radio MOIfm. <br> Ne me sentant plus en accord avec ma vie professionnelle, j’ai recherché un métier plus en phase avec ma passion, ma personnalité et mes valeurs humaines. C’est ainsi que j’ai découvert celui de conseillère en image. Et ça a été LA révélation !"
+          "Ne me sentant plus en accord avec ma vie professionnelle, j’ai recherché un métier plus en phase avec ma passion, ma personnalité et mes valeurs humaines. C’est ainsi que j’ai découvert celui de conseillère en image. Et ça a été LA révélation !"
       },
       ctaText: "Prendre contact",
       link: "/contact",

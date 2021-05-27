@@ -36,7 +36,7 @@ export default {
         teaser:
           "",
         text:
-          "Vous allez découvrir ou redécouvrir la personne sublime que vous êtes et reprendre confiance en vous grâce à mes conseils prodigués et aux techniques que je vous révèlerais. Vous apprendrez les couleurs qui illuminent et rajeunissent votre visage, les coupes de vêtements qui valorisent votre silhouette, la coupe de cheveux la mieux adaptée à votre visage, les soins de beauté qui dévoileront votre beauté. <br> La bienveillance, l'empathie et le plaisir seront toujours au centre des séances, qu’elles soient individuelles, collectives ou à distance."
+          "Vous allez découvrir ou redécouvrir la personne sublime que vous êtes et reprendre confiance en vous grâce à mes conseils prodigués et aux techniques que je vous révèlerais. Vous apprendrez les couleurs qui illuminent et rajeunissent votre visage, les coupes de vêtements qui valorisent votre silhouette, la coupe de cheveux la mieux adaptée à votre visage, les soins de beauté qui dévoileront votre beauté."
       },
       ctaText: "Prenons contact",
       link: "/contact",

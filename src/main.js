@@ -8,10 +8,14 @@ import VueAxios from "vue-axios";
 import vuetify from "./plugins/vuetify";
 import Vuelidate from "vuelidate";
 import VueMeta from 'vue-meta';
+import VueGtag from "vue-gtag";
 
 Vue.use(Vuelidate);
 Vue.use(VueAxios);
 Vue.use(VueMeta);
+Vue.use(VueGtag, {
+  config: { id: "G-HYD76S92H5" }
+}, router);
 axios.defaults.baseURL = "https://lilomod.herokuapp.com/";
 axios.defaults.headers.get["Accepts"] = "application/json";
 

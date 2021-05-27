@@ -30,7 +30,7 @@ export default {
         teaser:
           "",
         text:
-          "J’ai lancé mon blog en 2010. Je voulais parler de mode, ma passion depuis toujours. Mais des blogs mode ce n’était pas ce qui manquaient (déjà à l’époque) et le sujet est vaste. Je me suis rendue compte, alors, qu’on parlait peu de jeunes créateurs. Je ne parle pas de créateurs plus ou moins proches des rédactrices de mode. Non. Je parle de jeunes créateurs qui créent avec enthousiasme et authenticité. C’est ce côté-là de la mode qui me passionne et pour lequel j’ai une forte admiration."
+          "Je voulais parler de mode, ma passion depuis toujours. Mais des blogs mode ce n’était pas ce qui manquaient (déjà à l’époque). Je me suis rendue compte, alors, qu’on parlait peu de jeunes créateurs. Je ne parle pas de créateurs plus ou moins proches des rédactrices de mode. Non. Je parle de jeunes créateurs qui créent avec enthousiasme et authenticité. C’est ce côté-là de la mode qui me passionne."
       },
       blabla2: {
         title: "Bienvenu sur le blog Lilomod",

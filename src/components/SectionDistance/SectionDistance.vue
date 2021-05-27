@@ -112,7 +112,7 @@ export default {
   width: 100%;
   background: url(https://images.unsplash.com/photo-1510511336377-1a9caa095849?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
   background-size: cover;
-  background-position: center;
+  
 }
 
 .section-wrapper-right {

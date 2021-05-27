@@ -1,7 +1,7 @@
 <template lang="pug">
   .full 
     .d-flex
-      Banner(:blabla='blabla', :image="image" :ctaText="ctaText" :link="link")
+      Banner(:blabla='blabla', :image="image" :ctaText="ctaText" :link="link", backgroundPosition='top')
     SectionAbout(:image='sectionAboutImage')
     SectionService
     SectionBlog

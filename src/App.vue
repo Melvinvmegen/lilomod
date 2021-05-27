@@ -137,7 +137,7 @@ body {
   background-color: none;
 }
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 425px) {
   h1 {
     font-size: 24px;
   }
@@ -145,4 +145,11 @@ body {
     margin: 1rem auto 1rem !important;
   }
 }
+
+@media only screen and (max-width: 350px) {
+  h1.text-center[data-v-b36cd462]:after {
+    display: none !important;
+  }
+}
+
 </style>

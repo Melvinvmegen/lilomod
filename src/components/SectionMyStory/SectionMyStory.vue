@@ -24,7 +24,7 @@ export default {
         title: "Mon parcours",
         teaser: "",
         text:
-          "La formation à l’ESR a confirmé que j’étais faite pour ce métier. Je vois tellement de femmes, qui, passées 35ans, se dévalorisent, ne sentent plus désirables… Elles voudraient changer mais seules n’osent pas, ou ne savent pas comment s’y prendre. J’ai choisi de devenir conseillère en image pour aider ces femmes à s’épanouir, leur faire prendre conscience de leur beauté et de leurs atouts",
+          "Passionnée de mode depuis toujours, j’ai étudié à l’IICC à Aix-en-Provence. J’y ai appris les formes, les couleurs, les matières. Arrivée à Paris, j’ai été styliste textile, assistante styliste et visuel merchandiser. En parallèle, j’ai créé mon blog de mode où je parle essentiellement de jeunes créateurs. J’ai eu la chance d’être chroniqueuse mode pendant 3mois sur la radio MOIfm. <br> La formation à l’ESR a confirmé que j’étais faite pour ce métier. Je vois tellement de femmes, qui, passées 35ans, se dévalorisent, ne sentent plus désirables… Elles voudraient changer mais seules n’osent pas, ou ne savent pas comment s’y prendre. J’ai choisi de devenir conseillère en image pour aider ces femmes à s’épanouir, leur faire prendre conscience de leur beauté et de leurs atouts",
       }
     };
   }
@@ -73,7 +73,7 @@ export default {
   width: 100%;
   background: url(https://images.unsplash.com/photo-1510511336377-1a9caa095849?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
   background-size: cover;
-  background-position: center;
+  
 }
 
 .section-wrapper-right {
